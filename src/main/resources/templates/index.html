@@ -15,9 +15,6 @@
         <tr>
             <th>Product ID</th>
             <th>Name</th>
-            <th>Brand</th>
-            <th>Made In</th>
-            <th>Price</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -25,11 +22,10 @@
         <tr th:each="product : ${listProducts}">
             <td th:text="${product.productId}">Product ID</td>
             <td th:text="${product.productName}">Name</td>
-<!--            <td>td-->
-<!--                <a th:htdref="/@{'/edit/' + ${product.productId}}">Edit</a>-->
-<!--                &nbsp;&tdnbsp;&nbsp;-->
-<!--                <a th:htdref="/@{'/delete/' + ${product.productId}}">Delete</a>-->
-<!--            </td>td-->
+            <td>
+                <a th:href="@{'/edit/' + ${product.productId}}">Edit</a>
+                <a th:href="@{'/delete/' + ${product.productId}}">Delete</a>
+            </td>
         </tr>
         </tbody>
     </table>

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 import java.util.Map;
@@ -37,37 +38,39 @@ public class ProductController {
 
         return "redirect:/";
     }
+
+//    @RequestMapping("/edit/{id}")
+//    public ModelAndView showEditProductPage(@PathVariable(name = "id") int id) {
+//        ModelAndView mav = new ModelAndView("edit_product");
+//        Products product = productService.get(id);
+//        mav.addObject("product", product);
 //
-//    @GetMapping("/add")
-//    public String greetingForm(Model model) {
-//        model.addAttribute("product", new Product());
-//        return "greeting";
+//        return mav;
 //    }
-//
-//    @PostMapping(path="/add") // Map ONLY POST Requests
-//    public @ResponseBody String addNewProduct (@RequestParam String productName) {
-//        // @ResponseBody means the returned String is the response, not a view name
-//        // @RequestParam means it is a parameter from the GET or POST request
-//
-//        Product n = new Product();
-//        n.setProductName(productName);
-//        productRepo.save(n);
-//        return "result";
-//    }
-//
-//    @GetMapping("/blog/{id}")
-//    public Optional<Product> show(@PathVariable String productIds){
-//        int productId = Integer.parseInt(productIds);
-//        return productRepo.findById(productId);
-//    }
-//
-//
-//
-//    @PostMapping("/blog")
-//    public Product create(@RequestBody Map<String, String> body){
-//        String productName = body.get("productName");
-//        return productRepo.save(new Product(productName));
-//    }
+
+    @RequestMapping("/edit/{id}")
+    public ModelAndView showEditProductPage(@PathVariable(name = "id") int id) {
+        ModelAndView mav = new ModelAndView("edit_product");
+        Products product = productService.get(id);
+        mav.addObject("product", product);
+
+        return mav;
+    }
+
+    @RequestMapping(value = "/edit/{id}/save", method = RequestMethod.POST)
+    public String editProduct(@RequestParam("productName") String productName, @RequestParam("productId") Integer productId) {
+        Products pro = new Products(productId, productName);
+        productService.save(pro);
+
+        return "redirect:/";
+    }
+
+
+    @RequestMapping("/delete/{id}")
+    public String deleteProduct(@PathVariable(name = "id") int id) {
+        productService.delete(id);
+        return "redirect:/";
+    }
 
 
 }

@@ -14,6 +14,11 @@ public class Products {
 
     public Products(String product_Name) {  this.product_Name = product_Name;}
 
+    public Products(int id, String productName) {
+        this.product_Id = id;
+        this.product_Name = productName;
+    }
+
 
     public Integer getProductId() {
         return product_Id;
@@ -33,7 +38,7 @@ public class Products {
 
     @Override
     public String toString() {
-        return "Blog{" +
+        return "product{" +
                 "id=" + product_Id +
                 ", content='" + product_Name + '\'' +
                 '}';

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -23,6 +24,7 @@ public class ProductService {
     public Products get(long productId) {
         return repo.findById((int) productId).get();
     }
+
 
     public void delete(long productId) {
         repo.deleteById((int) productId);
