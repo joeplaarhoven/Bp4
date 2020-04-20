@@ -1,4 +1,4 @@
-package com.example.bp4;
+package com.example.bp4.Gebruiker;
 
 public class Gebruiker {
 

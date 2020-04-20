@@ -1,4 +1,4 @@
-package com.example.bp4;
+package com.example.bp4.EigenaarTheater;
 
 public class EigenaarTheater {
     private Integer theaterID, eigenaarID;

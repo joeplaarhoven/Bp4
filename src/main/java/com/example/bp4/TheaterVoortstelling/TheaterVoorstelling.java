@@ -1,4 +1,6 @@
-package com.example.bp4;
+package com.example.bp4.TheaterVoortstelling;
+
+import com.example.bp4.Voorstelling.Voorstelling;
 
 public class TheaterVoorstelling extends Voorstelling {
     private Integer theatervoorstellingID;

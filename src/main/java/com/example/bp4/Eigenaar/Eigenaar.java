@@ -1,4 +1,4 @@
-package com.example.bp4;
+package com.example.bp4.Eigenaar;
 
 public class Eigenaar {
     private Integer eigenaarID;

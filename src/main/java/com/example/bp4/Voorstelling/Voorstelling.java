@@ -1,4 +1,4 @@
-package com.example.bp4;
+package com.example.bp4.Voorstelling;
 
 import java.sql.Time;
 import java.util.Date;

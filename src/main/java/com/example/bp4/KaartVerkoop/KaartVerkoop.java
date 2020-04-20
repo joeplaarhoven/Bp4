@@ -1,4 +1,4 @@
-package com.example.bp4;
+package com.example.bp4.KaartVerkoop;
 
 public class KaartVerkoop {
     private Integer gebruikersID, voorstellingID;

@@ -1,4 +1,6 @@
-package com.example.bp4;
+package com.example.bp4.Concert;
+
+import com.example.bp4.Voorstelling.Voorstelling;
 
 public class Concert extends Voorstelling {
     private Integer concertID;
