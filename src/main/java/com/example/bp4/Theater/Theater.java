@@ -1,7 +1,17 @@
 package com.example.bp4.Theater;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Theater {
-    private Integer theaterID, huisnummer;
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Integer theaterID;
+    private Integer huisnummer;
     private String theaterNaam, straatNaam, vestiging;
 
     public Integer getTheaterID() {

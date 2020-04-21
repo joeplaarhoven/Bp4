@@ -1,8 +1,26 @@
 package com.example.bp4.Caberetier;
 
-public class Caberetier {
-    private Integer caberetierID, leeftijd;
+import com.example.bp4.Voorstelling.Voorstelling;
+
+import javax.persistence.*;
+
+@Entity
+public class Caberetier extends Voorstelling {
+
+    private Integer caberetierID;
+    private Integer leeftijd;
     private String caberetieNaam, geslacht;
+    public Caberetier(){};
+
+    public Caberetier(Integer theaterID, String voorstellingSoort, String theaterzaal, String leeftijdsCat, Integer leeftijd, String caberetieNaam,String geslacht) {
+        this.theaterID = theaterID;
+        this.voorstellingSoort = voorstellingSoort;
+        this.theaterzaal = theaterzaal;
+        this.leeftijdsCat = leeftijdsCat;
+        this.leeftijd = leeftijd;
+        this.caberetieNaam = caberetieNaam;
+        this.geslacht = geslacht;
+    }
 
     public Integer getCaberetierID() {
         return caberetierID;

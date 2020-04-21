@@ -1,7 +1,17 @@
 package com.example.bp4.EigenaarTheater;
 
-public class EigenaarTheater {
-    private Integer theaterID, eigenaarID;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+
+@Entity
+@IdClass(EigenaarTheaterPK.class)
+public class EigenaarTheater{
+
+    @Id
+    private Integer theaterID;
+    @Id
+    private Integer eigenaarID;
 
     public Integer getTheaterID() {
         return theaterID;

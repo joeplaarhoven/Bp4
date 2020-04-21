@@ -2,9 +2,24 @@ package com.example.bp4.TheaterVoortstelling;
 
 import com.example.bp4.Voorstelling.Voorstelling;
 
+import javax.persistence.*;
+
+@Entity
 public class TheaterVoorstelling extends Voorstelling {
     private Integer theatervoorstellingID;
     private String theatervoorstellingNaam, acteurs, productieAfkomst;
+
+    public TheaterVoorstelling(){}
+
+    public TheaterVoorstelling(Integer theaterID, String voorstellingSoort, String theaterzaal, String leeftijdsCat, String theatervoorstellingNaam, String acteurs,String productieAfkomst) {
+        this.theaterID = theaterID;
+        this.voorstellingSoort = voorstellingSoort;
+        this.theaterzaal = theaterzaal;
+        this.leeftijdsCat = leeftijdsCat;
+        this.theatervoorstellingNaam = theatervoorstellingNaam;
+        this.acteurs = acteurs;
+        this.productieAfkomst = productieAfkomst;
+    }
 
     public Integer getTheatervoorstellingID() {
         return theatervoorstellingID;

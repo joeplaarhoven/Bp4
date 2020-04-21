@@ -1,8 +1,17 @@
 package com.example.bp4.Gebruiker;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Gebruiker {
 
-    private Integer gebruikerId, leeftijd, leeftijdsCategorie;
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Integer gebruikerId;
+    private Integer leeftijd, leeftijdsCategorie;
     private String voornaam, achternaam, afkomst, gerbruikersnaam, wachtwoord;
 
     public Integer getGebruikerId() {

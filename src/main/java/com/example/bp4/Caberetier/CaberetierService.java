@@ -11,6 +11,7 @@ import java.util.Optional;
 @Service
 @Transactional
 public class CaberetierService {
+
     @Autowired
     CaberetierRepository caberetierRepository;
 
@@ -26,7 +27,7 @@ public class CaberetierService {
         return caberetierRepository.findById((int) caberetierId).get();
     }
 
-    public void delete(long concertId) {
-        caberetierRepository.deleteById((int) concertId);
+    public void delete(long caberetierId) {
+        caberetierRepository.deleteById((int) caberetierId);
     }
 }

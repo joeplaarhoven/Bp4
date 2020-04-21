@@ -2,19 +2,37 @@ package com.example.bp4.Concert;
 
 import com.example.bp4.Voorstelling.Voorstelling;
 
-public class Concert extends Voorstelling {
-    private Integer concertID;
-    private String concert;
-    private String artiest;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-    @Override
-    public Integer getConcertID() {
-        return concertID;
+@Entity
+public class Concert extends Voorstelling {
+
+    private Integer concertId;
+    private String concert;
+    private String artiest, genre;
+
+    public Concert(){}
+
+    public Concert(Integer theaterID, String voorstellingSoort, String theaterzaal, String leeftijdsCat, String concert, String artiest,String genre) {
+        this.theaterID = theaterID;
+        this.voorstellingSoort = voorstellingSoort;
+        this.theaterzaal = theaterzaal;
+        this.leeftijdsCat = leeftijdsCat;
+        this.concert = concert;
+        this.artiest = artiest;
+        this.genre = genre;
     }
 
-    @Override
-    public void setConcertID(Integer concertID) {
-        this.concertID = concertID;
+
+    public Integer getConcertId() {
+        return concertId;
+    }
+
+    public void setConcertId(Integer concertID) {
+        this.concertId = concertID;
     }
 
     public String getConcert() {
@@ -41,5 +59,4 @@ public class Concert extends Voorstelling {
         this.genre = genre;
     }
 
-    private String genre;
 }
