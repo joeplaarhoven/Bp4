@@ -1,6 +1,5 @@
 package com.example.bp4.KaartVerkoop;
 
-import com.example.bp4.Gebruiker.Gebruiker;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

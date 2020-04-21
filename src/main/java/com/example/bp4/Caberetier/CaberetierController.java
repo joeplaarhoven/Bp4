@@ -15,6 +15,6 @@ public class CaberetierController {
         List<Caberetier> listCaberetier = caberetierService.listAll();
         model.addAttribute("listCaberetier", listCaberetier);
 
-        return "index";
+        return "main";
     }
 }

@@ -2,21 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bcb04c5-7e48-4abc-b1d0-3c6ccf5e3b00" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bp4/EigenaarTheater/EigenaarTheaterPK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bp4/KaartVerkoop/KaartVerkoopPK.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bp4/Gebruikers/GebruikerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bp4/Caberetier/Caberetier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bp4/Caberetier/Caberetier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bp4/Caberetier/CaberetierController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bp4/Caberetier/CaberetierController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bp4/Caberetier/CaberetierRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bp4/Caberetier/CaberetierRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bp4/Caberetier/CaberetierService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bp4/Caberetier/CaberetierService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bp4/Concert/Concert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bp4/Concert/Concert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bp4/Eigenaar/Eigenaar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bp4/Eigenaar/Eigenaar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bp4/EigenaarTheater/EigenaarTheater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bp4/EigenaarTheater/EigenaarTheater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bp4/Gebruiker/Gebruiker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bp4/Gebruiker/Gebruiker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bp4/KaartVerkoop/KaartVerkoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bp4/KaartVerkoop/KaartVerkoop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bp4/Theater/Theater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bp4/Theater/Theater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bp4/TheaterVoortstelling/TheaterVoorstelling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bp4/TheaterVoortstelling/TheaterVoorstelling.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bp4/Voorstelling/Voorstelling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bp4/Voorstelling/Voorstelling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bp4/Gebruiker/Gebruiker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bp4/Gebruikers/Gebruiker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bp4/Gebruiker/GebruikerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bp4/Gebruiker/GebruikerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bp4/Gebruikers/GebruikerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bp4/Gebruiker/GebruikerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bp4/Gebruikers/GebruikerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bp4/KaartVerkoop/KaartVerkoopRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bp4/KaartVerkoop/KaartVerkoopRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bp4/Theater/TheaterRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bp4/Theater/TheaterRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +25,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -44,6 +42,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -51,6 +50,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunManager">
     <configuration name="Bp4Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -100,37 +100,57 @@
       <screen x="0" y="0" width="1504" height="963" />
     </state>
     <state x="558" y="165" key="#com.intellij.ide.util.MemberChooser/0.0.1504.963@0.0.1504.963" timestamp="1587402968229" />
-    <state width="1461" height="279" key="GridCell.Tab.0.bottom" timestamp="1587483054347">
+    <state x="445" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1587491113230">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
-    <state width="1461" height="279" key="GridCell.Tab.0.bottom/0.0.1504.963@0.0.1504.963" timestamp="1587483054347" />
-    <state width="1461" height="279" key="GridCell.Tab.0.center" timestamp="1587483054347">
+    <state x="445" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1504.963@0.0.1504.963" timestamp="1587491113230" />
+    <state width="1461" height="360" key="GridCell.Tab.0.bottom" timestamp="1587494157793">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
-    <state width="1461" height="279" key="GridCell.Tab.0.center/0.0.1504.963@0.0.1504.963" timestamp="1587483054347" />
-    <state width="1461" height="279" key="GridCell.Tab.0.left" timestamp="1587483054347">
+    <state width="1461" height="360" key="GridCell.Tab.0.bottom/0.0.1504.963@0.0.1504.963" timestamp="1587494157793" />
+    <state width="1461" height="360" key="GridCell.Tab.0.center" timestamp="1587494157793">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
-    <state width="1461" height="279" key="GridCell.Tab.0.left/0.0.1504.963@0.0.1504.963" timestamp="1587483054347" />
-    <state width="1461" height="279" key="GridCell.Tab.0.right" timestamp="1587483054347">
+    <state width="1461" height="360" key="GridCell.Tab.0.center/0.0.1504.963@0.0.1504.963" timestamp="1587494157793" />
+    <state width="1461" height="360" key="GridCell.Tab.0.left" timestamp="1587494157793">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
-    <state width="1461" height="279" key="GridCell.Tab.0.right/0.0.1504.963@0.0.1504.963" timestamp="1587483054347" />
-    <state width="1461" height="279" key="GridCell.Tab.1.bottom" timestamp="1587483054347">
+    <state width="1461" height="360" key="GridCell.Tab.0.left/0.0.1504.963@0.0.1504.963" timestamp="1587494157793" />
+    <state width="1461" height="360" key="GridCell.Tab.0.right" timestamp="1587494157793">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
-    <state width="1461" height="279" key="GridCell.Tab.1.bottom/0.0.1504.963@0.0.1504.963" timestamp="1587483054347" />
-    <state width="1461" height="279" key="GridCell.Tab.1.center" timestamp="1587483054347">
+    <state width="1461" height="360" key="GridCell.Tab.0.right/0.0.1504.963@0.0.1504.963" timestamp="1587494157793" />
+    <state width="1461" height="360" key="GridCell.Tab.1.bottom" timestamp="1587494157793">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
-    <state width="1461" height="279" key="GridCell.Tab.1.center/0.0.1504.963@0.0.1504.963" timestamp="1587483054347" />
-    <state width="1461" height="279" key="GridCell.Tab.1.left" timestamp="1587483054347">
+    <state width="1461" height="360" key="GridCell.Tab.1.bottom/0.0.1504.963@0.0.1504.963" timestamp="1587494157793" />
+    <state width="1461" height="360" key="GridCell.Tab.1.center" timestamp="1587494157793">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
-    <state width="1461" height="279" key="GridCell.Tab.1.left/0.0.1504.963@0.0.1504.963" timestamp="1587483054347" />
-    <state width="1461" height="279" key="GridCell.Tab.1.right" timestamp="1587483054347">
+    <state width="1461" height="360" key="GridCell.Tab.1.center/0.0.1504.963@0.0.1504.963" timestamp="1587494157793" />
+    <state width="1461" height="360" key="GridCell.Tab.1.left" timestamp="1587494157793">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
-    <state width="1461" height="279" key="GridCell.Tab.1.right/0.0.1504.963@0.0.1504.963" timestamp="1587483054347" />
+    <state width="1461" height="360" key="GridCell.Tab.1.left/0.0.1504.963@0.0.1504.963" timestamp="1587494157793" />
+    <state width="1461" height="360" key="GridCell.Tab.1.right" timestamp="1587494157793">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state width="1461" height="360" key="GridCell.Tab.1.right/0.0.1504.963@0.0.1504.963" timestamp="1587494157793" />
+    <state width="1461" height="317" key="GridCell.Tab.2.bottom" timestamp="1587489434411">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state width="1461" height="317" key="GridCell.Tab.2.bottom/0.0.1504.963@0.0.1504.963" timestamp="1587489434411" />
+    <state width="1461" height="317" key="GridCell.Tab.2.center" timestamp="1587489434411">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state width="1461" height="317" key="GridCell.Tab.2.center/0.0.1504.963@0.0.1504.963" timestamp="1587489434411" />
+    <state width="1461" height="317" key="GridCell.Tab.2.left" timestamp="1587489434411">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state width="1461" height="317" key="GridCell.Tab.2.left/0.0.1504.963@0.0.1504.963" timestamp="1587489434411" />
+    <state width="1461" height="317" key="GridCell.Tab.2.right" timestamp="1587489434411">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state width="1461" height="317" key="GridCell.Tab.2.right/0.0.1504.963@0.0.1504.963" timestamp="1587489434411" />
   </component>
 </project>

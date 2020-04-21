@@ -1,10 +1,8 @@
-package com.example.bp4.Gebruiker;
+package com.example.bp4.Gebruikers;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository
 public interface GebruikerRepository extends JpaRepository<Gebruiker, Integer> {
