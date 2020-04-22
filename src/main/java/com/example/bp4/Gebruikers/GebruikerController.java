@@ -24,7 +24,7 @@ public class GebruikerController {
         return mav;
     }
 
-    @RequestMapping("/registeren")
+    @RequestMapping("/registreren")
     public String showNewProductPage(Model model) {
         Gebruiker gebruiker = new Gebruiker();
         model.addAttribute("gebruiker", gebruiker);
