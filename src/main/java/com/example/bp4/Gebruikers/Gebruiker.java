@@ -19,7 +19,7 @@ public class Gebruiker {
     @Column(name = "afkomst", nullable = false, unique = false)
     private String afkomst;
 
-    @Column(name = "gebruikersnaam", nullable = false, unique = false)
+    @Column(name = "gebruikersnaam", nullable = false, unique = true)
     private String gebruikersnaam;
 
     @Column(name = "wachtwoord", nullable = false, unique = false)
