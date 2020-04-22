@@ -7,7 +7,7 @@ public class Gebruiker {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer gebruikerID;
+    private Integer gebruiker_id;
     private Integer leeftijd;
 
     @Column(name = "gebruikerVoornaam", nullable = false, unique = false)
@@ -42,12 +42,12 @@ public class Gebruiker {
 
     }
 
-    public Integer getGebruikerID() {
-        return gebruikerID;
+    public Integer getGebruiker_id() {
+        return gebruiker_id;
     }
 
-    public void setGebruikerID(Integer gebruikerID) {
-        this.gebruikerID = gebruikerID;
+    public void setGebruiker_id(Integer gebruiker_id) {
+        this.gebruiker_id = gebruiker_id;
     }
 
     public Integer getLeeftijd() {
