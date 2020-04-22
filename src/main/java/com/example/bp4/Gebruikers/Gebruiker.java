@@ -28,6 +28,20 @@ public class Gebruiker {
     @Column(name = "leeftijdsCategorie", nullable = false, unique = false)
     private String leeftijdsCategorie;
 
+    public Gebruiker(String gebruikerVoornaam, String gebruikerAchternaam, Integer leeftijd, String afkomst, String leeftijdsCategorie, String gebruikersnaam, String wachtwoord) {
+        this.gebruikerVoornaam = gebruikerVoornaam;
+        this.gebruikerAchternaam= gebruikerAchternaam;
+        this.leeftijd = leeftijd;
+        this.afkomst = afkomst;
+        this.leeftijdsCategorie = leeftijdsCategorie;
+        this.gebruikersnaam = gebruikersnaam;
+        this.wachtwoord = wachtwoord;
+    }
+
+    public Gebruiker() {
+
+    }
+
     public Integer getGebruikerID() {
         return gebruikerID;
     }
