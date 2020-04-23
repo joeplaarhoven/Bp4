@@ -1,10 +1,7 @@
 package com.example.bp4.Caberetier;
 
-import com.example.bp4.Eigenaar.Eigenaar;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository
 public interface CaberetierRepository extends JpaRepository<Caberetier, Integer> {
