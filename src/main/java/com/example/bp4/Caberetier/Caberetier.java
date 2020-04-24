@@ -5,6 +5,7 @@ import com.example.bp4.Voorstelling.Voorstelling;
 import javax.persistence.*;
 
 @Entity
+@Table(name="caberetiers")
 public class Caberetier extends Voorstelling {
 
     private Integer caberetierID;

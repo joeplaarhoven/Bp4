@@ -45,5 +45,23 @@ public class GebruikerController {
 
         return "redirect:/";
     }
+    
+    @RequestMapping(value = "/gebruiker/login/confirm", method = RequestMethod.POST)
+    public String loginGebruiker(@RequestParam("gebruikersnaam") String gebruikersnaam,
+            					@RequestParam("wachtwoord") String wachtwoord) {
+    	String str = gebruikerService.checkGebruikerLogin(gebruikersnaam, wachtwoord);
+    	if (str.equals(gebruikersnaam+","+wachtwoord)) {
+    		return "redirect:/";
+    	} else {
+    		return "redirect:/login";
+    	}    
+    }
+    
+    @RequestMapping("/login")
+    public String showNewLoginPage(Model model) {
+    	Gebruiker gebruiker = new Gebruiker();
+    	model.addAttribute("gebruiker", gebruiker);
+        return "login";
+    }
 
 }

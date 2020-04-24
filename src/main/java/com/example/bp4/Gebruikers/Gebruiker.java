@@ -3,6 +3,7 @@ package com.example.bp4.Gebruikers;
 import javax.persistence.*;
 
 @Entity
+@Table(name="gebruikers")
 public class Gebruiker {
 
     @Id

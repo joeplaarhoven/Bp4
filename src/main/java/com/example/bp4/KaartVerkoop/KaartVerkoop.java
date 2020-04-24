@@ -5,8 +5,10 @@ import com.example.bp4.EigenaarTheater.EigenaarTheaterPK;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="kaartenverkopen")
 @IdClass(KaartVerkoopPK.class)
 public class KaartVerkoop {
     @Id

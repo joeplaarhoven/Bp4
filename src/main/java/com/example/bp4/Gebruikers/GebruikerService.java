@@ -29,4 +29,8 @@ public class GebruikerService {
     public void delete(long gebruikerId) {
         gebruikerRepository.deleteById((int) gebruikerId);
     }
+    
+    public String checkGebruikerLogin(String gebruikersnaam, String wachtwoord) {
+    	return gebruikerRepository.checkGebruikerLogin(gebruikersnaam, wachtwoord);
+    }
 }

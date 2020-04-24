@@ -7,6 +7,7 @@ import java.sql.Time;
 import java.util.Date;
 
 @MappedSuperclass
+@Table(name="voorstellingen")
 public class Voorstelling {
 
     @Id
