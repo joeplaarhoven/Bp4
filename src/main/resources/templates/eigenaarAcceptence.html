@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Product Manager</title>
+</head>
+<body>
+<div align="center">
+    <h1>Eigenaar acceptence</h1>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Eigenaar ID</th>
+            <th>Voornaam</th>
+            <th>Achternaam</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="eigenaar : ${listEigenaar}">
+            <td th:text="${eigenaar.eigenaar_id}">Eigenaar ID</td>
+            <td th:text="${eigenaar.eigenaar_voornaam}">Voornaam</td>
+            <td th:text="${eigenaar.eigenaar_achternaam}">Achternaam</td>
+            <td>
+                <a th:href="@{'/eigenaar/accept/' + ${eigenaar.eigenaar_id}}">Accept</a>
+                <a th:href="@{'/eigenaar/deny/' + ${eigenaar.eigenaar_id}}">Deny</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
