@@ -12,8 +12,15 @@
     width:100%;
     height:45%;
     position: relative;
-    background-color: floralwhite;
+    background-color:white;
     z-index: 10;
 }
+#fullWhite{
+	width:100%;
+	height:100%;
+	background-color: rgba(0, 41, 222, 0.05);
+	z-index:9;
+	position: relative;
+}
 
-#voorstellingLink
+
