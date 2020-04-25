@@ -13,15 +13,15 @@ public class EigenaarService {
     @Autowired
     EigenaarRepository eigenaarRepository;
 
-    public List<Eigenaren> listAll() {
+    public List<Eigenaar> listAll() {
         return eigenaarRepository.findAll();
     }
 
-    public void save(Eigenaren eigenaren) {
-        eigenaarRepository.save(eigenaren);
+    public void save(Eigenaar eigenaar) {
+        eigenaarRepository.save(eigenaar);
     }
 
-    public Eigenaren get(long eigenaarId) {
+    public Eigenaar get(long eigenaarId) {
         return eigenaarRepository.findById((int) eigenaarId).get();
     }
 
@@ -31,5 +31,9 @@ public class EigenaarService {
 
     public Integer setVerifiedForEigenaar(boolean verified, Integer eigenaar_id){
        return eigenaarRepository.setVerifiedForEigenaar(verified, eigenaar_id);
+    }
+    
+    public String checkEigenaarLogin(String emailadres, String wachtwoord) {
+    	return eigenaarRepository.checkEigenaarLogin(emailadres, wachtwoord);
     }
 }

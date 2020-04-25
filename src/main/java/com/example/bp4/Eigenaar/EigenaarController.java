@@ -18,7 +18,7 @@ public class EigenaarController {
 
     @RequestMapping("/eigenaar/acceptence")
     public String viewEigenaarAcceptence(Model model) {
-        List<Eigenaren> listEigenaar = eigenaarService.listAll();
+        List<Eigenaar> listEigenaar = eigenaarService.listAll();
         model.addAttribute("listEigenaar", listEigenaar);
 
         return "eigenaarAcceptence";
@@ -28,8 +28,8 @@ public class EigenaarController {
     @RequestMapping("/eigenaar/{id}")
     public ModelAndView viewEigenaar(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("eigenaarProfile");
-        Eigenaren eigenaren = eigenaarService.get(id);
-        mav.addObject("eigenaar", eigenaren);
+        Eigenaar eigenaar = eigenaarService.get(id);
+        mav.addObject("eigenaar", eigenaar);
 
         return mav;
     }
@@ -53,8 +53,8 @@ public class EigenaarController {
 
     @RequestMapping("/eigenaar/aanvraag")
     public String showNewProductPage(Model model) {
-        Eigenaren eigenaren = new Eigenaren();
-        model.addAttribute("eigenaar", eigenaren);
+    	Eigenaar eigenaar = new Eigenaar();
+        model.addAttribute("eigenaar", eigenaar);
 
         return "eigenaarAanvraag";
     }
@@ -66,9 +66,28 @@ public class EigenaarController {
                               @RequestParam("telefoonnummer") String telefoonnummer,
                               @RequestParam("emailadres") String emailadres,
                               @RequestParam("wachtwoord") String wachtwoord) {
-        Eigenaren eigenaren = new Eigenaren(eigenaar_voornaam, eigenaar_achternaam, woonplaats, telefoonnummer, emailadres, wachtwoord, false);
-        eigenaarService.save(eigenaren);
+    	Eigenaar eigenaar = new Eigenaar(eigenaar_voornaam, eigenaar_achternaam, woonplaats, telefoonnummer, emailadres, wachtwoord, false);
+        eigenaarService.save(eigenaar);
 
         return "redirect:/";
     }
+    
+    @RequestMapping(value = "/eigenaar/login/confirm", method = RequestMethod.POST)
+    public String loginEigenaar(@RequestParam("emailadres") String emailadres,
+            					@RequestParam("wachtwoord") String wachtwoord) {
+    	String str = eigenaarService.checkEigenaarLogin(emailadres, wachtwoord);
+    	if (str.equals(emailadres+","+wachtwoord)) {
+    		return "redirect:/";
+    	} else {
+    		return "redirect:/eigenaar/login";
+    	}    
+    }
+    
+    @RequestMapping("/eigenaar/login")
+    public String showNewEigenaarLoginPage(Model model) {
+    	Eigenaar eigenaar = new Eigenaar();
+    	model.addAttribute("eigenaar", eigenaar);
+        return "eigenaarLogin";
+    }
+    
 }
