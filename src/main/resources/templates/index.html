@@ -4,21 +4,30 @@
 <head>
     <meta charset="utf-8"/>
     <title>Ticket Theater</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
     <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
     <link href="../static/css/index.css" th:href="@{/css/index.css}" rel="stylesheet" />
 </head>
 <body>
     <div id="topBar">
         <img id="logo" src="images/Ticket-Theater_logo.PNG"/>
-
-        <a id="voorstellingLink">Voorstelling</a>
+		<table id="topBarMenu">
+			<tr>
+				<td >Voorstelling</td>
+				<td>Theater</td>
+				<td onclick="window.location.href = '/login'">Login</td>
+			</tr>
+		</table>
+        
     </div>
     <div class="line"></div>
     <div id="banner">
         <img id="bannerImg" src="images/banner.jpg"/>
     </div>
     <div class="line"></div>
-    <div id="binnekortBar"></div>
+    <div id="binnekortBar">
+    	<div id="fullWhite"></div>
+    </div>
     <div class="line"></div>
     <div id="bottomBar"></div>
 </body>
