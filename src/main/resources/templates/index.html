@@ -9,8 +9,9 @@
     <link href="../static/css/index.css" th:href="@{/css/index.css}" rel="stylesheet" />
 </head>
 <body>
+
     <div id="topBar">
-        <img id="logo" src="images/Ticket-Theater_logo.PNG"/>
+        <img id="logo" onclick="window.location.href = '/'" src="images/Ticket-Theater_logo.PNG"/>
 		<table id="topBarMenu">
 			<tr>
 				<td >Voorstelling</td>
@@ -18,8 +19,8 @@
 				<td onclick="window.location.href = '/login'">Login</td>
 			</tr>
 		</table>
-        
     </div>
+    <div class="deadPixel"></div>
     <div class="line"></div>
     <div id="banner">
         <img id="bannerImg" src="images/banner.jpg"/>
