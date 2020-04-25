@@ -11,11 +11,11 @@ public class Gebruiker {
     private Integer gebruiker_id;
     private Integer leeftijd;
 
-    @Column(name = "gebruikerVoornaam", nullable = false, unique = false)
-    private String gebruikerVoornaam;
+    @Column(name = "gebruiker_voornaam", nullable = false, unique = false)
+    private String gebruiker_voornaam;
 
-    @Column(name = "gebruikerAchternaam", nullable = false, unique = false)
-    private String gebruikerAchternaam;
+    @Column(name = "gebruiker_achternaam", nullable = false, unique = false)
+    private String gebruiker_achternaam;
 
     @Column(name = "afkomst", nullable = false, unique = false)
     private String afkomst;
@@ -26,15 +26,15 @@ public class Gebruiker {
     @Column(name = "wachtwoord", nullable = false, unique = false)
     private String wachtwoord;
 
-    @Column(name = "leeftijdsCategorie", nullable = false, unique = false)
-    private String leeftijdsCategorie;
+    @Column(name = "leeftijds_categorie", nullable = false, unique = false)
+    private String leeftijds_categorie;
 
-    public Gebruiker(String gebruikerVoornaam, String gebruikerAchternaam, Integer leeftijd, String afkomst, String leeftijdsCategorie, String gebruikersnaam, String wachtwoord) {
-        this.gebruikerVoornaam = gebruikerVoornaam;
-        this.gebruikerAchternaam= gebruikerAchternaam;
+    public Gebruiker(String gebruiker_voornaam, String gebruiker_achternaam, Integer leeftijd, String afkomst, String leeftijds_categorie, String gebruikersnaam, String wachtwoord) {
+        this.gebruiker_voornaam = gebruiker_voornaam;
+        this.gebruiker_achternaam= gebruiker_achternaam;
         this.leeftijd = leeftijd;
         this.afkomst = afkomst;
-        this.leeftijdsCategorie = leeftijdsCategorie;
+        this.leeftijds_categorie = leeftijds_categorie;
         this.gebruikersnaam = gebruikersnaam;
         this.wachtwoord = wachtwoord;
     }
@@ -59,28 +59,28 @@ public class Gebruiker {
         this.leeftijd = leeftijd;
     }
 
-    public String getLeeftijdsCategorie() {
-        return leeftijdsCategorie;
+    public String getLeeftijdscategorie() {
+        return leeftijds_categorie;
     }
 
-    public void setLeeftijdsCategorie(String leeftijdsCategorie) {
-        this.leeftijdsCategorie = leeftijdsCategorie;
+    public void setLeeftijdsCategorie(String leeftijds_categorie) {
+        this.leeftijds_categorie = leeftijds_categorie;
     }
 
     public String getGebruikerVoornaam() {
-        return gebruikerVoornaam;
+        return gebruiker_voornaam;
     }
 
-    public void setGebruikerVoornaam(String gebruikerVoornaam) {
-        this.gebruikerVoornaam = gebruikerVoornaam;
+    public void setGebruikerVoornaam(String gebruiker_voornaam) {
+        this.gebruiker_voornaam = gebruiker_voornaam;
     }
 
     public String getGebruikerAchternaam() {
-        return gebruikerAchternaam;
+        return gebruiker_achternaam;
     }
 
-    public void setGebruikerAchternaam(String gebruikerAchternaam) {
-        this.gebruikerAchternaam = gebruikerAchternaam;
+    public void setGebruikerAchternaam(String gebruiker_achternaam) {
+        this.gebruiker_achternaam = gebruiker_achternaam;
     }
 
     public String getAfkomst() {
