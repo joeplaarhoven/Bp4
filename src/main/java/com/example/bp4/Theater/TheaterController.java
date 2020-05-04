@@ -1,5 +1,7 @@
 package com.example.bp4.Theater;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -9,8 +11,10 @@ import com.example.bp4.Gebruikers.Gebruiker;
 import com.example.bp4.Theater.Theater;
 import com.example.bp4.Theater.TheaterService;
 
+@Controller
 public class TheaterController {
 	
+	@Autowired
 	private TheaterService theaterService;
 	
 	@RequestMapping("/registrerenTheater")
@@ -18,7 +22,7 @@ public class TheaterController {
         Theater theater = new Theater();
         model.addAttribute("theater", theater);
 
-        return "index";
+        return "TheaterToev";
     }
 	
 	@RequestMapping(value = "/theater/save", method = RequestMethod.POST)
