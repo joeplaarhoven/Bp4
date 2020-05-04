@@ -16,16 +16,16 @@ public class Theater {
     private Integer theaterID;
     private Integer huisnummer;
     
-    @Column(name = "theaterNaam", nullable = false, unique = false)
-    private String theaterNaam;
-    @Column(name = "straatNaam", nullable = false, unique = false)
-    private String straatNaam;
+    @Column(name = "theaternaam", nullable = false, unique = false)
+    private String theaternaam;
+    @Column(name = "straatnaam", nullable = false, unique = false)
+    private String straatnaam;
     @Column(name = "vestiging", nullable = false, unique = false)
     private String vestiging;
     
-    public Theater(String theaterNaam, String straatNaam, String vestiging, Integer huisnummer) {
-    	this.theaterNaam = theaterNaam;
-    	this.straatNaam = straatNaam;
+    public Theater(String theaternaam, String straatnaam, String vestiging, Integer huisnummer) {
+    	this.theaternaam = theaternaam;
+    	this.straatnaam = straatnaam;
     	this.vestiging = vestiging;
     	this.huisnummer = huisnummer;
     }
@@ -50,20 +50,20 @@ public class Theater {
         this.huisnummer = huisnummer;
     }
 
-    public String getTheaterNaam() {
-        return theaterNaam;
+    public String getTheaternaam() {
+        return theaternaam;
     }
 
-    public void setTheaterNaam(String theaterNaam) {
-        this.theaterNaam = theaterNaam;
+    public void setTheaternaam(String theaternaam) {
+        this.theaternaam = theaternaam;
     }
 
-    public String getStraatNaam() {
-        return straatNaam;
+    public String getStraatnaam() {
+        return straatnaam;
     }
 
-    public void setStraatNaam(String straatNaam) {
-        this.straatNaam = straatNaam;
+    public void setStraatnaam(String straatnaam) {
+        this.straatnaam = straatnaam;
     }
 
     public String getVestiging() {
