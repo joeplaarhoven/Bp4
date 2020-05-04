@@ -30,4 +30,8 @@ public class TheaterService {
     public void delete(long theaterId) {
         theaterRepository.deleteById((int) theaterId);
     }
+    
+    public String alltheater(String theaternaam, String vestiging) {
+    	return theaterRepository.alltheater(theaternaam, vestiging);
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.bp4.Theater;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +15,24 @@ public class Theater {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer theaterID;
     private Integer huisnummer;
-    private String theaterNaam, straatNaam, vestiging;
+    
+    @Column(name = "theaternaam", nullable = false, unique = false)
+    private String theaternaam;
+    @Column(name = "straatnaam", nullable = false, unique = false)
+    private String straatnaam;
+    @Column(name = "vestiging", nullable = false, unique = false)
+    private String vestiging;
+    
+    public Theater(String theaternaam, String straatnaam, String vestiging, Integer huisnummer) {
+    	this.theaternaam = theaternaam;
+    	this.straatnaam = straatnaam;
+    	this.vestiging = vestiging;
+    	this.huisnummer = huisnummer;
+    }
+    
+    public Theater() {
+    	
+    }
 
     public Integer getTheaterID() {
         return theaterID;
@@ -32,20 +50,20 @@ public class Theater {
         this.huisnummer = huisnummer;
     }
 
-    public String getTheaterNaam() {
-        return theaterNaam;
+    public String getTheaternaam() {
+        return theaternaam;
     }
 
-    public void setTheaterNaam(String theaterNaam) {
-        this.theaterNaam = theaterNaam;
+    public void setTheaternaam(String theaternaam) {
+        this.theaternaam = theaternaam;
     }
 
-    public String getStraatNaam() {
-        return straatNaam;
+    public String getStraatnaam() {
+        return straatnaam;
     }
 
-    public void setStraatNaam(String straatNaam) {
-        this.straatNaam = straatNaam;
+    public void setStraatnaam(String straatnaam) {
+        this.straatnaam = straatnaam;
     }
 
     public String getVestiging() {
