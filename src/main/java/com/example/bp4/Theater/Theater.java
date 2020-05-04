@@ -1,5 +1,6 @@
 package com.example.bp4.Theater;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +15,24 @@ public class Theater {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer theaterID;
     private Integer huisnummer;
-    private String theaterNaam, straatNaam, vestiging;
+    
+    @Column(name = "theaterNaam", nullable = false, unique = false)
+    private String theaterNaam;
+    @Column(name = "straatNaam", nullable = false, unique = false)
+    private String straatNaam;
+    @Column(name = "vestiging", nullable = false, unique = false)
+    private String vestiging;
+    
+    public Theater(String theaterNaam, String straatNaam, String vestiging, Integer huisnummer) {
+    	this.theaterNaam = theaterNaam;
+    	this.straatNaam = straatNaam;
+    	this.vestiging = vestiging;
+    	this.huisnummer = huisnummer;
+    }
+    
+    public Theater() {
+    	
+    }
 
     public Integer getTheaterID() {
         return theaterID;
