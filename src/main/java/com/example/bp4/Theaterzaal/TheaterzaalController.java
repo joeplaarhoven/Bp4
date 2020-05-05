@@ -14,7 +14,7 @@ public class TheaterzaalController {
 	@Autowired
 	private TheaterzaalService theaterzaalService;
 	
-	@RequestMapping("/toevoegenTheaterzaal")
+	@RequestMapping("/theaterzaal/toevoegen")
     public String showNewProductPage(Model model) {
         Theaterzaal theaterzaal = new Theaterzaal();
         model.addAttribute("theaterzaal", theaterzaal);

@@ -17,7 +17,7 @@ public class TheaterController {
 	@Autowired
 	private TheaterService theaterService;
 	
-	@RequestMapping("/registrerenTheater")
+	@RequestMapping("/theater/registreren")
     public String showNewProductPage(Model model) {
         Theater theater = new Theater();
         model.addAttribute("theater", theater);
