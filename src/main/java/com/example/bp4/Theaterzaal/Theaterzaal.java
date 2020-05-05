@@ -13,15 +13,15 @@ public class Theaterzaal {
 	
 	@Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer theaterzaalID;
-    private Integer theaterID;
+    private Integer theaterzaal_id;
+    private Integer tz_theater_id;
     private Integer zitplaatsen;
     
     @Column(name = "zaalnaam", nullable = false, unique = false)
     private String zaalnaam;
     
-    public Theaterzaal(Integer theaterID, String zaalnaam, Integer zitplaatsen) {
-    	this.theaterID = theaterID;
+    public Theaterzaal(Integer tz_theater_id, String zaalnaam, Integer zitplaatsen) {
+    	this.tz_theater_id = tz_theater_id;
     	this.zaalnaam = zaalnaam;
     	this.zitplaatsen = zitplaatsen;
     }
@@ -30,20 +30,20 @@ public class Theaterzaal {
     	
     }
 
-	public Integer getTheaterzaalID() {
-		return theaterzaalID;
+	public Integer getTheaterzaal_id() {
+		return theaterzaal_id;
 	}
 
-	public void setTheaterzaalID(Integer theaterzaalID) {
-		this.theaterzaalID = theaterzaalID;
+	public void setTheaterzaal_id(Integer theaterzaal_id) {
+		this.theaterzaal_id = theaterzaal_id;
 	}
 
-	public Integer getTheaterID() {
-		return theaterID;
+	public Integer getTz_theater_id() {
+		return tz_theater_id;
 	}
 
-	public void setTheaterID(Integer theaterID) {
-		this.theaterID = theaterID;
+	public void setTz_theater_id(Integer tz_theater_id) {
+		this.tz_theater_id = tz_theater_id;
 	}
 
 	public Integer getZitplaatsen() {

@@ -23,10 +23,10 @@ public class TheaterzaalController {
     }
 	
 	@RequestMapping(value = "/theaterzaal/save", method = RequestMethod.POST)
-	public String saveTheaterzaal(@RequestParam("theaterID") Integer theaterID,
+	public String saveTheaterzaal(@RequestParam("tz_theater_id") Integer tz_theater_id,
             @RequestParam("zaalnaam") String zaalnaam,
             @RequestParam("zitplaatsen") Integer zitplaatsen) {
-		Theaterzaal theaterzaal = new Theaterzaal(theaterID, zaalnaam, zitplaatsen);
+		Theaterzaal theaterzaal = new Theaterzaal(tz_theater_id, zaalnaam, zitplaatsen);
 		theaterzaalService.save(theaterzaal);
 
 		return "redirect:/";
