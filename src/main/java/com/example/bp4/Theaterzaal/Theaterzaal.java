@@ -13,12 +13,12 @@ public class Theaterzaal {
 	
 	@Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer theaterzaal_id;
+    public Integer theaterzaal_id;
     private Integer tz_theater_id;
     private Integer zitplaatsen;
     
     @Column(name = "zaalnaam", nullable = false, unique = false)
-    private String zaalnaam;
+    public String zaalnaam;
     
     public Theaterzaal(Integer tz_theater_id, String zaalnaam, Integer zitplaatsen) {
     	this.tz_theater_id = tz_theater_id;
@@ -26,6 +26,10 @@ public class Theaterzaal {
     	this.zitplaatsen = zitplaatsen;
     }
     
+	public Theaterzaal(String zaalnaam, Integer theaterzaal_id) {
+	    	this.zaalnaam = zaalnaam;
+	    	this.theaterzaal_id = theaterzaal_id;
+	}
     public Theaterzaal() {
     	
     }

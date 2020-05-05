@@ -1,5 +1,7 @@
 package com.example.bp4.Theater;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,20 +15,25 @@ public class Theater {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer theaterID;
+    private Integer theater_id;
     private Integer huisnummer;
     
     @Column(name = "theaternaam", nullable = false, unique = false)
     private String theaternaam;
     @Column(name = "straatnaam", nullable = false, unique = false)
     private String straatnaam;
-    @Column(name = "vestiging", nullable = false, unique = false)
-    private String vestiging;
     
-    public Theater(String theaternaam, String straatnaam, String vestiging, Integer huisnummer) {
+    
+   
+    
+    public Theater(Integer theater_id, String theaternaam) {
+    	this.theaternaam = theaternaam;
+    	this.theater_id = theater_id;
+    }
+    
+    public Theater(String theaternaam, String straatnaam, Integer huisnummer) {
     	this.theaternaam = theaternaam;
     	this.straatnaam = straatnaam;
-    	this.vestiging = vestiging;
     	this.huisnummer = huisnummer;
     }
     
@@ -34,12 +41,12 @@ public class Theater {
     	
     }
 
-    public Integer getTheaterID() {
-        return theaterID;
+    public Integer getTheater_id() {
+        return theater_id;
     }
 
-    public void setTheaterID(Integer theaterID) {
-        this.theaterID = theaterID;
+    public void setTheater_id(Integer theater_id) {
+        this.theater_id = theater_id;
     }
 
     public Integer getHuisnummer() {
@@ -66,11 +73,4 @@ public class Theater {
         this.straatnaam = straatnaam;
     }
 
-    public String getVestiging() {
-        return vestiging;
-    }
-
-    public void setVestiging(String vestiging) {
-        this.vestiging = vestiging;
-    }
 }

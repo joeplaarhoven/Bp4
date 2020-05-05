@@ -15,6 +15,9 @@ public class TheaterzaalService {
     public List<Theaterzaal> listAll() {
         return theaterzaalRepository.findAll();
     }
+    
+    
+    
 
     public void save(Theaterzaal theaterzaal) {
     	theaterzaalRepository.save(theaterzaal);
@@ -29,8 +32,8 @@ public class TheaterzaalService {
     	theaterzaalRepository.deleteById((int) theaterzaalId);
     }
     
-    public String alltheaterzalen(Integer tz_theater_id) {
-    	return theaterzaalRepository.alltheaterzalen(tz_theater_id);
+    public List<Theaterzaal> alltheaterzalen(String theaternaam) {
+    	return theaterzaalRepository.alltheaterzalen(theaternaam);
     }
 
 }

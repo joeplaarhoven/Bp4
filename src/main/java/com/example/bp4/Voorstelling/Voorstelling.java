@@ -12,44 +12,51 @@ public class Voorstelling {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer voorstellingID;
+    private Integer voorstelling_id;
 
-    public Integer theaterID;
-    public String voorstellingSoort;
-    public String theaterzaal;
+    public Integer theaterzaal_id;
+    public String voorstellingsoort;
     public String leeftijdsCat;
+    private String afkomst;
+    private String datum;
+    private String tijd;
 
-    public Integer getVoorstellingID() {
-        return voorstellingID;
+	public Voorstelling(Integer theaterzaal_id, String voorstellingsoort, String leeftijdsCat, String afkomst,
+			String datum, String tijd) {
+		this.theaterzaal_id = theaterzaal_id;
+		this.voorstellingsoort = voorstellingsoort;
+		this.leeftijdsCat = leeftijdsCat;
+		this.afkomst = afkomst;
+		this.datum = datum;
+		this.tijd = tijd;
+	}
+
+	public Voorstelling() {
+	}
+
+	public Integer getVoorstelling_id() {
+        return voorstelling_id;
     }
 
-    public void setVoorstellingID(Integer voorstellingID) {
-        this.voorstellingID = voorstellingID;
+    public void setVoorstelling_id(Integer voorstelling_id) {
+        this.voorstelling_id = voorstelling_id;
     }
 
-    public Integer getTheaterID() {
-        return theaterID;
+    public Integer getTheaterzaal_id() {
+        return theaterzaal_id;
     }
 
-    public void setTheaterID(Integer theaterID) {
-        this.theaterID = theaterID;
+    public void setTheaterzaal_id(Integer theaterzaal_id) {
+        this.theaterzaal_id = theaterzaal_id;
     }
 
 
-    public String getVoorstellingSoort() {
-        return voorstellingSoort;
+    public String getVoorstellingsoort() {
+        return voorstellingsoort;
     }
 
-    public void setVoorstellingSoort(String voorstellingSoort) {
-        this.voorstellingSoort = voorstellingSoort;
-    }
-
-    public String getTheaterzaal() {
-        return theaterzaal;
-    }
-
-    public void setTheaterzaal(String theaterzaal) {
-        this.theaterzaal = theaterzaal;
+    public void setVoorstellingsoort(String voorstellingsoort) {
+        this.voorstellingsoort = voorstellingsoort;
     }
 
     public String getLeeftijdsCat() {
@@ -68,23 +75,21 @@ public class Voorstelling {
         this.afkomst = afkomst;
     }
 
-    public Date getDatum() {
+    public String getDatum() {
         return datum;
     }
 
-    public void setDatum(Date datum) {
+    public void setDatum(String datum) {
         this.datum = datum;
     }
 
-    public Time getTijd() {
+    public String getTijd() {
         return tijd;
     }
 
-    public void setTijd(Time tijd) {
+    public void setTijd(String tijd) {
         this.tijd = tijd;
     }
 
-    private String afkomst;
-    private Date datum;
-    private Time tijd;
+    
 }
