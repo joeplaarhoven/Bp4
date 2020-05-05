@@ -30,9 +30,9 @@ public class TheaterController {
             @RequestParam("straatnaam") String straatnaam,
             @RequestParam("vestiging") String vestiging,
             @RequestParam("huisnummer") Integer huisnummer) {
-Theater theater = new Theater(theaternaam, straatnaam, vestiging, huisnummer);
-theaterService.save(theater);
+		Theater theater = new Theater(theaternaam, straatnaam, vestiging, huisnummer);
+		theaterService.save(theater);
 
-return "redirect:/";
-}
+		return "redirect:/";
+	}
 }
