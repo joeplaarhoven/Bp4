@@ -7,30 +7,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.bp4.Gebruikers.Gebruiker;
-import com.example.bp4.Theater.Theater;
-import com.example.bp4.Theater.TheaterService;
-
 @Controller
 public class TheaterController {
 	
 	@Autowired
 	private TheaterService theaterService;
 	
-	@RequestMapping("/theater/registreren")
+	@RequestMapping("/theater/toevoegen")
     public String showNewProductPage(Model model) {
         Theater theater = new Theater();
         model.addAttribute("theater", theater);
 
-        return "TheaterToev";
+        return "TheaterToevoegen";
     }
 	
 	@RequestMapping(value = "/theater/save", method = RequestMethod.POST)
 	public String saveTheater(@RequestParam("theaternaam") String theaternaam,
             @RequestParam("straatnaam") String straatnaam,
-            @RequestParam("vestiging") String vestiging,
-            @RequestParam("huisnummer") Integer huisnummer) {
-		Theater theater = new Theater(theaternaam, straatnaam, vestiging, huisnummer);
+            @RequestParam("huisnummer") Integer huisnummer,
+            @RequestParam("postcode") String postcode,
+            @RequestParam("plaats") String plaats) {
+		Theater theater = new Theater(theaternaam, straatnaam, huisnummer, postcode, plaats);
 		theaterService.save(theater);
 
 		return "redirect:/";

@@ -4,9 +4,7 @@ package com.example.bp4.Theater;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional
@@ -31,7 +29,7 @@ public class TheaterService {
         theaterRepository.deleteById((int) theaterId);
     }
     
-    public String alltheater(String theaternaam, String vestiging) {
-    	return theaterRepository.alltheater(theaternaam, vestiging);
+    public String alltheater(String theaternaam) {
+    	return theaterRepository.alltheater(theaternaam);
     }
 }

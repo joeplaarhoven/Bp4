@@ -10,7 +10,7 @@ public interface TheaterRepository extends JpaRepository<Theater, Integer> {
     // custom query to search to blog post by title or content
 //    List<Product> findByTitleContainingOrContentContaining(String text, String textAgain);
 	
-	@Query(value = "SELECT theaternaam, vestiging FROM Theater WHERE theaternaam =?1 AND vestiging =?2", nativeQuery = true)
-	String alltheater(String theaternaam, String vestiging);  
+	@Query(value = "SELECT theaternaam FROM Theaters WHERE theaternaam =?1", nativeQuery = true)
+	String alltheater(String theaternaam);  
 
 }
