@@ -61,13 +61,6 @@ public class Theater {
     public void setTheater_id(Integer theater_id) {
         this.theater_id = theater_id;
     }
-	public Integer getTheater_id() {
-		return theater_id;
-	}
-
-	public void setTheater_id(Integer theater_id) {
-		this.theater_id = theater_id;
-	}
 
 	public Integer getHuisnummer() {
 		return huisnummer;

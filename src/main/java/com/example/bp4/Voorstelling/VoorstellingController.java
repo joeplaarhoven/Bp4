@@ -74,12 +74,14 @@ public class VoorstellingController {
 	
 	
 	@RequestMapping(value = "/voorstelling/save", method = RequestMethod.POST)
-    public String saveProduct(@RequestParam("theaterzaal_id") Integer theaterzaal_id,
-                              @RequestParam("voorstellingSoort") String voorstellingSoort,
+    public String saveProduct(@RequestParam("theaterzaal_id") String theaterzaalnaam,
+                              @RequestParam("voorstellingsoort") String voorstellingSoort,
                               @RequestParam("leeftijdsCat") String leeftijdsCat,
                               @RequestParam("afkomst") String afkomst,
                               @RequestParam("datum") String datum,
                               @RequestParam("tijd") String tijd) {
+		
+		Integer theaterzaal_id = theaterzaalService.findTheaterzaalId(theaterzaalnaam);
 		
 		
         Voorstelling voorstelling = new Voorstelling(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd);

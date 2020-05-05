@@ -48,7 +48,7 @@
             <tr>
                 <td>Theaterzaal:</td>
                 <td>
-               		<select class="theaterDD" th:field="*{theaterzaal_id}">
+               		<select  th:field="*{theaterzaal_id}">
 	                         <option id="selectedItem" value=""> -- </option>
 	                         <option th:each="theaterzaal : ${theaterZaalList}"
 	                            th:value="${theaterzaal.zaalnaam}"

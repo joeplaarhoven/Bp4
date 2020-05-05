@@ -15,6 +15,9 @@ public interface TheaterzaalRepository extends JpaRepository<Theaterzaal, Intege
 			"left JOIN theaters\r\n" + 
 			"ON theaters.theater_id = theaterzalen.tz_theater_id\r\n" + 
 			"where theaternaam =?1", nativeQuery = true)
-	List<Theaterzaal> alltheaterzalen(String theaternaam); 
+	List<Theaterzaal> alltheaterzalen(String theaternaam);
+
+	@Query(value = "SELECT theaterzaal_id from theaterzalen where zaalnaam =?1", nativeQuery = true)
+	Integer findTheaterzaalId(String theaterzaalnaam); 
 
 }

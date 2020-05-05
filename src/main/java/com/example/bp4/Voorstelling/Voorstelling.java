@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.sql.Time;
 import java.util.Date;
 
-@MappedSuperclass
+
 @Table(name="voorstellingen")
 public class Voorstelling {
 
@@ -14,18 +14,18 @@ public class Voorstelling {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer voorstelling_id;
 
-    public Integer theaterzaal_id;
+    public Integer v_theaterzaal_id;
     public String voorstellingsoort;
-    public String leeftijdsCat;
+    public String v_leeftijdscategorie;
     private String afkomst;
     private String datum;
     private String tijd;
 
-	public Voorstelling(Integer theaterzaal_id, String voorstellingsoort, String leeftijdsCat, String afkomst,
+	public Voorstelling(Integer v_theaterzaal_id, String voorstellingsoort, String v_leeftijdscategorie, String afkomst,
 			String datum, String tijd) {
-		this.theaterzaal_id = theaterzaal_id;
+		this.v_theaterzaal_id = v_theaterzaal_id;
 		this.voorstellingsoort = voorstellingsoort;
-		this.leeftijdsCat = leeftijdsCat;
+		this.v_leeftijdscategorie = v_leeftijdscategorie;
 		this.afkomst = afkomst;
 		this.datum = datum;
 		this.tijd = tijd;
@@ -43,11 +43,11 @@ public class Voorstelling {
     }
 
     public Integer getTheaterzaal_id() {
-        return theaterzaal_id;
+        return v_theaterzaal_id;
     }
 
-    public void setTheaterzaal_id(Integer theaterzaal_id) {
-        this.theaterzaal_id = theaterzaal_id;
+    public void setV_theaterzaal_id(Integer v_theaterzaal_id) {
+        this.v_theaterzaal_id = v_theaterzaal_id;
     }
 
 
@@ -59,12 +59,12 @@ public class Voorstelling {
         this.voorstellingsoort = voorstellingsoort;
     }
 
-    public String getLeeftijdsCat() {
-        return leeftijdsCat;
+    public String getV_leeftijdscategorie() {
+        return v_leeftijdscategorie;
     }
 
-    public void setLeeftijdsCat(String leeftijdsCat) {
-        this.leeftijdsCat = leeftijdsCat;
+    public void setV_leeftijdscategorie(String v_leeftijdscategorie) {
+        this.v_leeftijdscategorie = v_leeftijdscategorie;
     }
 
     public String getAfkomst() {

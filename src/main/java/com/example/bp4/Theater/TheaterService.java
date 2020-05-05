@@ -32,4 +32,5 @@ public class TheaterService {
     public String alltheater(String theaternaam) {
     	return theaterRepository.alltheater(theaternaam);
     }
+
 }

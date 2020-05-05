@@ -36,4 +36,9 @@ public class TheaterzaalService {
     	return theaterzaalRepository.alltheaterzalen(theaternaam);
     }
 
+	public Integer findTheaterzaalId(String theaterzaalnaam) {
+		return theaterzaalRepository.findTheaterzaalId(theaterzaalnaam);
+		
+	}
+
 }
