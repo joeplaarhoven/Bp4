@@ -29,8 +29,8 @@ public class TheaterzaalService {
     	theaterzaalRepository.deleteById((int) theaterzaalId);
     }
     
-    public String alltheaterzalen(Integer tz_theater_id) {
-    	return theaterzaalRepository.alltheaterzalen(tz_theater_id);
+    public String allTheaterzalen(Integer tz_theater_id) {
+    	return theaterzaalRepository.allTheaterzalen(tz_theater_id);
     }
 
 }

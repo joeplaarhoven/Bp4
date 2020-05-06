@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Cabaretier Toevoegen</title>
+</head>
+<body>
+<div align="center">
+    <h1>Cabaretier Toevoegen</h1>
+    <br />
+    <form action="#" th:action="@{/cabaretier/save}" th:object="${cabaretier}"
+          method="post">
+
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>Cabaretier Voornaam:</td>
+                <td><input type="text" th:field="*{cabaretier_voornaam}" /></td>
+            </tr>
+            <tr>
+                <td>Cabaretier Achternaam:</td>
+                <td><input type="text" th:field="*{cabaretier_achternaam}" /></td>
+            </tr>
+            <tr>
+            <td>Geboortedatum:</td>
+            <td><input type="text" th:field="*{geboortedatum}" /></td>
+            </tr>
+            <tr>
+            <td>Geslacht:</td>
+            <td><input type="text" th:field="*{geslacht}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Save</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
