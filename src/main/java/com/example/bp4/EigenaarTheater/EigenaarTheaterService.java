@@ -1,10 +1,11 @@
 package com.example.bp4.EigenaarTheater;
 
 
-import com.example.bp4.TheaterVoortstelling.TheaterVoorstellingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.example.bp4.Theatervoortstelling.TheaterVoorstellingRepository;
 
 import java.util.List;
 import java.util.Optional;

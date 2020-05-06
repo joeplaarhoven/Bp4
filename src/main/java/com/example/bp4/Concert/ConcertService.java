@@ -4,13 +4,12 @@ package com.example.bp4.Concert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional
 public class ConcertService {
+	
     @Autowired
     ConcertRepository concertRepository;
 
@@ -28,5 +27,9 @@ public class ConcertService {
 
     public void delete(long concertId) {
         concertRepository.deleteById((int) concertId);
+    }
+    
+    public String allConcerten() {
+    	return concertRepository.allConcerten();
     }
 }

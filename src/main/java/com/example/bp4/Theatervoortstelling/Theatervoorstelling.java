@@ -1,4 +1,4 @@
-package com.example.bp4.TheaterVoortstelling;
+package com.example.bp4.Theatervoortstelling;
 
 import com.example.bp4.Voorstelling.Voorstelling;
 
@@ -6,13 +6,13 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="theatervoorstellingen")
-public class TheaterVoorstelling extends Voorstelling {
+public class Theatervoorstelling extends Voorstelling {
     private Integer theatervoorstellingID;
     private String theatervoorstellingNaam, acteurs, productieAfkomst;
 
-    public TheaterVoorstelling(){}
+    public Theatervoorstelling(){}
 
-    public TheaterVoorstelling(Integer theaterID, String voorstellingSoort, String theaterzaal, String leeftijdsCat, String theatervoorstellingNaam, String acteurs,String productieAfkomst) {
+    public Theatervoorstelling(Integer theaterID, String voorstellingSoort, String theaterzaal, String leeftijdsCat, String theatervoorstellingNaam, String acteurs,String productieAfkomst) {
         this.theaterID = theaterID;
         this.voorstellingSoort = voorstellingSoort;
         this.theaterzaal = theaterzaal;

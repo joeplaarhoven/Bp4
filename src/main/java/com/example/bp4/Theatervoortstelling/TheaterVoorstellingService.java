@@ -1,10 +1,11 @@
-package com.example.bp4.TheaterVoortstelling;
+package com.example.bp4.Theatervoortstelling;
 
 
-import com.example.bp4.TheaterVoortstelling.TheaterVoorstelling;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.example.bp4.Theatervoortstelling.Theatervoorstelling;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,15 +16,15 @@ public class TheaterVoorstellingService {
     @Autowired
     TheaterVoorstellingRepository theaterVoorstellingRepository;
 
-    public List<TheaterVoorstelling> listAll() {
+    public List<Theatervoorstelling> listAll() {
         return theaterVoorstellingRepository.findAll();
     }
 
-    public void save(TheaterVoorstelling theaterVoorstelling) {
+    public void save(Theatervoorstelling theaterVoorstelling) {
         theaterVoorstellingRepository.save(theaterVoorstelling);
     }
 
-    public TheaterVoorstelling get(long theaterVoorstellingId) {
+    public Theatervoorstelling get(long theaterVoorstellingId) {
         return theaterVoorstellingRepository.findById((int) theaterVoorstellingId).get();
     }
 

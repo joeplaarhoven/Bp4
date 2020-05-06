@@ -29,8 +29,8 @@ public class CabaretierService {
     	cabaretierRepository.deleteById((int) cabaretierId);
     }
     
-    public String allCabaretiers(Integer cabaretier_id) {
-    	return cabaretierRepository.allCabaretiers(cabaretier_id);
+    public String allCabaretiers() {
+    	return cabaretierRepository.allCabaretiers();
     }
     
 }

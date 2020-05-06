@@ -1,7 +1,6 @@
 package com.example.bp4.Concert;
 
-import com.example.bp4.Voorstelling.Voorstelling;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,55 +9,59 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="concerten")
-public class Concert extends Voorstelling {
-
-    private Integer concertId;
-    private String concert;
-    private String artiest, genre;
-
-    public Concert(){}
-
-    public Concert(Integer theaterID, String voorstellingSoort, String theaterzaal, String leeftijdsCat, String concert, String artiest,String genre) {
-        this.theaterID = theaterID;
-        this.voorstellingSoort = voorstellingSoort;
-        this.theaterzaal = theaterzaal;
-        this.leeftijdsCat = leeftijdsCat;
-        this.concert = concert;
-        this.artiest = artiest;
-        this.genre = genre;
+public class Concert {
+	
+	@Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Integer concert_id;
+	
+	@Column(name = "concert_naam", nullable = false, unique = false)
+    private String concert_naam;
+	@Column(name = "genre", nullable = false, unique = false)
+    private String genre;
+	@Column(name = "artiest", nullable = false, unique = false)
+    private String artiest;
+	
+    public Concert(String concert_naam, String genre, String artiest) {
+    	this.concert_naam = concert_naam;
+    	this.genre = genre;
+    	this.artiest = artiest;
+    }
+    
+    public Concert() {
+    	
     }
 
+	public Integer getConcert_id() {
+		return concert_id;
+	}
 
-    public Integer getConcertId() {
-        return concertId;
-    }
+	public void setConcert_id(Integer concert_id) {
+		this.concert_id = concert_id;
+	}
 
-    public void setConcertId(Integer concertID) {
-        this.concertId = concertID;
-    }
+	public String getConcert_naam() {
+		return concert_naam;
+	}
 
-    public String getConcert() {
-        return concert;
-    }
+	public void setConcert_naam(String concert_naam) {
+		this.concert_naam = concert_naam;
+	}
 
-    public void setConcert(String concert) {
-        this.concert = concert;
-    }
+	public String getGenre() {
+		return genre;
+	}
 
-    public String getArtiest() {
-        return artiest;
-    }
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
 
-    public void setArtiest(String artiest) {
-        this.artiest = artiest;
-    }
+	public String getArtiest() {
+		return artiest;
+	}
 
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
+	public void setArtiest(String artiest) {
+		this.artiest = artiest;
+	}      
 
 }
