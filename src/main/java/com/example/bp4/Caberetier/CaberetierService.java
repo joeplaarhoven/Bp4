@@ -24,10 +24,17 @@ public class CaberetierService {
     }
 
     public Caberetier get(long caberetierId) {
-        return caberetierRepository.findById((int) caberetierId).get();
+    	Caberetier c1 = caberetierRepository.findById((int) caberetierId).get();
+        return c1;
     }
 
     public void delete(long caberetierId) {
         caberetierRepository.deleteById((int) caberetierId);
     }
+    
+    public Caberetier getOneCaberetier(Integer caberetierId) {
+    	Caberetier c1 = caberetierRepository.findOneCaberetier(caberetierId);
+        return c1;
+    }
+    
 }

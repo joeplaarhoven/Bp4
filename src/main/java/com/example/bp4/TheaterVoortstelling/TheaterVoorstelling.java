@@ -1,33 +1,43 @@
 package com.example.bp4.TheaterVoortstelling;
 
+import com.example.bp4.Concert.ConcertPK;
 import com.example.bp4.Voorstelling.Voorstelling;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name="theatervoorstellingen")
+@IdClass(TheatervoorstellingPK.class)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class TheaterVoorstelling extends Voorstelling {
-    private Integer theatervoorstellingID;
+	private Integer theatervoorstelling_id;
     private String theatervoorstellingNaam, acteurs, productieAfkomst;
 
     public TheaterVoorstelling(){}
 
-    public TheaterVoorstelling(Integer theaterID, String voorstellingSoort, String theaterzaal, String leeftijdsCat, String theatervoorstellingNaam, String acteurs,String productieAfkomst) {
-        this.theaterID = theaterID;
-        this.voorstellingSoort = voorstellingSoort;
-        this.theaterzaal = theaterzaal;
-        this.leeftijdsCat = leeftijdsCat;
-        this.theatervoorstellingNaam = theatervoorstellingNaam;
-        this.acteurs = acteurs;
-        this.productieAfkomst = productieAfkomst;
+    public TheaterVoorstelling(Integer theaterID, 
+    		String voorstellingSoort, 
+    		String theaterzaal, 
+    		String leeftijdsCat, 
+    		String afkomst, 
+    		String datum, 
+    		String tijd, 
+    		Integer theatervoorstelling_id) {
+        this.v_theaterzaal_id = theaterID;
+        this.voorstellingsoort = voorstellingSoort;
+        this.v_leeftijdscategorie = leeftijdsCat;
+        this.afkomst = afkomst;
+        this.datum = datum;
+        this.tijd = tijd;
+        this.theatervoorstelling_id = theatervoorstelling_id;
     }
 
-    public Integer getTheatervoorstellingID() {
-        return theatervoorstellingID;
+    public Integer getTheatervoorstelling_id() {
+        return theatervoorstelling_id;
     }
 
-    public void setTheatervoorstellingID(Integer theatervoorstellingID) {
-        this.theatervoorstellingID = theatervoorstellingID;
+    public void setTheatervoorstelling_id(Integer theatervoorstelling_id) {
+        this.theatervoorstelling_id = theatervoorstelling_id;
     }
 
     public String getTheatervoorstellingNaam() {

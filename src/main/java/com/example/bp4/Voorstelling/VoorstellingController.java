@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.bp4.Caberetier.Caberetier;
+import com.example.bp4.Caberetier.CaberetierService;
 import com.example.bp4.Theater.Theater;
 import com.example.bp4.Theater.TheaterService;
 
@@ -37,10 +39,13 @@ public class VoorstellingController {
 	@Autowired
     private TheaterzaalService theaterzaalService;
 	
+	@Autowired
+    private CaberetierService caberetierService;
+	
 	@RequestMapping("/voorstelling/inplannen")
     public String showNewVoorstellingPage(Model model, HttpServletRequest request, @RequestParam(required = false) String theaternaam) {
-        Voorstelling voorstelling = new Voorstelling();
-        model.addAttribute("voorstelling", voorstelling);
+		Caberetier caberetier = new Caberetier();
+        model.addAttribute("caberetier", caberetier);
         
         Theater theater = new Theater();
         model.addAttribute("theater", theater);
@@ -76,15 +81,16 @@ public class VoorstellingController {
 	@RequestMapping(value = "/voorstelling/save", method = RequestMethod.POST)
     public String saveProduct(@RequestParam("theaterzaal_id") String theaterzaalnaam,
                               @RequestParam("voorstellingsoort") String voorstellingSoort,
-                              @RequestParam("leeftijdsCat") String leeftijdsCat,
+                              @RequestParam("v_leeftijdscategorie") String leeftijdsCat,
                               @RequestParam("afkomst") String afkomst,
                               @RequestParam("datum") String datum,
-                              @RequestParam("tijd") String tijd) {
+                              @RequestParam("tijd") String tijd,
+                              @RequestParam("caberatier_id") Integer caberetier_id) {
 		
 		Integer theaterzaal_id = theaterzaalService.findTheaterzaalId(theaterzaalnaam);
+		Caberetier caberetier1 = caberetierService.getOneCaberetier(caberetier_id);
 		
-		
-        Voorstelling voorstelling = new Voorstelling(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd);
+		Voorstelling voorstelling = new Caberetier(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, caberetier_id);
         voorstelligService.save(voorstelling);
 
         return "redirect:/";

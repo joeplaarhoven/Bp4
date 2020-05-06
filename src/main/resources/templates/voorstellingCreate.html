@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <title>Voorstelling inplannen</title>
     <script th:src="@{/webjars/jquery/3.2.0/jquery.min.js}" type="text/javascript"></script>
-	<script type="text/javascript" th:src="@{/js/voorstelling.js}"></script>
+	<script type="text/javascript" th:inline="javascript" th:src="@{/js/voorstelling.js}"></script>
 </head>
 <body>
 <div align="center">
@@ -29,7 +29,7 @@
             </tr>
          </table>
     </form>
-    <form action="#" th:action="@{/voorstelling/save}" th:object="${voorstelling}"
+    <form id="voorstellingForm" action="#" th:action="@{/voorstelling/save}" th:object="${caberetier}"
           method="post">
 
         <table border="0" cellpadding="10">
@@ -58,7 +58,7 @@
             </tr>
             <tr>
             <td>leeftijdsCat:</td>
-            <td><input type="text" th:field="*{leeftijdsCat}" /></td>
+            <td><input type="text" th:field="*{v_leeftijdscategorie}" /></td>
             </tr>
             <tr>
                 <td>Afkomst:</td>
@@ -71,6 +71,10 @@
             <tr>
                 <td>tijd:</td>
                 <td><input type="text" th:field="*{tijd}" /></td>
+            </tr>
+            <tr>
+                <td>id:</td>
+                <td><input type="text" th:field="*{caberatier_id}" /></td>
             </tr>
             
             <tr>

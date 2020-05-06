@@ -22,5 +22,18 @@ $( document ).ready(function() {
 	
 	//$("#selectedItem").val(selectedTheater);
 	
-	
+	$('input[type=radio][name=voorstellingsoort]').change(function() {
+	    if (this.value == 'Caberatier') {
+	    	 var action = /*[[@{/cabaretier/save}]]*/ '/cabaretier/save';
+    	     $("#voorstellingForm").attr("action", action);
+	    }
+	    else if (this.value == 'Concert') {
+	    	var action = /*[[@{/concert/save}]]*/ '/concert/save';
+   	     	$("#voorstellingForm").attr("action", action);
+	    }
+	    else if (this.value == 'Theatervoorstelling') {
+	    	var action = /*[[@{/theatervoorstelling/save}]]*/ '/theatervoorstelling/save';
+   	     	$("#voorstellingForm").attr("action", action);
+	    }
+	});
 });

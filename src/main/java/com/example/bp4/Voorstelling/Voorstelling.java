@@ -1,34 +1,42 @@
 package com.example.bp4.Voorstelling;
 
 import com.example.bp4.Caberetier.Caberetier;
+import com.example.bp4.Concert.ConcertPK;
 
 import javax.persistence.*;
+
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
 
-
+@Entity
 @Table(name="voorstellingen")
-public class Voorstelling {
+@Inheritance(strategy = InheritanceType.JOINED)
+
+//@IdClass(VoorstellingenPK.class)
+public class Voorstelling implements Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer voorstelling_id;
+    protected Integer voorstelling_id;
 
-    public Integer v_theaterzaal_id;
-    public String voorstellingsoort;
-    public String v_leeftijdscategorie;
-    private String afkomst;
-    private String datum;
-    private String tijd;
+    protected Integer v_theaterzaal_id;
+    protected Integer caberatier_id;
+    protected String voorstellingsoort;
+    protected String v_leeftijdscategorie;
+    public String afkomst;
+    public String datum;
+    public String tijd;
 
 	public Voorstelling(Integer v_theaterzaal_id, String voorstellingsoort, String v_leeftijdscategorie, String afkomst,
-			String datum, String tijd) {
+			String datum, String tijd, Integer caberatier_id1) {
 		this.v_theaterzaal_id = v_theaterzaal_id;
 		this.voorstellingsoort = voorstellingsoort;
 		this.v_leeftijdscategorie = v_leeftijdscategorie;
 		this.afkomst = afkomst;
 		this.datum = datum;
 		this.tijd = tijd;
+		this.caberatier_id = caberatier_id;
 	}
 
 	public Voorstelling() {
@@ -41,6 +49,7 @@ public class Voorstelling {
     public void setVoorstelling_id(Integer voorstelling_id) {
         this.voorstelling_id = voorstelling_id;
     }
+    
 
     public Integer getTheaterzaal_id() {
         return v_theaterzaal_id;
@@ -90,6 +99,4 @@ public class Voorstelling {
     public void setTijd(String tijd) {
         this.tijd = tijd;
     }
-
-    
 }
