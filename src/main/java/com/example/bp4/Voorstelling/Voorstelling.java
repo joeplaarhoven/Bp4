@@ -1,13 +1,10 @@
 package com.example.bp4.Voorstelling;
 
 import javax.persistence.*;
-
-import com.example.bp4.Cabaretier.Cabaretier;
-
 import java.sql.Time;
 import java.util.Date;
 
-@MappedSuperclass
+@Entity
 @Table(name="voorstellingen")
 public class Voorstelling {
 
