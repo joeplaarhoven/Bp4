@@ -25,13 +25,9 @@
             <td><input type="text" th:field="*{geboortedatum}" /></td>
             </tr>
             <tr>
-            <td id="geslacht">Geslacht:</td>
-            <td>
-            	<input type="radio" th:field="*{geslacht}" id="Man" name="geslacht" value="Man">
-				<label for="Man">Man</label><br>
-				<input type="radio" th:field="*{geslacht}" id="Vrouw" name="geslacht" value="Vrouw">
-				<label for="Vrouw">Vrouw</label><br>	
-			</td>
+            <td>Geslacht:</td>
+            <td><input type="text" th:field="*{geslacht}" /></td>
+            </tr>
             <tr>
                 <td colspan="2"><button type="submit">Save</button> </td>
             </tr>
