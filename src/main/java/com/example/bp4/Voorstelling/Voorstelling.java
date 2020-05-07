@@ -21,8 +21,36 @@ public class Voorstelling implements Serializable {
     protected Integer voorstelling_id;
 
     protected Integer v_theaterzaal_id;
-    protected Integer caberatier_id;
-    protected String voorstellingsoort;
+    protected Integer caberatier_id, concert_id, theatervoorstelling_id;
+    public Integer getConcert_id() {
+		return concert_id;
+	}
+
+	public void setConcert_id(Integer concert_id) {
+		this.concert_id = concert_id;
+	}
+
+	public Integer getTheatervoorstelling_id() {
+		return theatervoorstelling_id;
+	}
+
+	public void setTheatervoorstelling_id(Integer theatervoorstelling_id) {
+		this.theatervoorstelling_id = theatervoorstelling_id;
+	}
+
+	public Integer getCaberatier_id() {
+		return caberatier_id;
+	}
+
+	public void setCaberatier_id(Integer caberatier_id) {
+		this.caberatier_id = caberatier_id;
+	}
+
+	public Integer getV_theaterzaal_id() {
+		return v_theaterzaal_id;
+	}
+
+	protected String voorstellingsoort;
     protected String v_leeftijdscategorie;
     public String afkomst;
     public String datum;

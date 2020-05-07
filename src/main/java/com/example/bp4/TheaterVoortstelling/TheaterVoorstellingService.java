@@ -1,6 +1,7 @@
 package com.example.bp4.TheaterVoortstelling;
 
 
+import com.example.bp4.Concert.Concert;
 import com.example.bp4.TheaterVoortstelling.TheaterVoorstelling;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,4 +32,10 @@ public class TheaterVoorstellingService {
     public void delete(long theaterId) {
         theaterVoorstellingRepository.deleteById((int) theaterId);
     }
+    
+    public TheaterVoorstelling getOneTheaterVoorstelling(Integer theaterVoorstelling_id) {
+        return theaterVoorstellingRepository.findOneTheaterVoorstelling(theaterVoorstelling_id);
+    }
+
+	
 }

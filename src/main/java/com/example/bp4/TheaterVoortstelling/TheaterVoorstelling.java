@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class TheaterVoorstelling extends Voorstelling {
 	private Integer theatervoorstelling_id;
-    private String theatervoorstellingNaam, acteurs, productieAfkomst;
+    private String theatervoorstellingNaam, acteurs, productie_afkomst;
 
     public TheaterVoorstelling(){}
 
@@ -32,7 +32,14 @@ public class TheaterVoorstelling extends Voorstelling {
         this.theatervoorstelling_id = theatervoorstelling_id;
     }
 
-    public Integer getTheatervoorstelling_id() {
+    public TheaterVoorstelling(Integer theaterzaal_id, String voorstellingSoort, String leeftijdsCat, String afkomst,
+			String datum, String tijd, Integer theatervoorstelling_id) {
+    	super(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, theatervoorstelling_id);
+
+        this.theatervoorstelling_id = theatervoorstelling_id;
+	}
+
+	public Integer getTheatervoorstelling_id() {
         return theatervoorstelling_id;
     }
 
@@ -56,11 +63,11 @@ public class TheaterVoorstelling extends Voorstelling {
         this.acteurs = acteurs;
     }
 
-    public String getProductieAfkomst() {
-        return productieAfkomst;
+    public String getProductie_afkomst() {
+        return productie_afkomst;
     }
 
-    public void setProductieAfkomst(String productieAfkomst) {
-        this.productieAfkomst = productieAfkomst;
+    public void setProductie_afkomst(String productie_afkomst) {
+        this.productie_afkomst = productie_afkomst;
     }
 }

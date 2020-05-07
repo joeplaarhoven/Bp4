@@ -21,10 +21,13 @@ import javax.persistence.Table;
 public class Concert extends Voorstelling {
 
 	private Integer concert_id;
-    private String concert;
+    private String concert_naam;
     private String artiest, genre;
 
-
+    public Concert() {
+    	
+    }
+    
     public Concert(Integer theaterID, 
     		String voorstellingSoort, 
     		String theaterzaal, 
@@ -43,7 +46,15 @@ public class Concert extends Voorstelling {
     }
 
 
-    public Integer getConcert_id() {
+    public Concert(Integer theaterzaal_id, String voorstellingSoort, String leeftijdsCat, String afkomst, String datum,
+			String tijd, Integer concert_id) {
+    	super(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, concert_id);
+
+        this.concert_id = concert_id;
+	}
+
+
+	public Integer getConcert_id() {
         return concert_id;
     }
 
@@ -51,12 +62,12 @@ public class Concert extends Voorstelling {
         this.concert_id = concert_id;
     }
 
-    public String getConcert() {
-        return concert;
+    public String getConcert_naam() {
+        return concert_naam;
     }
 
-    public void setConcert(String concert) {
-        this.concert = concert;
+    public void setConcert_naam(String concert_naam) {
+        this.concert_naam = concert_naam;
     }
 
     public String getArtiest() {

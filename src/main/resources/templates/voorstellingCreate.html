@@ -29,7 +29,7 @@
             </tr>
          </table>
     </form>
-    <form id="voorstellingForm" action="#" th:action="@{/voorstelling/save}" th:object="${caberetier}"
+    <form id="voorstellingForm" action="#" th:action="@{/voorstelling/save}" th:object="${voorstelling}"
           method="post">
 
         <table border="0" cellpadding="10">
@@ -40,8 +40,8 @@
 					<label for="Caberatier">Caberatier</label><br>
 					<input type="radio" th:field="*{voorstellingsoort}" id=""Concert"" name="voorstellingsoort" value="Concert">
 					<label for="Concert">Concert</label><br>
-					<input type="radio" th:field="*{voorstellingsoort}" id="Seniorenavond" name="voorstellingsoort" value=""Seniorenavond"">
-					<label for="Seniorenavond">Seniorenavond</label> 
+					<input type="radio" th:field="*{voorstellingsoort}" id="Theatervoorstelling" name="voorstellingsoort" value="Theatervoorstelling">
+					<label for="Seniorenavond">Theatervoorstelling</label> 
 				</td>
             </tr>
             
@@ -72,9 +72,13 @@
                 <td>tijd:</td>
                 <td><input type="text" th:field="*{tijd}" /></td>
             </tr>
-            <tr>
+            <tr id="voorstellingSoortId">
                 <td>id:</td>
-                <td><input type="text" th:field="*{caberatier_id}" /></td>
+                <td>
+                	<input type="text" value="caberetier" id="caberatier_id" th:field="*{caberatier_id}" />
+                	<input type="text" value="concert" id="concert_id" th:field="*{concert_id}" />
+                	<input type="text" value="theatervoorstelling" id="theatervoorstelling_id" th:field="*{theatervoorstelling_id}" />
+                </td>
             </tr>
             
             <tr>

@@ -32,9 +32,8 @@ public class CaberetierService {
         caberetierRepository.deleteById((int) caberetierId);
     }
     
-    public Caberetier getOneCaberetier(Integer caberetierId) {
-    	Caberetier c1 = caberetierRepository.findOneCaberetier(caberetierId);
-        return c1;
+    public Caberetier getOneCaberetier(Integer caberetier_id) {
+        return caberetierRepository.findOneCaberetier(caberetier_id);
     }
     
 }

@@ -20,9 +20,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.bp4.Caberetier.Caberetier;
 import com.example.bp4.Caberetier.CaberetierService;
+import com.example.bp4.Concert.Concert;
+import com.example.bp4.Concert.ConcertService;
 import com.example.bp4.Theater.Theater;
 import com.example.bp4.Theater.TheaterService;
-
+import com.example.bp4.TheaterVoortstelling.TheaterVoorstelling;
+import com.example.bp4.TheaterVoortstelling.TheaterVoorstellingService;
 import com.example.bp4.Theaterzaal.Theaterzaal;
 import com.example.bp4.Theaterzaal.TheaterzaalService;
 
@@ -42,10 +45,16 @@ public class VoorstellingController {
 	@Autowired
     private CaberetierService caberetierService;
 	
+	@Autowired
+    private ConcertService concertService;
+	
+	@Autowired
+    private TheaterVoorstellingService theaterVoorstellingService;
+	
 	@RequestMapping("/voorstelling/inplannen")
     public String showNewVoorstellingPage(Model model, HttpServletRequest request, @RequestParam(required = false) String theaternaam) {
-		Caberetier caberetier = new Caberetier();
-        model.addAttribute("caberetier", caberetier);
+		Voorstelling voorstelling = new Voorstelling();
+        model.addAttribute("voorstelling", voorstelling);
         
         Theater theater = new Theater();
         model.addAttribute("theater", theater);
@@ -85,13 +94,32 @@ public class VoorstellingController {
                               @RequestParam("afkomst") String afkomst,
                               @RequestParam("datum") String datum,
                               @RequestParam("tijd") String tijd,
-                              @RequestParam("caberatier_id") Integer caberetier_id) {
+                              @RequestParam(value = "caberatier_id", required =false) Integer caberetier_id,
+                              @RequestParam(value = "concert_id", required =false) Integer concert_id,
+                              @RequestParam(value = "theatervoorstelling_id", required =false) Integer theatervoorstelling_id) {
+		
+		Voorstelling voorstelling;
 		
 		Integer theaterzaal_id = theaterzaalService.findTheaterzaalId(theaterzaalnaam);
-		Caberetier caberetier1 = caberetierService.getOneCaberetier(caberetier_id);
-		
-		Voorstelling voorstelling = new Caberetier(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, caberetier_id);
-        voorstelligService.save(voorstelling);
+		System.out.print(voorstellingSoort);
+		if(voorstellingSoort.equals("Caberatier")) {
+			Caberetier caberetier = caberetierService.getOneCaberetier(caberetier_id);
+			
+			voorstelling = new Caberetier(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, caberetier_id);
+		}
+		else if(voorstellingSoort.equals("Concert")) {
+			Concert concert = concertService.getOneConcert(concert_id);
+			
+			voorstelling = new Concert(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, concert_id);
+	       
+		}
+		else {
+			TheaterVoorstelling theaterVoorstelling = theaterVoorstellingService.getOneTheaterVoorstelling(theatervoorstelling_id);
+			
+			voorstelling = new TheaterVoorstelling(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, theatervoorstelling_id);
+	       
+		}
+		 voorstelligService.save(voorstelling);
 
         return "redirect:/";
     }

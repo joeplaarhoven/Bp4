@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.bp4.Caberetier.Caberetier;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -28,5 +30,9 @@ public class ConcertService {
 
     public void delete(long concertId) {
         concertRepository.deleteById((int) concertId);
+    }
+
+    public Concert getOneConcert(Integer concert_id) {
+        return concertRepository.findOneConcert(concert_id);
     }
 }

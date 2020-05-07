@@ -36,9 +36,26 @@ public class Caberetier extends Voorstelling {
 		this.geslacht = geslacht;
 	}
 
-
-
-
+	
+//	public Caberetier(Integer theaterzaal_id, 
+//			String voorstellingSoort, 
+//			String leeftijdsCat, 
+//			String afkomst, 
+//			String datum, 
+//			String tijd, 
+//			Integer caberetier_id, 
+//			String voornaam, 
+//			String achternaam, 
+//			String leeftijd, 
+//			String geslacht) {
+//		super(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, caberetier_id);
+//
+//        this.caberatier_id = caberatier_id;
+//        this.caberetier_voornaam = voornaam;
+//        this.caberetier_achternaam = achternaam;
+//        this.leeftijd = leeftijd;
+//        this.geslacht = geslacht;
+//	}
 
 
 	public Caberetier() {
