@@ -7,30 +7,28 @@
 <body>
 <div align="center">
     <h1>Cabaretier Toevoegen</h1>
-    <br />
-    <form action="#" th:action="@{/cabaretier/save}" th:object="${cabaretier}"
-          method="post">
-
+    <br/>
+    <form action="#" th:action="@{/cabaretier/save}" th:object="${cabaretier}" onsubmit="required()" method="post">
         <table border="0" cellpadding="10">
             <tr>
                 <td>Cabaretier Voornaam:</td>
-                <td><input type="text" th:field="*{cabaretier_voornaam}" /></td>
+                <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{cabaretier_voornaam}" /></td>
             </tr>
             <tr>
                 <td>Cabaretier Achternaam:</td>
-                <td><input type="text" th:field="*{cabaretier_achternaam}" /></td>
+                <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{cabaretier_achternaam}" /></td>
             </tr>
             <tr>
             	<td>Geboortedatum:</td>
-            	<td><input type="text" th:field="*{geboortedatum}" /></td>
+            	<td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{geboortedatum}" /></td>
             </tr>
             <tr>
                 <td>Geslacht:</td>
                 <td>
-               		<select  th:field="*{geslacht}">
-	                         <option id="selectedItem" value=""> -- </option>
-	                            <option value = "Man">Man</option>
-   								<option value = "Vrouw">Vrouw</option>
+               		<select required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{geslacht}">
+               			<option id="selectedItem" value=""> -- </option>
+               			<option value = "Man">Man</option>
+               			<option value = "Vrouw">Vrouw</option>
 	                </select>
 	            </td>
             </tr>

@@ -7,7 +7,7 @@
 </head>
 <body>
 <div align="center">
-    <h1>Create New Product</h1>
+    <h1>Nieuwe eigenaar toevoegen</h1>
     <br />
     <form action="#" th:action="@{/eigenaar/save}" th:object="${eigenaar}"
           method="post">
@@ -15,27 +15,27 @@
         <table border="0" cellpadding="10">
             <tr>
                 <td>Voornaam:</td>
-                <td><input type="text" th:field="*{eigenaar_voornaam}" /></td>
+                <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{eigenaar_voornaam}" /></td>
             </tr>
             <tr>
                 <td>Achternaam:</td>
-                <td><input type="text" th:field="*{eigenaar_achternaam}" /></td>
+                <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{eigenaar_achternaam}" /></td>
             </tr>
             <tr>
                 <td>Woonplaats:</td>
-                <td><input type="text" th:field="*{woonplaats}" /></td>
+                <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{woonplaats}" /></td>
             </tr>
             <tr>
                 <td>Telefoonnummer:</td>
-                <td><input type="text" th:field="*{telefoonnummer}" /></td>
+                <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{telefoonnummer}" /></td>
             </tr>
             <tr>
                 <td>Gebruikersnaam(email):</td>
-                <td><input type="text" th:field="*{emailadres}" /></td>
+                <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{emailadres}" /></td>
             </tr>
             <tr>
                 <td>Wachtwoord:</td>
-                <td><input type="text" th:field="*{wachtwoord}" /></td>
+                <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{wachtwoord}" /></td>
             </tr>
             <tr>
                 <td colspan="2"><button type="submit">Save</button> </td>

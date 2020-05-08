@@ -15,11 +15,11 @@
         <table border="0" cellpadding="10">
             <tr>
                 <td>Gebruikersnaam:</td>
-                <td><input type="text" th:field="*{gebruikersnaam}" /></td>
+                <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{gebruikersnaam}" /></td>
             </tr>
             <tr>
                 <td>Wachtwoord:</td>
-                <td><input type="text" th:field="*{wachtwoord}" /></td>
+                <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{wachtwoord}" /></td>
             </tr>
             <tr>
                 <td colspan="2"><button type="submit">Login</button> </td>

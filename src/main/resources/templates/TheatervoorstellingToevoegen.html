@@ -14,15 +14,15 @@
         <table border="0" cellpadding="10">
             <tr>
                 <td>Theatervoorstelling Naam:</td>
-                <td><input type="text" th:field="*{theatervoorstelling_naam}" /></td>
+                <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{theatervoorstelling_naam}" /></td>
             </tr>
             <tr>
             	<td>Acteurs:</td>
-            	<td><input type="text" th:field="*{acteurs}" /></td>
+            	<td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{acteurs}" /></td>
             </tr>
             <tr>
             	<td>Productie Afkomst:</td>
-            	<td><input type="text" th:field="*{productie_afkomst}" /></td>
+            	<td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{productie_afkomst}" /></td>
             </tr>
             <tr>
                 <td colspan="2"><button type="submit">Save</button> </td>

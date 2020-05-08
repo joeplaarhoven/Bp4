@@ -18,7 +18,7 @@
                 <td>Theater:</td>
                 <td>
 	                <span id="span_id">
-		               	<select class="theaterDD" th:field="*{theaternaam}">
+		               	<select required pattern=".*\S+.*" title="Dit is een verplicht veld" class="theaterDD" th:field="*{theaternaam}">
 	                         <option id="selectedItem" value=""> -- </option>
 	                         <option th:each="theater : ${theaterList}"
 	                            th:value="${theater.theaternaam}"
@@ -36,7 +36,7 @@
             <tr>
                 <td id="test">VoorstellingSoort:</td>
                 <td>
-					 <input type="radio" th:field="*{voorstellingsoort}" id="Cabaretier" name="voorstellingsoort" value="Cabaretier">
+					<input type="radio" th:field="*{voorstellingsoort}" id="Cabaretier" name="voorstellingsoort" value="Cabaretier">
 					<label for="Cabaretier">Cabaretier</label><br>
 					<input type="radio" th:field="*{voorstellingsoort}" id=""Concert"" name="voorstellingsoort" value="Concert">
 					<label for="Concert">Concert</label><br>
@@ -48,7 +48,7 @@
             <tr>
                 <td>Theaterzaal:</td>
                 <td>
-               		<select  th:field="*{theaterzaal_id}">
+               		<select  required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{theaterzaal_id}">
 	                         <option id="selectedItem" value=""> -- </option>
 	                         <option th:each="theaterzaal : ${theaterZaalList}"
 	                            th:value="${theaterzaal.zaalnaam}"
@@ -58,19 +58,19 @@
             </tr>
             <tr>
             <td>Leeftijdscategorie:</td>
-            <td><input type="text" th:field="*{v_leeftijdscategorie}" /></td>
+            <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{v_leeftijdscategorie}" /></td>
             </tr>
             <tr>
                 <td>Afkomst:</td>
-                <td><input type="text" th:field="*{afkomst}" /></td>
+                <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{afkomst}" /></td>
             </tr>
             <tr>
                 <td>Datum:</td>
-                <td><input type="text" th:field="*{datum}" /></td>
+                <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{datum}" /></td>
             </tr>
             <tr>
                 <td>Tijd:</td>
-                <td><input type="text" th:field="*{tijd}" /></td>
+                <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{tijd}" /></td>
             </tr>
             <tr id="voorstellingSoortId">
                 <td>ID:</td>
