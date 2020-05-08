@@ -1,58 +1,64 @@
 package com.example.bp4.Concert;
 
-import com.example.bp4.Caberetier.CaberetierPK;
 import com.example.bp4.Voorstelling.Voorstelling;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="concerten")
 @IdClass(ConcertPK.class)
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Concert extends Voorstelling {
+	@Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+	public Integer concert_id;
+	
+	@Column(name = "concert_naam", nullable = true, unique = false)
+    public String concert_naam;
+	@Column(name = "genre", nullable = true, unique = false)
+    public String genre;
+	@Column(name = "artiest", nullable = true, unique = false)
+    public String artiest;
 
-	private Integer concert_id;
-    private String concert_naam;
-    private String artiest, genre;
-
-    public Concert() {
-    	
-    }
-    
-    public Concert(Integer theaterID, 
-    		String voorstellingSoort, 
-    		String theaterzaal, 
-    		String leeftijdsCat, 
-    		String afkomst, 
-    		String datum, 
-    		String tijd, 
-    		Integer concert_id) {
-        this.v_theaterzaal_id = theaterID;
-        this.voorstellingsoort = voorstellingSoort;
-        this.v_leeftijdscategorie = leeftijdsCat;
-        this.afkomst = afkomst;
-        this.datum = datum;
-        this.tijd = tijd;
-        this.concert_id = concert_id;
-    }
-
-
-    public Concert(Integer theaterzaal_id, String voorstellingSoort, String leeftijdsCat, String afkomst, String datum,
-			String tijd, Integer concert_id) {
+    public Concert(Integer theaterzaal_id, String voorstellingSoort, String leeftijdsCat, String afkomst, String datum, String tijd, Integer concert_id) {
     	super(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, concert_id);
 
         this.concert_id = concert_id;
 	}
-
+    
+    public Concert(Integer concert_id, String concert_naam, String genre, String artiest) {
+    	this.concert_id = concert_id;
+		this.concert_naam = concert_naam;
+		this.genre = genre;
+		this.artiest = artiest;
+	}
+    
+    public Concert(String concert_naam, String genre, String artiest, Integer voorstelling_id) {
+		this.concert_naam = concert_naam;
+		this.genre = genre;
+		this.artiest = artiest;
+		this.voorstelling_id = voorstelling_id;
+	}
+    
+//    public Concert(Integer theaterID, 
+//    		String voorstellingSoort, 
+//    		String theaterzaal, 
+//    		String leeftijdsCat, 
+//    		String afkomst, 
+//    		String datum, 
+//    		String tijd, 
+//    		Integer concert_id) {
+//        this.v_theaterzaal_id = theaterID;
+//        this.voorstellingsoort = voorstellingSoort;
+//        this.v_leeftijdscategorie = leeftijdsCat;
+//        this.afkomst = afkomst;
+//        this.datum = datum;
+//        this.tijd = tijd;
+//        this.concert_id = concert_id;
+//    }
+    
+    public Concert() {
+    	
+    }
 
 	public Integer getConcert_id() {
         return concert_id;

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Theatervoorstelling Toevoegen</title>
+</head>
+<body>
+<div align="center">
+    <h1>Theatervoorstelling Toevoegen</h1>
+    <br />
+    <form action="#" th:action="@{/theatervoorstelling/save}" th:object="${theatervoorstelling}"
+          method="post">
+
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>Theatervoorstelling Naam:</td>
+                <td><input type="text" th:field="*{theatervoorstelling_naam}" /></td>
+            </tr>
+            <tr>
+            	<td>Acteurs:</td>
+            	<td><input type="text" th:field="*{acteurs}" /></td>
+            </tr>
+            <tr>
+            	<td>Productie Afkomst:</td>
+            	<td><input type="text" th:field="*{productie_afkomst}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Save</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

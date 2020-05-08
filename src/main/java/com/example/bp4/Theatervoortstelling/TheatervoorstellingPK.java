@@ -1,4 +1,4 @@
-package com.example.bp4.TheaterVoortstelling;
+package com.example.bp4.Theatervoortstelling;
 
 import java.io.Serializable;
 

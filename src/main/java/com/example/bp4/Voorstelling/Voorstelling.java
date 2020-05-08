@@ -1,6 +1,6 @@
 package com.example.bp4.Voorstelling;
 
-import com.example.bp4.Caberetier.Caberetier;
+import com.example.bp4.Cabaretier.Cabaretier;
 import com.example.bp4.Concert.ConcertPK;
 
 import javax.persistence.*;
@@ -21,7 +21,8 @@ public class Voorstelling implements Serializable {
     protected Integer voorstelling_id;
 
     protected Integer v_theaterzaal_id;
-    protected Integer caberatier_id, concert_id, theatervoorstelling_id;
+    protected Integer cabaretier_id, concert_id, theatervoorstelling_id;
+    
     public Integer getConcert_id() {
 		return concert_id;
 	}
@@ -38,12 +39,12 @@ public class Voorstelling implements Serializable {
 		this.theatervoorstelling_id = theatervoorstelling_id;
 	}
 
-	public Integer getCaberatier_id() {
-		return caberatier_id;
+	public Integer getCabaretier_id() {
+		return cabaretier_id;
 	}
 
-	public void setCaberatier_id(Integer caberatier_id) {
-		this.caberatier_id = caberatier_id;
+	public void setCabaretier_id(Integer cabaretier_id) {
+		this.cabaretier_id = cabaretier_id;
 	}
 
 	public Integer getV_theaterzaal_id() {
@@ -56,15 +57,14 @@ public class Voorstelling implements Serializable {
     public String datum;
     public String tijd;
 
-	public Voorstelling(Integer v_theaterzaal_id, String voorstellingsoort, String v_leeftijdscategorie, String afkomst,
-			String datum, String tijd, Integer caberatier_id1) {
+	public Voorstelling(Integer v_theaterzaal_id, String voorstellingsoort, String v_leeftijdscategorie, String afkomst, String datum, String tijd, Integer cabaretier_id) {
 		this.v_theaterzaal_id = v_theaterzaal_id;
 		this.voorstellingsoort = voorstellingsoort;
 		this.v_leeftijdscategorie = v_leeftijdscategorie;
 		this.afkomst = afkomst;
 		this.datum = datum;
 		this.tijd = tijd;
-		this.caberatier_id = caberatier_id;
+		this.cabaretier_id = cabaretier_id;
 	}
 
 	public Voorstelling() {

@@ -1,18 +1,14 @@
 package com.example.bp4.Concert;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.example.bp4.Caberetier.Caberetier;
-
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional
 public class ConcertService {
+	
     @Autowired
     ConcertRepository concertRepository;
 
@@ -25,7 +21,8 @@ public class ConcertService {
     }
 
     public Concert get(long concertId) {
-        return concertRepository.findById((int) concertId).get();
+        Concert c1 = concertRepository.findById((int) concertId).get();
+        return c1;
     }
 
     public void delete(long concertId) {
@@ -35,4 +32,5 @@ public class ConcertService {
     public Concert getOneConcert(Integer concert_id) {
         return concertRepository.findOneConcert(concert_id);
     }
+    
 }

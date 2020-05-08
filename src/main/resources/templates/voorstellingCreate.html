@@ -36,12 +36,12 @@
             <tr>
                 <td id="test">VoorstellingSoort:</td>
                 <td>
-					 <input type="radio" th:field="*{voorstellingsoort}" id="Caberatier" name="voorstellingsoort" value="Caberatier">
-					<label for="Caberatier">Caberatier</label><br>
+					 <input type="radio" th:field="*{voorstellingsoort}" id="Cabaretier" name="voorstellingsoort" value="Cabaretier">
+					<label for="Cabaretier">Cabaretier</label><br>
 					<input type="radio" th:field="*{voorstellingsoort}" id=""Concert"" name="voorstellingsoort" value="Concert">
 					<label for="Concert">Concert</label><br>
 					<input type="radio" th:field="*{voorstellingsoort}" id="Theatervoorstelling" name="voorstellingsoort" value="Theatervoorstelling">
-					<label for="Seniorenavond">Theatervoorstelling</label> 
+					<label for="Theatervoorstelling">Theatervoorstelling</label> 
 				</td>
             </tr>
             
@@ -57,7 +57,7 @@
 	            </td>
             </tr>
             <tr>
-            <td>leeftijdsCat:</td>
+            <td>Leeftijdscategorie:</td>
             <td><input type="text" th:field="*{v_leeftijdscategorie}" /></td>
             </tr>
             <tr>
@@ -65,17 +65,17 @@
                 <td><input type="text" th:field="*{afkomst}" /></td>
             </tr>
             <tr>
-                <td>datum:</td>
+                <td>Datum:</td>
                 <td><input type="text" th:field="*{datum}" /></td>
             </tr>
             <tr>
-                <td>tijd:</td>
+                <td>Tijd:</td>
                 <td><input type="text" th:field="*{tijd}" /></td>
             </tr>
             <tr id="voorstellingSoortId">
-                <td>id:</td>
+                <td>ID:</td>
                 <td>
-                	<input type="text" value="caberetier" id="caberatier_id" th:field="*{caberatier_id}" />
+                	<input type="text" value="cabaretier" id="cabaretier_id" th:field="*{cabaretier_id}" />
                 	<input type="text" value="concert" id="concert_id" th:field="*{concert_id}" />
                 	<input type="text" value="theatervoorstelling" id="theatervoorstelling_id" th:field="*{theatervoorstelling_id}" />
                 </td>

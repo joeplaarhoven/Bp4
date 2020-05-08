@@ -3,7 +3,6 @@ $( document ).ready(function() {
 	$( ".theaterDD" ).change(function() {
 		 var value = $(this).children("option:selected").val();
 		 $("#hiddenTheater").val(value)
-		 alert(value);
 		 $("#theaterSel").submit();
 		});
 	
@@ -28,28 +27,19 @@ $( document ).ready(function() {
 	
 	$('input[type=radio][name=voorstellingsoort]').change(function() {
 		$("#voorstellingSoortId").show()
-	    if (this.value == 'Caberatier') {
-	    	 var action = /*[[@{/cabaretier/save}]]*/ '/cabaretier/save';
-    	     $("#voorstellingForm").attr("action", action);
-    	     
-    	     $("#caberatier_id").show();
+	    if (this.value == 'Cabaretier') {    	     
+    	     $("#cabaretier_id").show();
     	     $("#concert_id").hide();
     	     $("#theatervoorstelling_id").hide();
 	    }
 	    else if (this.value == 'Concert') {
-	    	var action = /*[[@{/concert/save}]]*/ '/concert/save';
-   	     	$("#voorstellingForm").attr("action", action);
-   	     	
-   	     $("#caberatier_id").hide();
+   	     $("#cabaretier_id").hide();
 	     $("#concert_id").show();
 	     $("#theatervoorstelling_id").hide();
    	     	
 	    }
 	    else if (this.value == 'Theatervoorstelling') {
-	    	var action = /*[[@{/theatervoorstelling/save}]]*/ '/theatervoorstelling/save';
-   	     	$("#voorstellingForm").attr("action", action);
-   	     	
-   	     $("#caberatier_id").hide();
+   	     $("#cabaretier_id").hide();
 	     $("#concert_id").hide();
 	     $("#theatervoorstelling_id").show();
 	    }
