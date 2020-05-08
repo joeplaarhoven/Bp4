@@ -114,7 +114,7 @@ public class VoorstellingController {
 	       
 		}
 		else {
-			Theatervoorstelling theaterVoorstelling = theaterVoorstellingService.getOneTheaterVoorstelling(theatervoorstelling_id);
+			Theatervoorstelling theaterVoorstelling = theaterVoorstellingService.getOneTheatervoorstelling(theatervoorstelling_id);
 			
 			voorstelling = new Theatervoorstelling(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, theatervoorstelling_id);
 	       
