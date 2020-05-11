@@ -1,6 +1,5 @@
 package com.example.bp4.Gebruikers;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,6 +9,7 @@ import java.util.List;
 @Service
 @Transactional
 public class GebruikerService {
+	
     @Autowired
     GebruikerRepository gebruikerRepository;
 
@@ -33,4 +33,9 @@ public class GebruikerService {
     public String checkGebruikerLogin(String gebruikersnaam, String wachtwoord) {
     	return gebruikerRepository.checkGebruikerLogin(gebruikersnaam, wachtwoord);
     }
+    
+    public int updateGebruiker(String g_gebruiker_voornaam, String g_gebruiker_achternaam, String g_geboortedatum, String g_leeftijdscategorie, String g_afkomst, String g_gebruikersnaam, String g_wachtwoord, Integer g_gebruiker_id) {
+    	return gebruikerRepository.updateGebruiker(g_gebruiker_voornaam, g_gebruiker_achternaam, g_geboortedatum, g_leeftijdscategorie, g_afkomst, g_gebruikersnaam, g_wachtwoord, g_gebruiker_id);
+    }
+    
 }
