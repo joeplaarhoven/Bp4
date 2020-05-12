@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: left;
   color: black;
+  padding: 1%;
 }
 
 .theaters-table-tbody {
@@ -20,14 +21,13 @@
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
-  padding: 1%;
+  margin: 3%;
 }
 
 .theaters-table-th th, .theaters-table-td td {
   flex-basis: 100%;
   text-align: left;
   display: flex;
-  padding: 0.5%;
 }
 
 .theaters-table-th {
