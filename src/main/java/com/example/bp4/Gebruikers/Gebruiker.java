@@ -31,8 +31,21 @@ public class Gebruiker {
     @Column(name = "wachtwoord", nullable = false, unique = false)
     private String wachtwoord;
 
+    //Constructor om een nieuwe gebruiker aan te maken
     public Gebruiker(String gebruiker_voornaam, String gebruiker_achternaam, String geboortedatum, String leeftijdscategorie, String afkomst, String gebruikersnaam, String wachtwoord) {
         this.gebruiker_voornaam = gebruiker_voornaam;
+        this.gebruiker_achternaam = gebruiker_achternaam;
+        this.geboortedatum = geboortedatum;
+        this.leeftijdscategorie = leeftijdscategorie;
+        this.afkomst = afkomst;
+        this.gebruikersnaam = gebruikersnaam;
+        this.wachtwoord = wachtwoord;
+    }
+    
+    //Constructor om een bestaande gebruiker aan te passen
+    public Gebruiker(Integer gebruiker_id, String gebruiker_voornaam, String gebruiker_achternaam, String geboortedatum, String leeftijdscategorie, String afkomst, String gebruikersnaam, String wachtwoord) {
+        this.gebruiker_id = gebruiker_id;
+    	this.gebruiker_voornaam = gebruiker_voornaam;
         this.gebruiker_achternaam = gebruiker_achternaam;
         this.geboortedatum = geboortedatum;
         this.leeftijdscategorie = leeftijdscategorie;

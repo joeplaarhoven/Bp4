@@ -9,13 +9,13 @@
 <div align="center">
     <h1>Gebruiker aanpassen</h1>
     <br />
-    <form action="#" th:action="@{/gebruiker/aanpassen/save}" th:object="${gebruiker}"
+    <form action="#" th:action="@{/gebruiker/aanpassen/{id}/save}" th:object="${gebruiker}"
           method="post">
 
         <table border="0" cellpadding="10">
-        	<tr>
+        	<tr style="display:none;">
                 <td>Gebruiker ID:</td>
-                <td><input type="text" th:field="*{gebruiker_id}" /></td>
+                <td><input type="text" th:field="*{gebruiker_id}" readonly="readonly"/></td>
             </tr>
             <tr>
                 <td>Voornaam:</td>
