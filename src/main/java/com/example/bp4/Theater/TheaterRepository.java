@@ -11,6 +11,6 @@ public interface TheaterRepository extends JpaRepository<Theater, Integer> {
 //    List<Product> findByTitleContainingOrContentContaining(String text, String textAgain);
 	
 	@Query(value = "SELECT theaternaam FROM Theaters WHERE theaternaam =?1", nativeQuery = true)
-	String alltheater(String theaternaam);  
+	String alltheater(String theaternaam);
 
 }

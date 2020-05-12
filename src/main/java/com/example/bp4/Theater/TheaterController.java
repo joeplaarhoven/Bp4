@@ -1,5 +1,7 @@
 package com.example.bp4.Theater;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,4 +34,13 @@ public class TheaterController {
 
 		return "redirect:/";
 	}
+	
+	@RequestMapping("/theaters")
+    public String viewAllTheaters(Model model) {
+		List<Theater> listTheaters = theaterService.listAll();
+	    model.addAttribute("listTheaters", listTheaters);
+	    
+	    return "Theaters";
+    }
+	
 }

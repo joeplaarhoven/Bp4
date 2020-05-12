@@ -1,0 +1,36 @@
+#theaters-table {
+  width: 100%;
+  height: flex;
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  color: black;
+}
+
+.theaters-table-tbody {
+  width: 100%;
+  position: relative;
+  align-items: stretch;
+  border: 1px solid black;
+  margin: 1%;
+}
+
+.theaters-table-tr {
+  flex-basis: 33.33333333%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding: 1%;
+}
+
+.theaters-table-th th, .theaters-table-td td {
+  flex-basis: 100%;
+  text-align: left;
+  display: flex;
+  padding: 0.5%;
+}
+
+.theaters-table-th {
+	color: #E00926;
+	font-weight: bold;
+}
