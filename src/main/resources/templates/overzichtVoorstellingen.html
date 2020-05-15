@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Voorstelling overzicht</title>
+</head>
+<body>
+<div align="center">
+	<form action="#" th:action="@{/voorstellingsoort/get}" method="post">
+	    <select >
+	    	<option>Cabaretier</option>
+	    	<option>Concert</option>
+	    	<option>Theatervoorstelling</option>
+	    </select>
+	    </form>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="cabaretiers : ${listCabaretiers}">
+            <td th:text="${cabaretiers.cabaretier_voornaam}">voornaam</td>
+            <td th:text="${cabaretiers.cabaretier_achternaam}">achternaam</td>
+            <td>
+               
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="concerten : ${listConcert}">
+            <td th:text="${concerten.concert_naam}">Concert naam</td>
+            <td th:text="${concerten.artiest}">Artiest</td>
+            <td>
+               
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="theatervoorstelling : ${listTheatervoorstelling}">
+            <td th:text="${theatervoorstelling.theatervoorstelling_naam}">naam</td>
+            <td th:text="${theatervoorstelling.acteurs}">acteurs</td>
+            <td>
+               
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

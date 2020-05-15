@@ -1,5 +1,8 @@
 package com.example.bp4.Gebruikers;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,12 +38,12 @@ public class GebruikerController {
     @RequestMapping(value = "/gebruiker/save", method = RequestMethod.POST)
     public String saveProduct(@RequestParam("gebruikerVoornaam") String gebruikerVoornaam,
                               @RequestParam("gebruikerAchternaam") String gebruikerAchternaam,
-                              @RequestParam("leeftijd") Integer leeftijd,
+                              @RequestParam("geboortedatum") String geboortedatum,
                               @RequestParam("afkomst") String afkomst,
-                              @RequestParam("leeftijdsCategorie") String leeftijdsCategorie,
+                              @RequestParam("leeftijdscategorie") String leeftijdscategorie,
                               @RequestParam("gebruikersnaam") String gebruikersnaam,
                               @RequestParam("wachtwoord") String wachtwoord) {
-        Gebruiker gebruiker = new Gebruiker(gebruikerVoornaam, gebruikerAchternaam, leeftijd, afkomst, leeftijdsCategorie, gebruikersnaam, wachtwoord);
+        Gebruiker gebruiker = new Gebruiker(gebruikerVoornaam, gebruikerAchternaam, geboortedatum, afkomst, leeftijdscategorie, gebruikersnaam, wachtwoord);
         gebruikerService.save(gebruiker);
 
         return "redirect:/";
@@ -48,9 +51,14 @@ public class GebruikerController {
     
     @RequestMapping(value = "/gebruiker/login/confirm", method = RequestMethod.POST)
     public String loginGebruiker(@RequestParam("gebruikersnaam") String gebruikersnaam,
-            					@RequestParam("wachtwoord") String wachtwoord) {
+            					@RequestParam("wachtwoord") String wachtwoord,
+            					HttpServletResponse response) {
     	String str = gebruikerService.checkGebruikerLogin(gebruikersnaam, wachtwoord);
     	if (str.equals(gebruikersnaam+","+wachtwoord)) {
+    		Cookie user = new Cookie("gebruiker", gebruikersnaam);
+    		user.setPath("/voorstellingen");
+    		response.addCookie(user);
+    		
     		return "redirect:/";
     	} else {
     		return "redirect:/login";

@@ -9,7 +9,7 @@ public class Gebruiker {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer gebruiker_id;
-    private Integer leeftijd;
+    private String geboortedatum;
 
     @Column(name = "gebruiker_voornaam", nullable = false, unique = false)
     private String gebruiker_voornaam;
@@ -26,15 +26,32 @@ public class Gebruiker {
     @Column(name = "wachtwoord", nullable = false, unique = false)
     private String wachtwoord;
 
-    @Column(name = "leeftijds_categorie", nullable = false, unique = false)
-    private String leeftijds_categorie;
+    @Column(name = "leeftijdscategorie", nullable = false, unique = false)
+    private String leeftijdscategorie;
 
-    public Gebruiker(String gebruiker_voornaam, String gebruiker_achternaam, Integer leeftijd, String afkomst, String leeftijds_categorie, String gebruikersnaam, String wachtwoord) {
+    public String getGebruiker_voornaam() {
+		return gebruiker_voornaam;
+	}
+
+	public void setGebruiker_voornaam(String gebruiker_voornaam) {
+		this.gebruiker_voornaam = gebruiker_voornaam;
+	}
+
+	public String getGebruiker_achternaam() {
+		return gebruiker_achternaam;
+	}
+
+	public void setGebruiker_achternaam(String gebruiker_achternaam) {
+		this.gebruiker_achternaam = gebruiker_achternaam;
+	}
+
+
+	public Gebruiker(String gebruiker_voornaam, String gebruiker_achternaam, String geboortedatum, String afkomst, String leeftijdscategorie, String gebruikersnaam, String wachtwoord) {
         this.gebruiker_voornaam = gebruiker_voornaam;
         this.gebruiker_achternaam= gebruiker_achternaam;
-        this.leeftijd = leeftijd;
+        this.geboortedatum =geboortedatum;
         this.afkomst = afkomst;
-        this.leeftijds_categorie = leeftijds_categorie;
+        this.leeftijdscategorie = leeftijdscategorie;
         this.gebruikersnaam = gebruikersnaam;
         this.wachtwoord = wachtwoord;
     }
@@ -51,20 +68,20 @@ public class Gebruiker {
         this.gebruiker_id = gebruiker_id;
     }
 
-    public Integer getLeeftijd() {
-        return leeftijd;
+    public String getGeboortedatum() {
+        return geboortedatum;
     }
 
-    public void setLeeftijd(Integer leeftijd) {
-        this.leeftijd = leeftijd;
+    public void setGeboortedatum(String geboortedatum) {
+        this.geboortedatum = geboortedatum;
     }
 
     public String getLeeftijdscategorie() {
-        return leeftijds_categorie;
+        return leeftijdscategorie;
     }
 
-    public void setLeeftijdsCategorie(String leeftijds_categorie) {
-        this.leeftijds_categorie = leeftijds_categorie;
+    public void setLeeftijdscategorie(String leeftijdscategorie) {
+        this.leeftijdscategorie = leeftijdscategorie;
     }
 
     public String getGebruikerVoornaam() {

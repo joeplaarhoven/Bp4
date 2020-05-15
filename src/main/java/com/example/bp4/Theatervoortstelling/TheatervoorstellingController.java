@@ -27,7 +27,7 @@ public class TheatervoorstellingController {
         Theatervoorstelling theatervoorstelling = new Theatervoorstelling();
         model.addAttribute("theatervoorstelling", theatervoorstelling);
 
-        return "TheatervoorstellingToevoegen";
+		return "TheatervoorstellingToevoegen";
     }
 
     @RequestMapping(value = "/theatervoorstelling/save", method = RequestMethod.POST)

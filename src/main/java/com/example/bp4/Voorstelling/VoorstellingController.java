@@ -2,16 +2,21 @@ package com.example.bp4.Voorstelling;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -51,6 +56,24 @@ public class VoorstellingController {
 	@Autowired
     private TheatervoorstellingService theaterVoorstellingService;
 	
+	@RequestMapping("/voorstellingen")
+    public String viewHomePage(Model model, HttpServletRequest request, @CookieValue(name = "gebruiker", defaultValue="") String gebruiker) {
+        List<Cabaretier> listCabaretiers = cabaretierService.listAll();
+        model.addAttribute("listCabaretiers", listCabaretiers);
+
+        List<Concert> listConcert = concertService.listAll();
+        model.addAttribute("listConcert", listConcert);
+        
+        List<Theatervoorstelling> listTheatervoorstelling = theaterVoorstellingService.listAll();
+        model.addAttribute("listTheatervoorstelling", listTheatervoorstelling);
+        
+        Cookie[] test = request.getCookies();
+        model.addAttribute("gebruiker", gebruiker);
+        
+        return "overzichtVoorstellingen";
+    }
+	
+	
 	@RequestMapping("/voorstelling/inplannen")
     public String showNewVoorstellingPage(Model model, HttpServletRequest request, @RequestParam(required = false) String theaternaam) {
 		Voorstelling voorstelling = new Voorstelling();
@@ -77,8 +100,16 @@ public class VoorstellingController {
 	
 	
 	
+	
+	
 	@RequestMapping(value = "/voorstelling/theater/save", method = RequestMethod.POST)
 	public ModelAndView redirectWithUsingRedirectPrefix(ModelMap model, @RequestParam("theaternaam") String theaternaam) {
+        model.addAttribute("theaternaam", theaternaam);
+        return new ModelAndView("redirect:/voorstelling/inplannen/", model);
+    }
+	
+	@RequestMapping(value = "/voorstellingsoort/get", method = RequestMethod.POST)
+	public ModelAndView getSelectedVoorstellingSoort(ModelMap model, @RequestParam("theaternaam") String theaternaam) {
         model.addAttribute("theaternaam", theaternaam);
         return new ModelAndView("redirect:/voorstelling/inplannen/", model);
     }

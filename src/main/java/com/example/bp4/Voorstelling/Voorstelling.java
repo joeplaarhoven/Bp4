@@ -21,7 +21,7 @@ public class Voorstelling implements Serializable {
     protected Integer voorstelling_id;
 
     protected Integer v_theaterzaal_id;
-    protected Integer cabaretier_id, concert_id, theatervoorstelling_id;
+    protected Integer cabaretier_id= null, concert_id = null, theatervoorstelling_id = null;
     
     public Integer getConcert_id() {
 		return concert_id;
