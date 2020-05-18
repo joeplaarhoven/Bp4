@@ -17,6 +17,12 @@ public class Gebruiker {
     @Column(name = "gebruiker_achternaam", nullable = false, unique = false)
     private String gebruiker_achternaam;
 
+    @Column(name = "geboortedatum", nullable = false, unique = false)
+    private String geboortedatum;
+
+    @Column(name = "leeftijdscategorie", nullable = false, unique = false)
+    private String leeftijdscategorie;
+
     @Column(name = "afkomst", nullable = false, unique = false)
     private String afkomst;
 
@@ -52,6 +58,24 @@ public class Gebruiker {
         this.geboortedatum =geboortedatum;
         this.afkomst = afkomst;
         this.leeftijdscategorie = leeftijdscategorie;
+    public Gebruiker(String gebruiker_voornaam, String gebruiker_achternaam, String geboortedatum, String leeftijdscategorie, String afkomst, String gebruikersnaam, String wachtwoord) {
+        this.gebruiker_voornaam = gebruiker_voornaam;
+        this.gebruiker_achternaam = gebruiker_achternaam;
+        this.geboortedatum = geboortedatum;
+        this.leeftijdscategorie = leeftijdscategorie;
+        this.afkomst = afkomst;
+        this.gebruikersnaam = gebruikersnaam;
+        this.wachtwoord = wachtwoord;
+    }
+
+    //Constructor om een bestaande gebruiker aan te passen
+    public Gebruiker(Integer gebruiker_id, String gebruiker_voornaam, String gebruiker_achternaam, String geboortedatum, String leeftijdscategorie, String afkomst, String gebruikersnaam, String wachtwoord) {
+        this.gebruiker_id = gebruiker_id;
+    	this.gebruiker_voornaam = gebruiker_voornaam;
+        this.gebruiker_achternaam = gebruiker_achternaam;
+        this.geboortedatum = geboortedatum;
+        this.leeftijdscategorie = leeftijdscategorie;
+        this.afkomst = afkomst;
         this.gebruikersnaam = gebruikersnaam;
         this.wachtwoord = wachtwoord;
     }
@@ -60,13 +84,13 @@ public class Gebruiker {
 
     }
 
-    public Integer getGebruiker_id() {
-        return gebruiker_id;
-    }
+	public Integer getGebruiker_id() {
+		return gebruiker_id;
+	}
 
-    public void setGebruiker_id(Integer gebruiker_id) {
-        this.gebruiker_id = gebruiker_id;
-    }
+	public void setGebruiker_id(Integer gebruiker_id) {
+		this.gebruiker_id = gebruiker_id;
+	}
 
     public String getGeboortedatum() {
         return geboortedatum;
@@ -83,44 +107,60 @@ public class Gebruiker {
     public void setLeeftijdscategorie(String leeftijdscategorie) {
         this.leeftijdscategorie = leeftijdscategorie;
     }
+	public String getGebruiker_voornaam() {
+		return gebruiker_voornaam;
+	}
 
-    public String getGebruikerVoornaam() {
-        return gebruiker_voornaam;
-    }
+	public void setGebruiker_voornaam(String gebruiker_voornaam) {
+		this.gebruiker_voornaam = gebruiker_voornaam;
+	}
 
-    public void setGebruikerVoornaam(String gebruiker_voornaam) {
-        this.gebruiker_voornaam = gebruiker_voornaam;
-    }
+	public String getGebruiker_achternaam() {
+		return gebruiker_achternaam;
+	}
 
-    public String getGebruikerAchternaam() {
-        return gebruiker_achternaam;
-    }
+	public void setGebruiker_achternaam(String gebruiker_achternaam) {
+		this.gebruiker_achternaam = gebruiker_achternaam;
+	}
 
-    public void setGebruikerAchternaam(String gebruiker_achternaam) {
-        this.gebruiker_achternaam = gebruiker_achternaam;
-    }
+	public String getGeboortedatum() {
+		return geboortedatum;
+	}
 
-    public String getAfkomst() {
-        return afkomst;
-    }
+	public void setGeboortedatum(String geboortedatum) {
+		this.geboortedatum = geboortedatum;
+	}
 
-    public void setAfkomst(String afkomst) {
-        this.afkomst = afkomst;
-    }
+	public String getLeeftijdscategorie() {
+		return leeftijdscategorie;
+	}
 
-    public String getGebruikersnaam() {
-        return gebruikersnaam;
-    }
+	public void setLeeftijdscategorie(String leeftijdscategorie) {
+		this.leeftijdscategorie = leeftijdscategorie;
+	}
 
-    public void setGebruikersnaam(String gebruikersnaam) {
-        this.gebruikersnaam = gebruikersnaam;
-    }
+	public String getAfkomst() {
+		return afkomst;
+	}
 
-    public String getWachtwoord() {
-        return wachtwoord;
-    }
+	public void setAfkomst(String afkomst) {
+		this.afkomst = afkomst;
+	}
 
-    public void setWachtwoord(String wachtwoord) {
-        this.wachtwoord = wachtwoord;
-    }
+	public String getGebruikersnaam() {
+		return gebruikersnaam;
+	}
+
+	public void setGebruikersnaam(String gebruikersnaam) {
+		this.gebruikersnaam = gebruikersnaam;
+	}
+
+	public String getWachtwoord() {
+		return wachtwoord;
+	}
+
+	public void setWachtwoord(String wachtwoord) {
+		this.wachtwoord = wachtwoord;
+	}
+
 }
