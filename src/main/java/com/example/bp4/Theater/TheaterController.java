@@ -35,6 +35,7 @@ public class TheaterController {
 		return "redirect:/";
 	}
 	
+<<<<<<< Updated upstream
 	@RequestMapping("/theater/aanpassen")
 	public String showNewGebruikerAanpassen(Model model) {
 		Theater theater = new Theater();
@@ -63,4 +64,34 @@ public class TheaterController {
 
       return mav;
   }
+=======
+	@RequestMapping(value = "/theater/change", method = RequestMethod.POST)
+	public String theaterFind (@RequestParam("theater_id") String theater_id) {
+		String str = theaterService.IDopzoek(theater_id)
+		if (str.equals(theater_id)){
+			public String theaterAanpassen(@RequestParam("theaternaam") String theaternaam,
+		            @RequestParam("straatnaam") String straatnaam,
+		            @RequestParam("huisnummer") Integer huisnummer,
+		            @RequestParam("postcode") String postcode,
+		            @RequestParam("plaats") String plaats) {
+		    	String str = theaterService.change(theaternaam, straatnaam, huisnummer, postcode, plaats);
+		    	theaterService.change(str);
+		}
+		else {
+			return "redirect:/toevoegen";
+		}
+	}
+    public String loginGebruiker(@RequestParam("theaternaam") String theaternaam,
+            @RequestParam("straatnaam") String straatnaam,
+            @RequestParam("huisnummer") Integer huisnummer,
+            @RequestParam("postcode") String postcode,
+            @RequestParam("plaats") String plaats) {
+    	String str = theaterService.change(theaternaam, straatnaam, huisnummer, postcode, plaats);
+    	if (str.equals(gebruikersnaam+","+wachtwoord)) {
+    		return "redirect:/";
+    	} else {
+    		return "redirect:/login";
+    	}    
+    }
+>>>>>>> Stashed changes
 }
