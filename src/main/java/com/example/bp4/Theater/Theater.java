@@ -41,6 +41,7 @@ public class Theater {
     @Column(name = "plaats", nullable = false, unique = false)
     private String plaats;
     
+    //Het toevoegen van een theater
     public Theater(String theaternaam, String straatnaam, Integer huisnummer, String postcode, String plaats) {
 
     	this.theaternaam = theaternaam;
@@ -50,11 +51,22 @@ public class Theater {
     	this.plaats = plaats;
     }
     
-    public Theater() {
+    //Het aanpassen van een theater
+    public Theater(Integer theater_id, String theaternaam, String straatnaam, Integer huisnummer, String postcode, String plaats) {
     	
+    	this.theater_id = theater_id;
+    	this.theaternaam = theaternaam;
+    	this.straatnaam = straatnaam;
+    	this.huisnummer = huisnummer;
+    	this.postcode = postcode;
+    	this.plaats = plaats;
     }
 
-    public Integer getTheater_id() {
+    public Theater() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Integer getTheater_id() {
         return theater_id;
     }
 

@@ -3,9 +3,11 @@ package com.example.bp4.Theater;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class TheaterController {
@@ -32,4 +34,33 @@ public class TheaterController {
 
 		return "redirect:/";
 	}
+	
+	@RequestMapping("/theater/aanpassen")
+	public String showNewGebruikerAanpassen(Model model) {
+		Theater theater = new Theater();
+		model.addAttribute("theater", theater);
+		
+		return "GebruikerUpdaten";
+	}
+	
+	@RequestMapping(value = "/theater/aanpassen/save", method = RequestMethod.POST)
+	public String updateTheater(@RequestParam("theaternaam") String t_theaternaam,
+			@RequestParam("straatnaam") String t_straatnaam,
+			@RequestParam("huisnummer") int t_huisnummer,
+			@RequestParam("postcode") String t_postcode,
+			@RequestParam("plaats") String t_plaats, 
+			@RequestParam("theater_id") int t_theater_id) {
+		theaterService.updateTheater(t_theaternaam, t_straatnaam, t_huisnummer, t_postcode, t_plaats, t_theater_id);
+		
+		return "redirect:/";
+	}
+  
+  @RequestMapping("/theater/aanpassen/{id}")
+  public ModelAndView showAanpassenGebruikerPage(@PathVariable(name = "id") int id) {
+      ModelAndView mav = new ModelAndView("GebruikerAanpassen");
+      Gebruiker gebruiker = gebruikerService.get(id);
+      mav.addObject("gebruiker", gebruiker);
+
+      return mav;
+  }
 }
