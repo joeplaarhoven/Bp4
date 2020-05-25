@@ -5,6 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.bp4.Cabaretier.Cabaretier;
+import com.example.bp4.Concert.Concert;
+import com.example.bp4.Theatervoortstelling.Theatervoorstelling;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -30,4 +34,15 @@ public class VoorstellingService {
     public void delete(long theaterId) {
         voorstellingRepository.deleteById((int) theaterId);
     }
+    
+    public List<Cabaretier> getCabaretierVoorstellingen(String gebruiker) {
+        return voorstellingRepository.getCabaretierVoorstellingen(gebruiker);
+    }
+    public List<Concert> getConcertVoorstellingen(String gebruiker) {
+        return voorstellingRepository.getConcertVoorstellingen(gebruiker);
+    }
+    public List<Theatervoorstelling> getTheaterVoorstellingen(String gebruiker) {
+        return voorstellingRepository.getTheaterVoorstellingen(gebruiker);
+    }
+    
 }

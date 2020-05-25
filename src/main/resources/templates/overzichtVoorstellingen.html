@@ -17,15 +17,26 @@
     <table border="1" cellpadding="10">
         <thead>
         <tr>
-            <th>Product ID</th>
-            <th>Name</th>
-            <th>Actions</th>
+            <th>Datum</th>
+            <th>Tijd</th>
+            <th>Leeftijdscategorie</th>
+            <th>Afkomst</th>
+            <th>Voornaam</th>
+            <th>Achternaam</th>
+            <th>Geboortedatum</th>
+            <th>Geslacht</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="cabaretiers : ${listCabaretiers}">
-            <td th:text="${cabaretiers.cabaretier_voornaam}">voornaam</td>
-            <td th:text="${cabaretiers.cabaretier_achternaam}">achternaam</td>
+            <td th:text="${cabaretiers.datum}">Datum</td>
+            <td th:text="${cabaretiers.tijd}">Tijd</td>
+            <td th:text="${cabaretiers.v_leeftijdscategorie}">Leeftijdscategorie</td>
+            <td th:text="${cabaretiers.afkomst}">Afkomst</td>
+            <td th:text="${cabaretiers.cabaretier_voornaam}">Voornaam</td>
+            <td th:text="${cabaretiers.cabaretier_achternaam}">Achternaam</td>
+            <td th:text="${cabaretiers.geboortedatum}">Geboortedatum</td>
+            <td th:text="${cabaretiers.geslacht}">Geslacht</td>
             <td>
                
             </td>
@@ -36,15 +47,24 @@
     <table border="1" cellpadding="10">
         <thead>
         <tr>
-            <th>Product ID</th>
-            <th>Name</th>
-            <th>Actions</th>
+            <th>Datum</th>
+            <th>Tijd</th>
+            <th>Leeftijdscategorie</th>
+            <th>Afkomst</th>
+            <th>Artiest</th>
+            <th>Concertnaam</th>
+            <th>Genre</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="concerten : ${listConcert}">
-            <td th:text="${concerten.concert_naam}">Concert naam</td>
+            <td th:text="${concerten.datum}">Datum</td>
+            <td th:text="${concerten.tijd}">Tijd</td>
+            <td th:text="${concerten.v_leeftijdscategorie}">Leeftijdscategorie</td>
+            <td th:text="${concerten.afkomst}">Afkomst</td>
             <td th:text="${concerten.artiest}">Artiest</td>
+            <td th:text="${concerten.concert_naam}">Concert naam</td>
+            <td th:text="${concerten.genre}">Genre</td>
             <td>
                
             </td>
@@ -55,19 +75,25 @@
     <table border="1" cellpadding="10">
         <thead>
         <tr>
-            <th>Product ID</th>
-            <th>Name</th>
-            <th>Actions</th>
+            <th>Datum</th>
+            <th>Tijd</th>
+            <th>Leeftijdscategorie</th>
+            <th>Afkomst</th>
+            <th>Theatervoorstelling naam</th>
+            <th>Acteurs</th>
+            <th>Productie afkomst</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="theatervoorstelling : ${listTheatervoorstelling}">
-            <td th:text="${theatervoorstelling.theatervoorstelling_naam}">naam</td>
-            <td th:text="${theatervoorstelling.acteurs}">acteurs</td>
-            <td>
-               
-            </td>
-        </tr>
+	        <tr th:each="theatervoorstelling : ${listTheatervoorstelling}">
+	            <td th:text="${theatervoorstelling.datum}">Datum</td>
+	            <td th:text="${theatervoorstelling.tijd}">Tijd</td>
+	            <td th:text="${theatervoorstelling.v_leeftijdscategorie}">Leeftijdscategorie</td>
+	            <td th:text="${theatervoorstelling.afkomst}">Afkomst</td>
+	            <td th:text="${theatervoorstelling.theatervoorstelling_naam}">Theatervoorstelling naam</td>
+	            <td th:text="${theatervoorstelling.acteurs}">Acteurs</td>
+	            <td th:text="${theatervoorstelling.productie_afkomst}">Productie afkomst</td>            
+	        </tr>
         </tbody>
     </table>
 </div>

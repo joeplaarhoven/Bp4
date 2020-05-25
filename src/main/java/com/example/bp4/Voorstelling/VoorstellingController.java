@@ -61,10 +61,10 @@ public class VoorstellingController {
         List<Cabaretier> listCabaretiers = cabaretierService.listAll();
         model.addAttribute("listCabaretiers", listCabaretiers);
 
-        List<Concert> listConcert = concertService.listAll();
+        List<Concert> listConcert = voorstelligService.getConcertVoorstellingen(gebruiker);
         model.addAttribute("listConcert", listConcert);
         
-        List<Theatervoorstelling> listTheatervoorstelling = theaterVoorstellingService.listAll();
+        List<Theatervoorstelling> listTheatervoorstelling = voorstelligService.getTheaterVoorstellingen(gebruiker);
         model.addAttribute("listTheatervoorstelling", listTheatervoorstelling);
         
         Cookie[] test = request.getCookies();
