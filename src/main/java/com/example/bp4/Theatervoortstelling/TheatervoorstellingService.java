@@ -20,13 +20,13 @@ public class TheatervoorstellingService {
     	theatervoorstellingRepository.save(theatervoorstelling);
     }
 
-    public Theatervoorstelling get(long theatervoorstellingId) {
-    	Theatervoorstelling t1 = theatervoorstellingRepository.findById((int) theatervoorstellingId).get();
-        return t1;
+    public Theatervoorstelling get(long theatervoorstelling_id) {
+    	Theatervoorstelling theatervoorstelling = theatervoorstellingRepository.findById((int) theatervoorstelling_id).get();
+        return theatervoorstelling;
     }
 
-    public void delete(long theatervoorstellingId) {
-    	theatervoorstellingRepository.deleteById((int) theatervoorstellingId);
+    public void delete(long theatervoorstelling_id) {
+    	theatervoorstellingRepository.deleteById((int) theatervoorstelling_id);
     }
     
     public Theatervoorstelling getOneTheatervoorstelling(Integer theatervoorstelling_id) {
