@@ -20,9 +20,9 @@ public class CabaretierService {
     	cabaretierRepository.save(cabaretier);
     }
 
-    public Cabaretier get(long cabaretierId) {
-    	Cabaretier c1 = cabaretierRepository.findById((int) cabaretierId).get();
-        return c1;
+    public Cabaretier get(long cabaretier_id) {
+    	Cabaretier cabaretier = cabaretierRepository.findById((int) cabaretier_id).get();
+        return cabaretier;
     }
 
     public void delete(long cabaretierId) {

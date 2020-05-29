@@ -20,13 +20,13 @@ public class ConcertService {
         concertRepository.save(concert);
     }
 
-    public Concert get(long concertId) {
-        Concert c1 = concertRepository.findById((int) concertId).get();
-        return c1;
+    public Concert get(long concert_id) {
+        Concert concert = concertRepository.findById((int) concert_id).get();
+        return concert;
     }
 
-    public void delete(long concertId) {
-        concertRepository.deleteById((int) concertId);
+    public void delete(long concert_id) {
+        concertRepository.deleteById((int) concert_id);
     }
 
     public Concert getOneConcert(Integer concert_id) {
