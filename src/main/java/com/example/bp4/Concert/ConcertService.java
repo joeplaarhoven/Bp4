@@ -33,4 +33,8 @@ public class ConcertService {
         return concertRepository.findOneConcert(concert_id);
     }
     
+    public int concertBijwerken(String c_concert_naam, String c_genre, String c_artiest, Integer c_concert_id) {
+    	return concertRepository.concertBijwerken(c_concert_naam, c_genre, c_artiest, c_concert_id);
+    }
+    
 }

@@ -33,4 +33,8 @@ public class CabaretierService {
         return cabaretierRepository.findOneCabaretier(cabaretier_id);
     }
     
+    public int cabaretierBijwerken(String c_cabaretier_voornaam, String c_cabaretier_achternaam, String c_geboortedatum, String c_geslacht, Integer c_cabaretier_id) {
+    	return cabaretierRepository.cabaretierBijwerken(c_cabaretier_voornaam, c_cabaretier_achternaam, c_geboortedatum, c_geslacht, c_cabaretier_id);
+    }
+    
 }

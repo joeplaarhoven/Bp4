@@ -1,6 +1,7 @@
 package com.example.bp4.Concert;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -16,5 +17,9 @@ public interface ConcertRepository extends JpaRepository<Concert, Integer> {
 			" ON Concerten.concert_id = Voorstellingen.concert_id\r\n" + 
 			" WHERE Concerten.concert_id = ?1", nativeQuery = true)
 	Concert findOneConcert(Integer concert_id);
+	
+	@Modifying(clearAutomatically = true)
+	@Query(value = "UPDATE Concerten SET concert_naam =?1, genre =?2, artiest =?3, voorstelling_id = 0 WHERE concert_id =?4", nativeQuery = true)
+	int concertBijwerken(String c_concert_naam, String c_genre, String c_artiest, Integer c_concert_id);
 
 }
