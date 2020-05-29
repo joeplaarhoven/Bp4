@@ -45,15 +45,6 @@ public class Cabaretier extends Voorstelling {
 		this.voorstelling_id = voorstelling_id;
 	}
 	
-	public Cabaretier(Integer cabaretier_id, String cabaretier_voornaam, String cabaretier_achternaam, String geboortedatum, String geslacht, Integer voorstelling_id) {
-		this.cabaretier_id = cabaretier_id;
-		this.cabaretier_voornaam = cabaretier_voornaam;
-		this.cabaretier_achternaam = cabaretier_achternaam;
-		this.geboortedatum = geboortedatum;
-		this.geslacht = geslacht;
-		this.voorstelling_id = voorstelling_id;
-	}
-	
 //	public Caberetier(Integer theaterzaal_id, 
 //			String voorstellingSoort, 
 //			String leeftijdsCat, 
