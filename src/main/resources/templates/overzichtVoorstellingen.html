@@ -8,13 +8,30 @@
 </head>
 <body>
 <div align="center">
-	<form action="#" th:action="@{/voorstellingsoort/get}" method="post">
 	    <select id="voorstellingSoort">
+	    	<option>Alles weergeven</option>
 	    	<option>Cabaretier</option>
 	    	<option>Concert</option>
 	    	<option>Theatervoorstelling</option>
 	    </select>
-	    </form>
+	    
+	    <select id="leeftijdscategorie">
+	    	<option>Alles weergeven</option>
+	    	<option>3+</option>
+	    	<option>12+</option>
+	    	<option>16+</option>
+	    	<option>18+</option>
+	    	<option>65+</option>
+	    </select>
+	    
+	    <select id="afkomst">
+	    	<option>Alles weergeven</option>
+	    	<option>Nederlands</option>
+	    	<option>Aziatisch</option>
+	    	<option>Marokaans</option>
+	    	<option>Islamitsch</option>
+	    	<option>Joods</option>
+	    </select>
     <table border="1" id="cabaretier" cellpadding="10">
         <thead>
         <tr>
@@ -38,9 +55,6 @@
             <td th:text="${cabaretiers.cabaretier_achternaam}">Achternaam</td>
             <td th:text="${cabaretiers.geboortedatum}">Geboortedatum</td>
             <td th:text="${cabaretiers.geslacht}">Geslacht</td>
-            <td>
-               
-            </td>
         </tr>
         </tbody>
     </table>
@@ -66,9 +80,6 @@
             <td th:text="${concerten.artiest}">Artiest</td>
             <td th:text="${concerten.concert_naam}">Concert naam</td>
             <td th:text="${concerten.genre}">Genre</td>
-            <td>
-               
-            </td>
         </tr>
         </tbody>
     </table>
