@@ -45,4 +45,8 @@ public class VoorstellingService {
         return voorstellingRepository.getTheaterVoorstellingen(gebruiker);
     }
     
+    public void saveCabaretierVoorstelling(Voorstelling cabaretier) {
+    	voorstellingRepository.saveCabaretierVoorstelling(cabaretier);
+	}   
+    
 }

@@ -58,7 +58,7 @@ public class VoorstellingController {
 	
 	@RequestMapping("/voorstellingen")
     public String viewHomePage(Model model, HttpServletRequest request, @CookieValue(name = "gebruiker", defaultValue="") String gebruiker) {
-        List<Cabaretier> listCabaretiers = cabaretierService.listAll();
+        List<Cabaretier> listCabaretiers = voorstelligService.getCabaretierVoorstellingen(gebruiker);
         model.addAttribute("listCabaretiers", listCabaretiers);
 
         List<Concert> listConcert = voorstelligService.getConcertVoorstellingen(gebruiker);
@@ -137,6 +137,7 @@ public class VoorstellingController {
 			Cabaretier cabaretier = cabaretierService.getOneCabaretier(cabaretier_id);
 			
 			voorstelling = new Cabaretier(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, cabaretier_id);
+			voorstelligService.saveCabaretierVoorstelling(voorstelling);
 		}
 		else if(voorstellingSoort.equals("Concert")) {
 			Concert concert = concertService.getOneConcert(concert_id);
@@ -150,7 +151,7 @@ public class VoorstellingController {
 			voorstelling = new Theatervoorstelling(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, theatervoorstelling_id);
 	       
 		}
-		 voorstelligService.save(voorstelling);
+		 
 
         return "redirect:/";
     }
