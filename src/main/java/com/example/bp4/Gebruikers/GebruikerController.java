@@ -36,7 +36,6 @@ public class GebruikerController {
     }
 
     @RequestMapping(value = "/gebruiker/save", method = RequestMethod.POST)
-
     public String saveGebruiker(@RequestParam("gebruiker_voornaam") String gebruiker_voornaam,
                               @RequestParam("gebruiker_achternaam") String gebruiker_achternaam,
                               @RequestParam("geboortedatum") String geboortedatum,
@@ -44,7 +43,8 @@ public class GebruikerController {
                               @RequestParam("afkomst") String afkomst,
                               @RequestParam("gebruikersnaam") String gebruikersnaam,
                               @RequestParam("wachtwoord") String wachtwoord) {
-        Gebruiker gebruiker = new Gebruiker(gebruiker_voornaam, gebruiker_achternaam, geboortedatum, leeftijdscategorie, afkomst, gebruikersnaam, wachtwoord);
+        Gebruiker gebruiker = new Gebruiker(gebruiker_voornaam, gebruiker_achternaam, geboortedatum, leeftijdscategorie,
+        									afkomst, gebruikersnaam, wachtwoord);
         gebruikerService.save(gebruiker);
 
         return "redirect:/";

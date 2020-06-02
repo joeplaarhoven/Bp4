@@ -9,10 +9,11 @@ public class Gebruiker {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer gebruiker_id;
+    
     private String geboortedatum;
 
     @Column(name = "gebruiker_voornaam", nullable = false, unique = false)
-    private String gebruiker_voornaam;
+    private String gebruikerVoornaam;
 
     @Column(name = "gebruiker_achternaam", nullable = false, unique = false)
     private String gebruiker_achternaam;
