@@ -20,10 +20,6 @@ public class Theater {
     private String theaternaam;
     @Column(name = "straatnaam", nullable = false, unique = false)
     private String straatnaam;
-    @Column(name = "postcode", nullable = false, unique = false)
-    private String postcode;
-    @Column(name = "plaats", nullable = false, unique = false)
-    private String plaats;
 
 
     public Theater(Integer theater_id, String theaternaam) {

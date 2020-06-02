@@ -11,12 +11,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.bp4.Gebruikers.Gebruiker;
+import com.example.bp4.Gebruikers.GebruikerService;
+
 @Controller
 public class TheaterController {
 
 	@Autowired
 	private TheaterService theaterService;
 
+	@Autowired
+	private GebruikerService gebruikerService;
+	
 	@RequestMapping("/theater/toevoegen")
     public String showNewProductPage(Model model) {
         Theater theater = new Theater();
@@ -37,7 +43,6 @@ public class TheaterController {
 		return "redirect:/";
 	}
 
-<<<<<<< Updated upstream
 	@RequestMapping("/theater/aanpassen")
 	public String showNewGebruikerAanpassen(Model model) {
 		Theater theater = new Theater();
