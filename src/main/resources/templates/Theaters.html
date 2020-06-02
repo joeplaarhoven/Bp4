@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Ticket Theater - Theaters</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
+    <link href="../static/css/theaters.css" th:href="@{/css/theaters.css}" rel="stylesheet" />
+</head>
+<body>
+    <div id="topBar">
+        <img onclick="window.location.href = '/'" id="logo" src="images/Ticket-Theater_logo-wit-rood.PNG"/>
+		<table id="topBarMenu">
+			<tr>
+				<td >Voorstelling</td>
+				<td onclick="window.location.href = '/theaters'">Theaters</td>
+				<td onclick="window.location.href = '/login'">Login</td>
+			</tr>
+		</table>
+        
+    </div>
+    <div class="line"></div>
+    	<div id="fullWhite">
+    		
+    		<table id="theaters-table">
+			    <tbody class="theaters-table-tbody" th:each="theater : ${listTheaters}">
+			    	<tr class="theaters-table-tr">
+			        	<th class="theaters-table-th" colspan="1" th:text="${theater.theaternaam}">Theaternaam</th>
+			        </tr>
+			        <tr class="theaters-table-tr">
+			        	<td class="theaters-table-td" colspan="2" th:text="${theater.straatnaam}">Straatnaam</td>
+			        	<td class="theaters-table-td" colspan="3" th:text="${theater.huisnummer}">Huisnummer</td>
+			        </tr>
+			        <tr class="theaters-table-tr">
+			        	<td class="theaters-table-td" colspan="4" th:text="${theater.postcode}">Postcode</td>
+			        </tr>
+			        <tr class="theaters-table-tr">
+			          <td class="theaters-table-td" colspan="5" th:text="${theater.plaats}">Plaats</td>
+			        </tr>
+			    </tbody>
+			</table>
+    		  		
+    	</div>
+    <div class="line"></div>
+    <div id="bottomBar"></div>
+</body>
+</html>

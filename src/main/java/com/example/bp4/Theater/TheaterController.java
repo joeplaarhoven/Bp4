@@ -1,5 +1,7 @@
 package com.example.bp4.Theater;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,10 +13,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class TheaterController {
-	
+
 	@Autowired
 	private TheaterService theaterService;
-	
+
 	@RequestMapping("/theater/toevoegen")
     public String showNewProductPage(Model model) {
         Theater theater = new Theater();
@@ -22,7 +24,7 @@ public class TheaterController {
 
         return "TheaterToevoegen";
     }
-	
+
 	@RequestMapping(value = "/theater/save", method = RequestMethod.POST)
 	public String saveTheater(@RequestParam("theaternaam") String theaternaam,
             @RequestParam("straatnaam") String straatnaam,
@@ -34,28 +36,28 @@ public class TheaterController {
 
 		return "redirect:/";
 	}
-	
+
 <<<<<<< Updated upstream
 	@RequestMapping("/theater/aanpassen")
 	public String showNewGebruikerAanpassen(Model model) {
 		Theater theater = new Theater();
 		model.addAttribute("theater", theater);
-		
+
 		return "GebruikerUpdaten";
 	}
-	
+
 	@RequestMapping(value = "/theater/aanpassen/save", method = RequestMethod.POST)
 	public String updateTheater(@RequestParam("theaternaam") String t_theaternaam,
 			@RequestParam("straatnaam") String t_straatnaam,
 			@RequestParam("huisnummer") int t_huisnummer,
 			@RequestParam("postcode") String t_postcode,
-			@RequestParam("plaats") String t_plaats, 
+			@RequestParam("plaats") String t_plaats,
 			@RequestParam("theater_id") int t_theater_id) {
 		theaterService.updateTheater(t_theaternaam, t_straatnaam, t_huisnummer, t_postcode, t_plaats, t_theater_id);
-		
+
 		return "redirect:/";
 	}
-  
+
   @RequestMapping("/theater/aanpassen/{id}")
   public ModelAndView showAanpassenGebruikerPage(@PathVariable(name = "id") int id) {
       ModelAndView mav = new ModelAndView("GebruikerAanpassen");
@@ -64,34 +66,13 @@ public class TheaterController {
 
       return mav;
   }
-=======
-	@RequestMapping(value = "/theater/change", method = RequestMethod.POST)
-	public String theaterFind (@RequestParam("theater_id") String theater_id) {
-		String str = theaterService.IDopzoek(theater_id)
-		if (str.equals(theater_id)){
-			public String theaterAanpassen(@RequestParam("theaternaam") String theaternaam,
-		            @RequestParam("straatnaam") String straatnaam,
-		            @RequestParam("huisnummer") Integer huisnummer,
-		            @RequestParam("postcode") String postcode,
-		            @RequestParam("plaats") String plaats) {
-		    	String str = theaterService.change(theaternaam, straatnaam, huisnummer, postcode, plaats);
-		    	theaterService.change(str);
-		}
-		else {
-			return "redirect:/toevoegen";
-		}
-	}
-    public String loginGebruiker(@RequestParam("theaternaam") String theaternaam,
-            @RequestParam("straatnaam") String straatnaam,
-            @RequestParam("huisnummer") Integer huisnummer,
-            @RequestParam("postcode") String postcode,
-            @RequestParam("plaats") String plaats) {
-    	String str = theaterService.change(theaternaam, straatnaam, huisnummer, postcode, plaats);
-    	if (str.equals(gebruikersnaam+","+wachtwoord)) {
-    		return "redirect:/";
-    	} else {
-    		return "redirect:/login";
-    	}    
+
+	@RequestMapping("/theaters")
+    public String viewAllTheaters(Model model) {
+		List<Theater> listTheaters = theaterService.listAll();
+	    model.addAttribute("listTheaters", listTheaters);
+
+	    return "Theaters";
     }
->>>>>>> Stashed changes
+	
 }

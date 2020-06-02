@@ -1,7 +1,5 @@
 package com.example.bp4.Theater;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,20 +15,22 @@ public class Theater {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer theater_id;
     private Integer huisnummer;
-    
+
     @Column(name = "theaternaam", nullable = false, unique = true)
     private String theaternaam;
     @Column(name = "straatnaam", nullable = false, unique = false)
     private String straatnaam;
+    @Column(name = "postcode", nullable = false, unique = false)
+    private String postcode;
+    @Column(name = "plaats", nullable = false, unique = false)
+    private String plaats;
 
-    
-   
-    
+
     public Theater(Integer theater_id, String theaternaam) {
-    	this.theaternaam = theaternaam;
     	this.theater_id = theater_id;
+    	this.theaternaam = theaternaam;
     }
-    
+
     public Theater(String theaternaam, String straatnaam, Integer huisnummer) {
 		this.theaternaam = theaternaam;
 		this.straatnaam = straatnaam;
@@ -40,20 +40,19 @@ public class Theater {
     private String postcode;
     @Column(name = "plaats", nullable = false, unique = false)
     private String plaats;
-    
+
     //Het toevoegen van een theater
     public Theater(String theaternaam, String straatnaam, Integer huisnummer, String postcode, String plaats) {
-
     	this.theaternaam = theaternaam;
     	this.straatnaam = straatnaam;
     	this.huisnummer = huisnummer;
     	this.postcode = postcode;
     	this.plaats = plaats;
     }
-    
+
     //Het aanpassen van een theater
     public Theater(Integer theater_id, String theaternaam, String straatnaam, Integer huisnummer, String postcode, String plaats) {
-    	
+
     	this.theater_id = theater_id;
     	this.theaternaam = theaternaam;
     	this.straatnaam = straatnaam;
