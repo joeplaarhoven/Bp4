@@ -12,23 +12,31 @@ import javax.persistence.Table;
 @IdClass(KaartVerkoopPK.class)
 public class KaartVerkoop {
     @Id
-    private Integer gebruikersID;
+    private Integer kv_gebruikers_id;
     @Id
-    private Integer voorstellingID;
+    private Integer kv_voorstelling_id;
 
-    public Integer getGebruikersID() {
-        return gebruikersID;
+    public KaartVerkoop(Integer gebruikerId, Integer voorstellingId) {
+		this.kv_gebruikers_id = gebruikerId;
+		this.kv_voorstelling_id = voorstellingId;
+	}
+    
+    public KaartVerkoop() {
+	}
+
+	public Integer getGebruikersID() {
+        return kv_gebruikers_id;
     }
 
     public void setGebruikersID(Integer gebruikersID) {
-        this.gebruikersID = gebruikersID;
+        this.kv_gebruikers_id = gebruikersID;
     }
 
     public Integer getVoorstellingID() {
-        return voorstellingID;
+        return kv_voorstelling_id;
     }
 
     public void setVoorstellingID(Integer voorstellingID) {
-        this.voorstellingID = voorstellingID;
+        this.kv_voorstelling_id = voorstellingID;
     }
 }

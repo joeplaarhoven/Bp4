@@ -1,125 +1,181 @@
-package com.example.bp4.voorstelling;
+package com.example.bp4.Voorstelling;
 
-import java.text.dateformat;
-import java.text.simpledateformat;
-import java.util.date;
-import java.util.list;
-import java.util.locale;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
-import javax.servlet.http.httpservletrequest;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.beans.factory.annotation.autowired;
-import org.springframework.stereotype.controller;
-import org.springframework.ui.model;
-import org.springframework.ui.modelmap;
-import org.springframework.web.bind.annotation.pathvariable;
-import org.springframework.web.bind.annotation.requestmapping;
-import org.springframework.web.bind.annotation.requestmethod;
-import org.springframework.web.bind.annotation.requestparam;
-import org.springframework.web.servlet.modelandview;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.example.bp4.caberetier.caberetier;
-import com.example.bp4.caberetier.caberetierservice;
-import com.example.bp4.concert.concert;
-import com.example.bp4.concert.concertservice;
-import com.example.bp4.theater.theater;
-import com.example.bp4.theater.theaterservice;
-import com.example.bp4.theatervoortstelling.theatervoorstelling;
-import com.example.bp4.theatervoortstelling.theatervoorstellingservice;
-import com.example.bp4.theaterzaal.theaterzaal;
-import com.example.bp4.theaterzaal.theaterzaalservice;
+import com.example.bp4.Cabaretier.Cabaretier;
+import com.example.bp4.Cabaretier.CabaretierService;
+import com.example.bp4.Concert.Concert;
+import com.example.bp4.Concert.ConcertService;
+import com.example.bp4.Gebruikers.GebruikerService;
+import com.example.bp4.KaartVerkoop.KaartVerkoop;
+import com.example.bp4.KaartVerkoop.KaartVerkoopService;
+import com.example.bp4.Theater.Theater;
+import com.example.bp4.Theater.TheaterService;
+import com.example.bp4.Theatervoortstelling.Theatervoorstelling;
+import com.example.bp4.Theatervoortstelling.TheatervoorstellingService;
+import com.example.bp4.Theaterzaal.Theaterzaal;
+import com.example.bp4.Theaterzaal.TheaterzaalService;
 
 
-@controller
-public class voorstellingcontroller {
+@Controller
+public class VoorstellingController {
 	
-	@autowired
-    private voorstellingservice voorstelligservice;
 	
-	@autowired
-    private theaterservice theaterservice;
+	@Autowired
+    private VoorstellingService voorstelligService;
 	
-	@autowired
-    private theaterzaalservice theaterzaalservice;
+	@Autowired
+    private TheaterService theaterService;
 	
-	@autowired
-    private caberetierservice caberetierservice;
+	@Autowired
+    private TheaterzaalService theaterzaalService;
 	
-	@autowired
-    private concertservice concertservice;
+	@Autowired
+    private GebruikerService gebruikerService;
 	
-	@autowired
-    private theatervoorstellingservice theatervoorstellingservice;
+	@Autowired
+    private CabaretierService cabaretierService;
 	
-	@requestmapping("/voorstelling/inplannen")
-    public string shownewvoorstellingpage(model model, httpservletrequest request, @requestparam(required = false) string theaternaam) {
-		voorstelling voorstelling = new voorstelling();
-        model.addattribute("voorstelling", voorstelling);
+	@Autowired
+    private ConcertService concertService;
+	
+	@Autowired
+    private KaartVerkoopService kaartVerkoopService;
+	
+	@Autowired
+    private TheatervoorstellingService theaterVoorstellingService;
+	
+	String gebruikersnaam;
+	
+	@RequestMapping("/voorstellingen")
+    public String viewHomePage(Model model, HttpServletRequest request, @CookieValue(name = "gebruiker", defaultValue="") String gebruiker) {
+        List<Cabaretier> listCabaretiers = voorstelligService.getCabaretierVoorstellingen(gebruiker);
+        model.addAttribute("listCabaretiers", listCabaretiers);
+       
+
+        List<Concert> listConcert = voorstelligService.getConcertVoorstellingen(gebruiker);
+        model.addAttribute("listConcert", listConcert);
         
-        theater theater = new theater();
-        model.addattribute("theater", theater);
+        List<Theatervoorstelling> listTheatervoorstelling = voorstelligService.getTheaterVoorstellingen(gebruiker);
+        model.addAttribute("listTheatervoorstelling", listTheatervoorstelling);
         
-        list<theater> theaterlist = theaterservice.listall();
-        model.addattribute("theaterlist", theaterlist);
+        Cookie[] test = request.getCookies();
+        model.addAttribute("gebruiker", gebruiker);
+        
+        gebruikersnaam = gebruiker;
+        Integer gebruikersId = gebruikerService.getGebruikerId(gebruikersnaam);
+        
+        return "overzichtVoorstellingen";
+    }
+	
+	@RequestMapping(value = "/voorstellingen/kaartverkoop/{id}")
+	public String kaartverkoop(ModelMap model, @PathVariable(name = "id") int voorstellingId, @CookieValue(name = "gebruiker", defaultValue="") String gebruiker) {
+		Integer gebruikersId = gebruikerService.getGebruikerId(gebruiker);
+		KaartVerkoop kaartVerkoop = new KaartVerkoop(gebruikersId, voorstellingId);
+		kaartVerkoopService.save(kaartVerkoop);
+		return "redirect:/voorstellingen";
+    }
+	
+	
+	@RequestMapping("/voorstelling/inplannen")
+    public String showNewVoorstellingPage(Model model, HttpServletRequest request, @RequestParam(required = false) String theaternaam) {
+		Voorstelling voorstelling = new Voorstelling();
+        model.addAttribute("voorstelling", voorstelling);
+        
+        Theater theater = new Theater();
+        model.addAttribute("theater", theater);
+        
+        List<Theater> theaterList = theaterService.listAll();
+        model.addAttribute("theaterList", theaterList);
         
         
         
-        system.out.println(theaternaam);
-        model.addattribute("theaternaam", theaternaam);
+        System.out.println(theaternaam);
+        model.addAttribute("theaternaam", theaternaam);
         if(theaternaam != null) {
-        	list<theaterzaal> theaterzaallist = theaterzaalservice.alltheaterzalen(theaternaam);
-            model.addattribute("theaterzaallist", theaterzaallist);
+        	List<Theaterzaal> theaterZaalList = theaterzaalService.alltheaterzalen(theaternaam);
+            model.addAttribute("theaterZaalList", theaterZaalList);
         }
         
 
-        return "voorstellingcreate";
-    }
-	
-	
-	
-	@requestmapping(value = "/voorstelling/theater/save", method = requestmethod.post)
-	public modelandview redirectwithusingredirectprefix(modelmap model, @requestparam("theaternaam") string theaternaam) {
-        model.addattribute("theaternaam", theaternaam);
-        return new modelandview("redirect:/voorstelling/inplannen/", model);
+        return "voorstellingCreate";
     }
 	
 	
 	
 	
 	
-	@requestmapping(value = "/voorstelling/save", method = requestmethod.post)
-    public string saveproduct(@requestparam("theaterzaal_id") string theaterzaalnaam,
-                              @requestparam("voorstellingsoort") string voorstellingsoort,
-                              @requestparam("v_leeftijdscategorie") string leeftijdscat,
-                              @requestparam("afkomst") string afkomst,
-                              @requestparam("datum") string datum,
-                              @requestparam("tijd") string tijd,
-                              @requestparam(value = "caberatier_id", required =false) integer caberetier_id,
-                              @requestparam(value = "concert_id", required =false) integer concert_id,
-                              @requestparam(value = "theatervoorstelling_id", required =false) integer theatervoorstelling_id) {
+	@RequestMapping(value = "/voorstelling/theater/save", method = RequestMethod.POST)
+	public ModelAndView redirectWithUsingRedirectPrefix(ModelMap model, @RequestParam("theaternaam") String theaternaam) {
+        model.addAttribute("theaternaam", theaternaam);
+        return new ModelAndView("redirect:/voorstelling/inplannen/", model);
+    }
+	
+	@RequestMapping(value = "/voorstellingsoort/get", method = RequestMethod.POST)
+	public ModelAndView getSelectedVoorstellingSoort(ModelMap model, @RequestParam("theaternaam") String theaternaam) {
+        model.addAttribute("theaternaam", theaternaam);
+        return new ModelAndView("redirect:/voorstelling/inplannen/", model);
+    }
+	
+	
+	
+	
+	
+	@RequestMapping(value = "/voorstelling/save", method = RequestMethod.POST)
+    public String saveProduct(@RequestParam("theaterzaal_id") String theaterzaalnaam,
+                              @RequestParam("voorstellingsoort") String voorstellingSoort,
+                              @RequestParam("v_leeftijdscategorie") String leeftijdsCat,
+                              @RequestParam("afkomst") String afkomst,
+                              @RequestParam("datum") String datum,
+                              @RequestParam("tijd") String tijd,
+                              @RequestParam(value = "cabaretier_id", required =false) Integer cabaretier_id,
+                              @RequestParam(value = "concert_id", required =false) Integer concert_id,
+                              @RequestParam(value = "theatervoorstelling_id", required =false) Integer theatervoorstelling_id) {
 		
-		voorstelling voorstelling;
+		Voorstelling voorstelling;
 		
-		integer theaterzaal_id = theaterzaalservice.findtheaterzaalid(theaterzaalnaam);
-		system.out.print(voorstellingsoort);
-		if(voorstellingsoort.equals("caberatier")) {
-			caberetier caberetier = caberetierservice.getonecaberetier(caberetier_id);
+		Integer theaterzaal_id = theaterzaalService.findTheaterzaalId(theaterzaalnaam);
+		System.out.print(voorstellingSoort);
+		if(voorstellingSoort.equals("Cabaretier")) {
+			Cabaretier cabaretier = cabaretierService.getOneCabaretier(cabaretier_id);
 			
-			voorstelling = new caberetier(theaterzaal_id, voorstellingsoort, leeftijdscat, afkomst, datum, tijd, caberetier_id);
+			voorstelling = new Cabaretier(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, cabaretier_id);
+			voorstelligService.saveCabaretierVoorstelling(voorstelling);
 		}
-		else if(voorstellingsoort.equals("concert")) {
-			concert concert = concertservice.getoneconcert(concert_id);
+		else if(voorstellingSoort.equals("Concert")) {
+			Concert concert = concertService.getOneConcert(concert_id);
 			
-			voorstelling = new concert(theaterzaal_id, voorstellingsoort, leeftijdscat, afkomst, datum, tijd, concert_id);
+			voorstelling = new Concert(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, concert_id);
 	       
 		}
 		else {
-			theatervoorstelling theatervoorstelling = theatervoorstellingservice.getonetheatervoorstelling(theatervoorstelling_id);
+			Theatervoorstelling theaterVoorstelling = theaterVoorstellingService.getOneTheatervoorstelling(theatervoorstelling_id);
 			
-			voorstelling = new theatervoorstelling(theaterzaal_id, voorstellingsoort, leeftijdscat, afkomst, datum, tijd, theatervoorstelling_id);
+			voorstelling = new Theatervoorstelling(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, theatervoorstelling_id);
 	       
 		}
-		 voorstelligservice.save(voorstelling);
+		 
 
         return "redirect:/";
     }

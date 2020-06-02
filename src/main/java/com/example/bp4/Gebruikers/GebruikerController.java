@@ -98,10 +98,15 @@ public class GebruikerController {
             					HttpServletResponse response) {
     	String str = gebruikerService.checkGebruikerLogin(gebruikersnaam, wachtwoord);
     	if (str.equals(gebruikersnaam+","+wachtwoord)) {
+    		Integer gebruikersId = gebruikerService.getGebruikerId(gebruikersnaam);
+    		
     		Cookie user = new Cookie("gebruiker", gebruikersnaam);
+    		Cookie userId = new Cookie("gebruikerCabaretier", gebruikersId.toString());
     		user.setPath("/voorstellingen");
+    		userId.setPath("/voorstellingen/kaartverkoop/");
+    		
     		response.addCookie(user);
-
+    		response.addCookie(userId);
     		return "redirect:/";
     	} else {
     		return "redirect:/login";

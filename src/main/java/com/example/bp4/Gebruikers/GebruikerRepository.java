@@ -9,5 +9,8 @@ public interface GebruikerRepository extends JpaRepository<Gebruiker, Integer> {
 
 	@Query(value = "SELECT gebruikersnaam, wachtwoord FROM Gebruikers WHERE gebruikersnaam =?1 AND wachtwoord =?2", nativeQuery = true)
 	String checkGebruikerLogin(String gebruikersnaam, String wachtwoord);
+	
+	@Query(value = "SELECT gebruiker_id FROM Gebruikers WHERE gebruikersnaam =?1", nativeQuery = true)
+	Integer getGebruikerId(String gebruikersnaam);
 
 }

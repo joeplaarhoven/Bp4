@@ -4,15 +4,15 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class KaartVerkoopPK implements Serializable {
-    private int gebruikersID;
-    private int voorstellingID;
+    private Integer kv_gebruikers_id;
+    private Integer kv_voorstelling_id;
 
     public KaartVerkoopPK() {
     }
 
     public KaartVerkoopPK(int gebruikersID, int voorstellingID) {
-        this.gebruikersID = gebruikersID;
-        this.voorstellingID = voorstellingID;
+        this.kv_gebruikers_id = gebruikersID;
+        this.kv_voorstelling_id = voorstellingID;
     }
 
     @Override
@@ -20,12 +20,12 @@ public class KaartVerkoopPK implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         KaartVerkoopPK gebruikersID1 = (KaartVerkoopPK) o;
-        if (gebruikersID != gebruikersID1.gebruikersID) return false;
-        return voorstellingID == gebruikersID1.voorstellingID;
+        if (kv_gebruikers_id != gebruikersID1.kv_gebruikers_id) return false;
+        return kv_voorstelling_id == gebruikersID1.kv_voorstelling_id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(gebruikersID, voorstellingID);
+        return Objects.hash(kv_gebruikers_id, kv_voorstelling_id);
     }
 }

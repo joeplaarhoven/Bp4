@@ -33,6 +33,10 @@ public class GebruikerService {
     public String checkGebruikerLogin(String gebruikersnaam, String wachtwoord) {
     	return gebruikerRepository.checkGebruikerLogin(gebruikersnaam, wachtwoord);
     }
+
+	public Integer getGebruikerId(String gebruikersnaam) {
+		return gebruikerRepository.getGebruikerId(gebruikersnaam);
+	}
     
     
 }
