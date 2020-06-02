@@ -102,11 +102,14 @@ public class GebruikerController {
     		
     		Cookie user = new Cookie("gebruiker", gebruikersnaam);
     		Cookie userId = new Cookie("gebruikerCabaretier", gebruikersId.toString());
+    		Cookie userIdMijnKaarten = new Cookie("mijnKaarten", gebruikersnaam);
     		user.setPath("/voorstellingen");
     		userId.setPath("/voorstellingen/kaartverkoop/");
+    		userIdMijnKaarten.setPath("/mijnKaarten");
     		
     		response.addCookie(user);
     		response.addCookie(userId);
+    		response.addCookie(userIdMijnKaarten);
     		return "redirect:/";
     	} else {
     		return "redirect:/login";

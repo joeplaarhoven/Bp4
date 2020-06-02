@@ -46,7 +46,24 @@ public class VoorstellingService {
     }
     
     public void saveCabaretierVoorstelling(Voorstelling cabaretier) {
-    	voorstellingRepository.saveCabaretierVoorstelling(cabaretier);
-	}   
+    	voorstellingRepository.saveCabaretierVoorstelling(cabaretier.v_theaterzaal_id, cabaretier.cabaretier_id, cabaretier.voorstellingsoort, cabaretier.datum, cabaretier.tijd, cabaretier.v_leeftijdscategorie, cabaretier.afkomst);
+	}  
     
+    public void saveConcertVoorstelling(Voorstelling concert) {
+    	voorstellingRepository.saveConcertVoorstelling(concert.v_theaterzaal_id, concert.concert_id, concert.voorstellingsoort, concert.datum, concert.tijd, concert.v_leeftijdscategorie, concert.afkomst);
+	}  
+    
+    public void saveTheaterVoorstelling(Voorstelling cabaretier) {
+    	voorstellingRepository.saveTheaterVoorstelling(cabaretier.v_theaterzaal_id, cabaretier.cabaretier_id, cabaretier.voorstellingsoort, cabaretier.datum, cabaretier.tijd, cabaretier.v_leeftijdscategorie, cabaretier.afkomst);
+	}  
+    
+    public List<Cabaretier> getCabaretierKaart(Integer gebruiker) {
+        return voorstellingRepository.getCabaretierKaart(gebruiker);
+    }
+    public List<Concert> getConcertKaart(Integer gebruiker) {
+        return voorstellingRepository.getConcertKaart(gebruiker);
+    }
+    public List<Theatervoorstelling> getTheatervoorstellingenKaart(Integer gebruiker) {
+        return voorstellingRepository.getTheatervoorstellingKaart(gebruiker);
+    }
 }
