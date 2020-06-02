@@ -13,20 +13,18 @@
           method="post">
 
                 <table th:object="${cabaretier}" border="0" cellpadding="10">
+                	<tr style="display:none;">
+                		<td>Cabaretier ID:</td>
+                		<td><input type="text" th:field="*{cabaretier_id}" readonly="readonly"/></td>
+            		</tr>
                     <tr>
-                        <td>Cabaretier ID:</td>
-                        <td>
-                            <input type="text" th:field="*{cabaretier_id}" readonly="readonly" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Voornaam:</td>
+                        <td>Cabaretier Voornaam:</td>
                         <td>
                             <input type="text" th:field="*{cabaretier_voornaam}" readonly="readonly" />
                         </td>
                     </tr>
                     <tr>
-                        <td>Achternaam:</td>
+                        <td>Cabaretier Achternaam:</td>
                         <td>
                             <input type="text" th:field="*{cabaretier_achternaam}" readonly="readonly" />
                         </td>

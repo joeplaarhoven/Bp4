@@ -24,15 +24,6 @@ public class ConcertController {
         return "index";
     }
     
-    @RequestMapping("/concert/{concert_id}")
-    public ModelAndView viewProfileConcert(@PathVariable(name = "concert_id") int concert_id) {
-        ModelAndView mav = new ModelAndView("ConcertWeergeven");
-        Concert concert = concertService.getOneConcert(concert_id);
-        mav.addObject("concert", concert);
-
-        return mav;
-    }
-    
     @RequestMapping("/concert/toevoegen")
     public String showNewProductPage(Model model) {
         Concert concert = new Concert();
@@ -49,6 +40,34 @@ public class ConcertController {
     	concertService.save(concert);
 
     	return "redirect:/";
+    }
+    
+    @RequestMapping("/concert/{concert_id}")
+    public ModelAndView viewProfileConcert(@PathVariable(name = "concert_id") int concert_id) {
+        ModelAndView mav = new ModelAndView("ConcertWeergeven");
+        Concert concert = concertService.getOneConcert(concert_id);
+        mav.addObject("concert", concert);
+
+        return mav;
+    }
+    
+    @RequestMapping("/concert/{concert_id}/bijwerken")
+    public ModelAndView showConcertBijwerkenPage(@PathVariable(name = "concert_id") int concert_id) {
+        ModelAndView mav = new ModelAndView("ConcertBijwerken");
+        Concert concert = concertService.getOneConcert(concert_id);
+        mav.addObject("concert", concert);
+
+        return mav;
+    }
+
+    @RequestMapping(value = "/concert/{concert_id}/bijwerken/save", method = RequestMethod.POST)
+    public String concertBijwerken(@RequestParam("concert_id") Integer c_concert_id, 
+    		@RequestParam("concert_naam") String c_concert_naam, 
+    		@RequestParam("genre") String c_genre, 
+    		@RequestParam("artiest") String c_artiest) {
+    	concertService.concertBijwerken(c_concert_naam, c_genre, c_artiest, c_concert_id);
+
+        return "redirect:/";
     }
 	
 }

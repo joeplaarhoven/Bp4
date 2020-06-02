@@ -13,12 +13,10 @@
           method="post">
 
                 <table th:object="${theatervoorstelling}" border="0" cellpadding="10">
-                    <tr>
-                        <td>Theatervoorstelling ID:</td>
-                        <td>
-                            <input type="text" th:field="*{theatervoorstelling_id}" readonly="readonly" />
-                        </td>
-                    </tr>
+                    <tr style="display:none;">
+                		<td>Theatervoorstelling ID:</td>
+                		<td><input type="text" th:field="*{theatervoorstelling_id}" readonly="readonly"/></td>
+            		</tr>
                     <tr>
                         <td>Theatervoorstelling Naam:</td>
                         <td>

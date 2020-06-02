@@ -11,6 +11,8 @@ public class Cabaretier extends Voorstelling {
 	@Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
 	public Integer cabaretier_id;
+	
+	public Integer voorstelling_id;
     
     @Column(name = "cabaretier_voornaam", nullable = true, unique = false)
     public String cabaretier_voornaam;
@@ -107,5 +109,13 @@ public class Cabaretier extends Voorstelling {
 	public void setGeslacht(String geslacht) {
 		this.geslacht = geslacht;
 	}
+
+	public Integer getVoorstelling_id() {
+		return voorstelling_id;
+	}
+
+	public void setVoorstelling_id(Integer voorstelling_id) {
+		this.voorstelling_id = voorstelling_id;
+	}	
 		
 }

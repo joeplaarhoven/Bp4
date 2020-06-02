@@ -13,6 +13,8 @@ public class Theatervoorstelling extends Voorstelling {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
 	public Integer theatervoorstelling_id;
 	
+	public Integer voorstelling_id;
+	
 	@Column(name = "theatervoorstelling_naam", nullable = true, unique = false)
     public String theatervoorstelling_naam;
     @Column(name = "acteurs", nullable = true, unique = false)
@@ -92,5 +94,13 @@ public class Theatervoorstelling extends Voorstelling {
 	public void setProductie_afkomst(String productie_afkomst) {
 		this.productie_afkomst = productie_afkomst;
 	}
-    
+	
+	 public Integer getVoorstelling_id() {
+		return voorstelling_id;
+	}
+
+	public void setVoorstelling_id(Integer voorstelling_id) {
+		this.voorstelling_id = voorstelling_id;
+	}    
+	
 }

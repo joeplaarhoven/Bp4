@@ -12,6 +12,8 @@ public class Concert extends Voorstelling {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
 	public Integer concert_id;
 	
+	public Integer voorstelling_id;
+	
 	@Column(name = "concert_naam", nullable = true, unique = false)
     public String concert_naam;
 	@Column(name = "genre", nullable = true, unique = false)
@@ -91,5 +93,13 @@ public class Concert extends Voorstelling {
     public void setGenre(String genre) {
         this.genre = genre;
     }
+    
+    public Integer getVoorstelling_id() {
+		return voorstelling_id;
+	}
+
+	public void setVoorstelling_id(Integer voorstelling_id) {
+		this.voorstelling_id = voorstelling_id;
+	}
 
 }

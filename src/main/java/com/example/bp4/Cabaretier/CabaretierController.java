@@ -24,15 +24,6 @@ public class CabaretierController {
         return "index";
     }
     
-    @RequestMapping("/cabaretier/{cabaretier_id}")
-    public ModelAndView viewProfileCabaretier(@PathVariable(name = "cabaretier_id") int cabaretier_id) {
-        ModelAndView mav = new ModelAndView("CabaretierWeergeven");
-        Cabaretier cabaretier = cabaretierService.getOneCabaretier(cabaretier_id);
-        mav.addObject("cabaretier", cabaretier);
-
-        return mav;
-    }
-    
     @RequestMapping("/cabaretier/toevoegen")
     public String showNewProductPage(Model model) {
         Cabaretier cabaretier = new Cabaretier();
@@ -50,6 +41,35 @@ public class CabaretierController {
     	cabaretierService.save(cabaretier);
 
     	return "redirect:/";
+    }
+    
+    @RequestMapping("/cabaretier/{cabaretier_id}")
+    public ModelAndView viewProfileCabaretier(@PathVariable(name = "cabaretier_id") int cabaretier_id) {
+        ModelAndView mav = new ModelAndView("CabaretierWeergeven");
+        Cabaretier cabaretier = cabaretierService.getOneCabaretier(cabaretier_id);
+        mav.addObject("cabaretier", cabaretier);
+
+        return mav;
+    }
+    
+    @RequestMapping("/cabaretier/{cabaretier_id}/bijwerken")
+    public ModelAndView showCabaretierBijwerkenPage(@PathVariable(name = "cabaretier_id") int cabaretier_id) {
+        ModelAndView mav = new ModelAndView("CabaretierBijwerken");
+        Cabaretier cabaretier = cabaretierService.getOneCabaretier(cabaretier_id);
+        mav.addObject("cabaretier", cabaretier);
+
+        return mav;
+    }
+
+    @RequestMapping(value = "/cabaretier/{cabaretier_id}/bijwerken/save", method = RequestMethod.POST)
+    public String cabaretierBijwerken(@RequestParam("cabaretier_id") Integer c_cabaretier_id, 
+    		@RequestParam("cabaretier_voornaam") String c_cabaretier_voornaam, 
+    		@RequestParam("cabaretier_achternaam") String c_cabaretier_achternaam, 
+    		@RequestParam("geboortedatum") String c_geboortedatum, 
+    		@RequestParam("geslacht") String c_geslacht) {
+    	cabaretierService.cabaretierBijwerken(c_cabaretier_voornaam, c_cabaretier_achternaam, c_geboortedatum, c_geslacht, c_cabaretier_id);
+
+        return "redirect:/";
     }
     
 }

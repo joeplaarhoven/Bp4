@@ -32,5 +32,9 @@ public class TheatervoorstellingService {
     public Theatervoorstelling getOneTheatervoorstelling(Integer theatervoorstelling_id) {
         return theatervoorstellingRepository.findOneTheatervoorstelling(theatervoorstelling_id);
     }
+    
+    public int theatervoorstellingBijwerken(String t_theatervoorstelling_naam, String t_acteurs, String t_productie_afkomst, Integer t_theatervoorstelling_id) {
+    	return theatervoorstellingRepository.theatervoorstellingBijwerken(t_theatervoorstelling_naam, t_acteurs, t_productie_afkomst, t_theatervoorstelling_id);
+    }
 	
 }
