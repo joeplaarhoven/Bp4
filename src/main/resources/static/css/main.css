@@ -14,6 +14,16 @@ body, html{
 }
 #logo{
     height:100%;
+    cursor:pointer;
+}
+.deadPixel{
+	background-color: black;
+	width:0.2%;
+	height:0.3%;
+	position: fixed;
+	top: 55%;
+	left:10%;
+	z-index:9999;
 }
 #bottomBar{
     height:10%;
