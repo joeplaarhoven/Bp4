@@ -23,8 +23,8 @@ public class Cabaretier extends Voorstelling {
     @Column(name = "geslacht", nullable = true, unique = false)
     public String geslacht;
    
-    public Cabaretier(Integer theaterzaal_id, String voorstellingSoort, String leeftijdsCat, String afkomst, String datum, String tijd, Integer cabaretier_id) {
-    	super(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, cabaretier_id);
+    public Cabaretier(Integer theaterzaal_id, String voorstellingSoort, String leeftijdsCat, String afkomst, String datum, String tijd, boolean geannuleerd, Integer cabaretier_id) {
+    	super(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, geannuleerd, cabaretier_id);
 
         this.cabaretier_id = cabaretier_id;
 	}	

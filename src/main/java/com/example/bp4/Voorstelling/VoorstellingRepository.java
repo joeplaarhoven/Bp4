@@ -16,6 +16,10 @@ public interface VoorstellingRepository extends JpaRepository<Voorstelling, Inte
 
     // custom query to search to blog post by title or content
 //    List<Product> findByTitleContainingOrContentContaining(String text, String textAgain);
+	
+	@Modifying
+    @Query(value = "UPDATE Voorstellingen geannuleerd SET geannuleerd = ?1 WHERE voorstelling_id = ?2", nativeQuery = true)
+    int setGeannuleerdForVoorstelling(Boolean geannuleerd, Integer voorstelling_id);
 
 		@Query(value = "SELECT * \r\n" + 
 				"FROM voorstellingen \r\n" + 

@@ -27,6 +27,7 @@ import com.example.bp4.Cabaretier.Cabaretier;
 import com.example.bp4.Cabaretier.CabaretierService;
 import com.example.bp4.Concert.Concert;
 import com.example.bp4.Concert.ConcertService;
+import com.example.bp4.Eigenaar.Eigenaar;
 import com.example.bp4.Gebruikers.GebruikerService;
 import com.example.bp4.KaartVerkoop.KaartVerkoop;
 import com.example.bp4.KaartVerkoop.KaartVerkoopService;
@@ -67,6 +68,22 @@ public class VoorstellingController {
     private TheatervoorstellingService theaterVoorstellingService;
 	
 	String gebruikersnaam;
+	
+	@RequestMapping("/voorstelling/annuleren")
+    public String viewVoorstellingAnnuleren(Model model) {
+        List<Voorstelling> listVoorstelling = voorstelligService.listAll();
+        model.addAttribute("listVoorstelling", listVoorstelling);
+
+        return "voorstellingGeannuleerd";
+    }
+
+
+    @RequestMapping("/voorstelling/annuleren/{id}")
+    public String editVoorstelling(@PathVariable(name = "id") int id) {
+    	voorstelligService.setGeannuleerdForVoorstelling(true, id);
+
+        return "redirect:/";
+    }
 	
 	@RequestMapping("/voorstellingen")
     public String viewHomePage(Model model, HttpServletRequest request, @CookieValue(name = "gebruiker", defaultValue="") String gebruiker) {
@@ -174,6 +191,7 @@ public class VoorstellingController {
                               @RequestParam("afkomst") String afkomst,
                               @RequestParam("datum") String datum,
                               @RequestParam("tijd") String tijd,
+                              @RequestParam(value =  "geannuleerd", required = false) boolean geannuleerd,
                               @RequestParam(value = "cabaretier_id", required =false) Integer cabaretier_id,
                               @RequestParam(value = "concert_id", required =false) Integer concert_id,
                               @RequestParam(value = "theatervoorstelling_id", required =false) Integer theatervoorstelling_id) {
@@ -185,19 +203,19 @@ public class VoorstellingController {
 		if(voorstellingSoort.equals("Cabaretier")) {
 			Cabaretier cabaretier = cabaretierService.getOneCabaretier(cabaretier_id);
 			
-			voorstelling = new Cabaretier(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, cabaretier_id);
+			voorstelling = new Cabaretier(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, false, cabaretier_id);
 			voorstelligService.saveCabaretierVoorstelling(voorstelling);
 		}
 		else if(voorstellingSoort.equals("Concert")) {
 			Concert concert = concertService.getOneConcert(concert_id);
 			
-			voorstelling = new Concert(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, concert_id);
+			voorstelling = new Concert(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, false, concert_id);
 			voorstelligService.saveConcertVoorstelling(voorstelling);
 		}
 		else {
 			Theatervoorstelling theaterVoorstelling = theaterVoorstellingService.getOneTheatervoorstelling(theatervoorstelling_id);
 			
-			voorstelling = new Theatervoorstelling(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, theatervoorstelling_id);
+			voorstelling = new Theatervoorstelling(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, false, theatervoorstelling_id);
 
 			voorstelligService.saveTheaterVoorstelling(voorstelling);
 		}

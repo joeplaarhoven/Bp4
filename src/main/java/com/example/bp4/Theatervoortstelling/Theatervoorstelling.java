@@ -22,8 +22,8 @@ public class Theatervoorstelling extends Voorstelling {
     @Column(name = "productie_afkomst", nullable = true, unique = false)
     public String productie_afkomst;
     
-    public Theatervoorstelling(Integer theaterzaal_id, String voorstellingSoort, String leeftijdsCat, String afkomst, String datum, String tijd, Integer theatervoorstelling_id) {
-    	super(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, theatervoorstelling_id);
+    public Theatervoorstelling(Integer theaterzaal_id, String voorstellingSoort, String leeftijdsCat, String afkomst, String datum, String tijd, boolean geannuleerd, Integer theatervoorstelling_id) {
+    	super(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, geannuleerd, theatervoorstelling_id);
 
         this.theatervoorstelling_id = theatervoorstelling_id;
 	}

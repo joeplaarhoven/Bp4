@@ -66,4 +66,8 @@ public class VoorstellingService {
     public List<Theatervoorstelling> getTheatervoorstellingenKaart(Integer gebruiker) {
         return voorstellingRepository.getTheatervoorstellingKaart(gebruiker);
     }
+    
+    public Integer setGeannuleerdForVoorstelling(boolean geannuleerd, Integer voorstelling_id){
+        return voorstellingRepository.setGeannuleerdForVoorstelling(geannuleerd, voorstelling_id);
+     }
 }
