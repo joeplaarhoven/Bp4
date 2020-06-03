@@ -41,6 +41,53 @@ public interface VoorstellingRepository extends JpaRepository<Voorstelling, Inte
 	
 	@Modifying
 	@Query(value = "INSERT INTO Voorstellingen(v_theaterzaal_id, cabaretier_id, voorstellingsoort, datum, tijd, v_leeftijdscategorie, afkomst)\r\n" + 
-			"VALUES(1, 2, 'Cabaretier', '01/06/2000', '19:00', '18+', 'Nederlands');", nativeQuery = true)
-	void saveCabaretierVoorstelling(Voorstelling cabaretier);   
+			"VALUES(?1, ?2, ?3, ?4, ?5, ?6, ?7);", nativeQuery = true)
+	void saveCabaretierVoorstelling(Integer v_theaterzaal_id, Integer cabaretier_id, String voorstellingsoort, String datum,
+			String tijd, String v_leeftijdscategorie, String afkomst);   
+	
+	@Modifying
+	@Query(value = "INSERT INTO Voorstellingen(v_theaterzaal_id, concert_id, voorstellingsoort, datum, tijd, v_leeftijdscategorie, afkomst)\r\n" + 
+			"VALUES(?1, ?2, ?3, ?4, ?5, ?6, ?7);", nativeQuery = true)
+	void saveConcertVoorstelling(Integer v_theaterzaal_id, Integer concert_id, String voorstellingsoort, String datum,
+			String tijd, String v_leeftijdscategorie, String afkomst);   
+	
+	@Modifying
+	@Query(value = "INSERT INTO Voorstellingen(v_theaterzaal_id, theatervoorstelling_id, voorstellingsoort, datum, tijd, v_leeftijdscategorie, afkomst)\r\n" + 
+			"VALUES(?1, ?2, ?3, ?4, ?5, ?6, ?7);", nativeQuery = true)
+	void saveTheaterVoorstelling(Integer v_theaterzaal_id, Integer theatervoorstelling_id, String voorstellingsoort, String datum,
+			String tijd, String v_leeftijdscategorie, String afkomst);
+	
+	@Query(value = "SELECT * \r\n" + 
+			"FROM voorstellingen \r\n" + 
+			"LEFT JOIN cabaretiers\r\n" + 
+			"ON voorstellingen.cabaretier_id = cabaretiers.cabaretier_id\r\n" + 
+			"WHERE v_leeftijdscategorie = (SELECT leeftijdscategorie FROM gebruikers where gebruiker_id = ?1) and concert_id IS NULL and theatervoorstelling_id is null AND voorstellingen.voorstelling_id IN  \r\n" +
+			"(SELECT  kv_voorstelling_id\r\n" + 
+			"FROM kaartenverkopen\r\n" + 
+			"WHERE kv_gebruikers_id = ?1\r\n" + 
+			")", nativeQuery = true)
+	List<Cabaretier> getCabaretierKaart(Integer gebruikers_id);   
+	
+	@Query(value = "SELECT * \r\n" + 
+			"FROM voorstellingen \r\n" + 
+			"LEFT JOIN Concerten\r\n" + 
+			"ON voorstellingen.concert_id = Concerten.concert_id\r\n" + 
+			"WHERE v_leeftijdscategorie = (SELECT leeftijdscategorie FROM gebruikers where gebruiker_id = ?1) and Concerten.concert_id IS NOT NULL AND voorstellingen.voorstelling_id IN\r\n" + 
+			"(SELECT kv_voorstelling_id\r\n" + 
+			"FROM kaartenverkopen\r\n" + 
+			"WHERE kv_gebruikers_id = ?1\r\n" + 
+			")" , nativeQuery = true)
+	List<Concert> getConcertKaart(Integer gebruikers_id);   
+	
+	@Query(value = "SELECT * \r\n" + 
+			"FROM voorstellingen \r\n" + 
+			"LEFT JOIN Theatervoorstellingen\r\n" + 
+			"ON voorstellingen.theatervoorstelling_id = Theatervoorstellingen.theatervoorstelling_id\r\n" + 
+			"WHERE v_leeftijdscategorie = (SELECT leeftijdscategorie FROM gebruikers where gebruiker_id = ?1) and Theatervoorstellingen.theatervoorstelling_id IS NOT NULL AND voorstellingen.voorstelling_id IN\r\n" + 
+			"(SELECT kv_voorstelling_id\r\n" + 
+			"FROM kaartenverkopen\r\n" + 
+			"WHERE kv_gebruikers_id = ?1\r\n" + 
+			")", nativeQuery = true)
+	List<Theatervoorstelling> getTheatervoorstellingKaart(Integer gebruikers_id);   
+
 }

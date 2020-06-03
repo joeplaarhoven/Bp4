@@ -8,30 +8,7 @@
 </head>
 <body>
 <div align="center">
-	    <select id="voorstellingSoort">
-	    	<option>Alles weergeven</option>
-	    	<option>Cabaretier</option>
-	    	<option>Concert</option>
-	    	<option>Theatervoorstelling</option>
-	    </select>
 	    
-	    <select id="leeftijdscategorie">
-	    	<option>Alles weergeven</option>
-	    	<option>3+</option>
-	    	<option>12+</option>
-	    	<option>16+</option>
-	    	<option>18+</option>
-	    	<option>65+</option>
-	    </select>
-	    
-	    <select id="afkomst">
-	    	<option>Alles weergeven</option>
-	    	<option>Nederlands</option>
-	    	<option>Aziatisch</option>
-	    	<option>Marokaans</option>
-	    	<option>Islamitsch</option>
-	    	<option>Joods</option>
-	    </select>
     <table border="1" id="cabaretier" cellpadding="10">
         <thead>
         <tr>
@@ -55,9 +32,7 @@
             <td th:text="${cabaretiers.cabaretier_achternaam}">Achternaam</td>
             <td th:text="${cabaretiers.geboortedatum}">Geboortedatum</td>
             <td th:text="${cabaretiers.geslacht}">Geslacht</td>
-            <td >
-				<a th:href="@{'/voorstellingen/kaartverkoop/' + ${cabaretiers.voorstelling_id}}">Koop kaartje</a>
-			</td>
+            
         </tr>
         </tbody>
     </table>
@@ -83,9 +58,7 @@
             <td th:text="${concerten.artiest}">Artiest</td>
             <td th:text="${concerten.concert_naam}">Concert naam</td>
             <td th:text="${concerten.genre}">Genre</td>
-            <td >
-				<a th:href="@{'/voorstellingen/kaartverkoop/' + ${concerten.voorstelling_id}}">Koop kaartje</a>
-			</td>
+            
         </tr>
         </tbody>
     </table>
@@ -110,10 +83,7 @@
 	            <td th:text="${theatervoorstelling.afkomst}">Afkomst</td>
 	            <td th:text="${theatervoorstelling.theatervoorstelling_naam}">Theatervoorstelling naam</td>
 	            <td th:text="${theatervoorstelling.acteurs}">Acteurs</td>
-	            <td th:text="${theatervoorstelling.productie_afkomst}">Productie afkomst</td>   
-	             <td >
-					<a th:href="@{'/voorstellingen/kaartverkoop/' + ${theatervoorstelling.voorstelling_id}}">Koop kaartje</a>
-				</td>         
+	            <td th:text="${theatervoorstelling.productie_afkomst}">Productie afkomst</td>      
 	        </tr>
         </tbody>
     </table>

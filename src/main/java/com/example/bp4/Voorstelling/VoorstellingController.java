@@ -89,6 +89,31 @@ public class VoorstellingController {
         return "overzichtVoorstellingen";
     }
 	
+	@RequestMapping("/mijnKaarten")
+    public String viewMijnKaarten(Model model, HttpServletRequest request, @CookieValue(name = "mijnKaarten", defaultValue="") String gebruiker) {
+		Integer gebruikersId = gebruikerService.getGebruikerId(gebruiker);
+		
+		List<Cabaretier> listCabaretiers = voorstelligService.getCabaretierKaart(gebruikersId);
+        model.addAttribute("listCabaretiers", listCabaretiers);
+       
+
+        List<Concert> listConcert = voorstelligService.getConcertKaart(gebruikersId);
+        model.addAttribute("listConcert", listConcert);
+        
+        List<Theatervoorstelling> listTheatervoorstelling = voorstelligService.getTheatervoorstellingenKaart(gebruikersId);
+        model.addAttribute("listTheatervoorstelling", listTheatervoorstelling);
+        
+        Cookie[] test = request.getCookies();
+        model.addAttribute("gebruiker", gebruiker);
+        
+        
+        
+        
+        return "mijnKaarten";
+    }
+	
+	
+	
 	@RequestMapping(value = "/voorstellingen/kaartverkoop/{id}")
 	public String kaartverkoop(ModelMap model, @PathVariable(name = "id") int voorstellingId, @CookieValue(name = "gebruiker", defaultValue="") String gebruiker) {
 		Integer gebruikersId = gebruikerService.getGebruikerId(gebruiker);
@@ -167,13 +192,14 @@ public class VoorstellingController {
 			Concert concert = concertService.getOneConcert(concert_id);
 			
 			voorstelling = new Concert(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, concert_id);
-	       
+			voorstelligService.saveConcertVoorstelling(voorstelling);
 		}
 		else {
 			Theatervoorstelling theaterVoorstelling = theaterVoorstellingService.getOneTheatervoorstelling(theatervoorstelling_id);
 			
 			voorstelling = new Theatervoorstelling(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, theatervoorstelling_id);
-	       
+
+			voorstelligService.saveTheaterVoorstelling(voorstelling);
 		}
 		 
 
