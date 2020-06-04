@@ -1,4 +1,8 @@
 $( document ).ready(function() {
+	$("#cabaretierPref").hide();
+	$("#concertPref").hide();
+	$("#theatervoorstellingPref").hide();
+	
 	$('#prefrence').change(function() {
         console.log(this.checked)
         if(this.checked == true){
