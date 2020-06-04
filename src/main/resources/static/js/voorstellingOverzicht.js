@@ -1,4 +1,28 @@
 $( document ).ready(function() {
+	$('#prefrence').change(function() {
+        console.log(this.checked)
+        if(this.checked == true){
+        	$("#cabaretierPref").show();
+        	$("#concertPref").show();
+        	$("#theatervoorstellingPref").show();
+        	
+        	$("#cabaretier").hide();
+        	$("#concert").hide();
+        	$("#theatervoorstelling").hide();
+        }
+        else{
+        	$("#cabaretierPref").hide();
+        	$("#concertPref").hide();
+        	$("#theatervoorstellingPref").hide();
+        	
+        	$("#cabaretier").show();
+        	$("#concert").show();
+        	$("#theatervoorstelling").show();
+        }
+        
+    });
+	
+	
 	$("select#voorstellingSoort").change(function(){
 
         var selectedSoort = $(this).children("option:selected").val();

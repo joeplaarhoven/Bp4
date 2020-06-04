@@ -35,14 +35,24 @@ public class VoorstellingService {
         voorstellingRepository.deleteById((int) theaterId);
     }
     
-    public List<Cabaretier> getCabaretierVoorstellingen(String gebruiker) {
-        return voorstellingRepository.getCabaretierVoorstellingen(gebruiker);
+    public List<Cabaretier> getCabaretierVoorstellingen() {
+        return voorstellingRepository.getCabaretierVoorstellingen();
     }
-    public List<Concert> getConcertVoorstellingen(String gebruiker) {
-        return voorstellingRepository.getConcertVoorstellingen(gebruiker);
+    public List<Concert> getConcertVoorstellingen() {
+        return voorstellingRepository.getConcertVoorstellingen();
     }
-    public List<Theatervoorstelling> getTheaterVoorstellingen(String gebruiker) {
-        return voorstellingRepository.getTheaterVoorstellingen(gebruiker);
+    public List<Theatervoorstelling> getTheaterVoorstellingen() {
+        return voorstellingRepository.getTheaterVoorstellingen();
+    }
+    
+    public List<Cabaretier> getCabaretierVoorstellingenWithPrefrence(String gebruiker) {
+        return voorstellingRepository.getCabaretierVoorstellingenWithPrefrence(gebruiker);
+    }
+    public List<Concert> getConcertVoorstellingenWithPrefrence(String gebruiker) {
+        return voorstellingRepository.getConcertVoorstellingenWithPrefrence(gebruiker);
+    }
+    public List<Theatervoorstelling> getTheaterVoorstellingenWithPrefrence(String gebruiker) {
+        return voorstellingRepository.getTheaterVoorstellingenWithPrefrence(gebruiker);
     }
     
     public void saveCabaretierVoorstelling(Voorstelling cabaretier) {

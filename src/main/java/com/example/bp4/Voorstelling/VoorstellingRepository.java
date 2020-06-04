@@ -21,22 +21,43 @@ public interface VoorstellingRepository extends JpaRepository<Voorstelling, Inte
 				"FROM voorstellingen \r\n" + 
 				"LEFT JOIN cabaretiers\r\n" + 
 				"ON voorstellingen.cabaretier_id = cabaretiers.cabaretier_id\r\n" + 
-				"WHERE v_leeftijdscategorie = (SELECT leeftijdscategorie FROM gebruikers where gebruikersnaam = ?1) and concert_id IS NULL and theatervoorstelling_id is null", nativeQuery = true)
-		List<Cabaretier> getCabaretierVoorstellingen(String gebruikersnaam);   
+				"WHERE v_leeftijdscategorie = (SELECT leeftijdscategorie FROM gebruikers where gebruikersnaam = ?1) and afkomst = (SELECT afkomst FROM gebruikers where gebruikersnaam = ?1) and voorstellingen.cabaretier_id IS NOT NULL", nativeQuery = true)
+		List<Cabaretier> getCabaretierVoorstellingenWithPrefrence(String gebruikersnaam);   
+		
+		@Query(value = "SELECT * \r\n" + 
+				"FROM voorstellingen \r\n" + 
+				"LEFT JOIN cabaretiers\r\n" + 
+				"ON voorstellingen.cabaretier_id = cabaretiers.cabaretier_id\r\n" + 
+				"WHERE voorstellingen.cabaretier_id IS NOT NULL", nativeQuery = true)
+		List<Cabaretier> getCabaretierVoorstellingen();
 	
 	@Query(value = "SELECT * \r\n" + 
 			"FROM voorstellingen \r\n" + 
 			"LEFT JOIN Concerten\r\n" + 
 			"ON voorstellingen.concert_id = Concerten.concert_id\r\n" + 
-			"WHERE v_leeftijdscategorie = (SELECT leeftijdscategorie FROM gebruikers where gebruikersnaam = ?1) and Concerten.concert_id IS NOT NULL" , nativeQuery = true)
-	List<Concert> getConcertVoorstellingen(String gebruikersnaam);   
+			"WHERE v_leeftijdscategorie = (SELECT leeftijdscategorie FROM gebruikers where gebruikersnaam = ?1) and afkomst = (SELECT afkomst FROM gebruikers where gebruikersnaam = ?1) and Concerten.concert_id IS NOT NULL" , nativeQuery = true)
+	List<Concert> getConcertVoorstellingenWithPrefrence(String gebruikersnaam);   
+	
+	@Query(value = "SELECT * \r\n" + 
+			"FROM voorstellingen \r\n" + 
+			"LEFT JOIN Concerten\r\n" + 
+			"ON voorstellingen.concert_id = Concerten.concert_id\r\n" + 
+			"WHERE Concerten.concert_id IS NOT NULL" , nativeQuery = true)
+	List<Concert> getConcertVoorstellingen();  
 	
 	@Query(value = "SELECT * \r\n" + 
 			"FROM voorstellingen \r\n" + 
 			"LEFT JOIN Theatervoorstellingen\r\n" + 
 			"ON voorstellingen.theatervoorstelling_id = Theatervoorstellingen.theatervoorstelling_id\r\n" + 
-			"WHERE v_leeftijdscategorie = (SELECT leeftijdscategorie FROM gebruikers where gebruikersnaam = ?1) and Theatervoorstellingen.theatervoorstelling_id IS NOT NULL", nativeQuery = true)
-	List<Theatervoorstelling> getTheaterVoorstellingen(String gebruikersnaam);   
+			"WHERE v_leeftijdscategorie = (SELECT leeftijdscategorie FROM gebruikers where gebruikersnaam = ?1) and afkomst = (SELECT afkomst FROM gebruikers where gebruikersnaam = ?1) and Theatervoorstellingen.theatervoorstelling_id IS NOT NULL", nativeQuery = true)
+	List<Theatervoorstelling> getTheaterVoorstellingenWithPrefrence(String gebruikersnaam);   
+	
+	@Query(value = "SELECT * \r\n" + 
+			"FROM voorstellingen \r\n" + 
+			"LEFT JOIN Theatervoorstellingen\r\n" + 
+			"ON voorstellingen.theatervoorstelling_id = Theatervoorstellingen.theatervoorstelling_id\r\n" + 
+			"WHERE Theatervoorstellingen.theatervoorstelling_id IS NOT NULL", nativeQuery = true)
+	List<Theatervoorstelling> getTheaterVoorstellingen(); 
 	
 	
 	@Modifying

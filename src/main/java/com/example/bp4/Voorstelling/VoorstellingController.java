@@ -70,16 +70,31 @@ public class VoorstellingController {
 	
 	@RequestMapping("/voorstellingen")
     public String viewHomePage(Model model, HttpServletRequest request, @CookieValue(name = "gebruiker", defaultValue="") String gebruiker) {
-        List<Cabaretier> listCabaretiers = voorstelligService.getCabaretierVoorstellingen(gebruiker);
+		
+		if(!gebruiker.equals("")) {
+			List<Cabaretier> listCabaretiers = voorstelligService.getCabaretierVoorstellingenWithPrefrence(gebruiker);
+	        model.addAttribute("listCabaretiersPref", listCabaretiers);
+	       
+
+	        List<Concert> listConcert = voorstelligService.getConcertVoorstellingenWithPrefrence(gebruiker);
+	        model.addAttribute("listConcertPref", listConcert);
+	        
+	        List<Theatervoorstelling> listTheatervoorstelling = voorstelligService.getTheaterVoorstellingenWithPrefrence(gebruiker);
+	        model.addAttribute("listTheatervoorstelling Pref", listTheatervoorstelling);
+	        
+		}
+		
+		List<Cabaretier> listCabaretiers = voorstelligService.getCabaretierVoorstellingen();
         model.addAttribute("listCabaretiers", listCabaretiers);
        
 
-        List<Concert> listConcert = voorstelligService.getConcertVoorstellingen(gebruiker);
+        List<Concert> listConcert = voorstelligService.getConcertVoorstellingen();
         model.addAttribute("listConcert", listConcert);
         
-        List<Theatervoorstelling> listTheatervoorstelling = voorstelligService.getTheaterVoorstellingen(gebruiker);
+        List<Theatervoorstelling> listTheatervoorstelling = voorstelligService.getTheaterVoorstellingen();
         model.addAttribute("listTheatervoorstelling", listTheatervoorstelling);
-        
+	
+    
         Cookie[] test = request.getCookies();
         model.addAttribute("gebruiker", gebruiker);
         
