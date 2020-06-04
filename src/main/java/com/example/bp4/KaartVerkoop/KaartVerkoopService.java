@@ -22,8 +22,19 @@ public class KaartVerkoopService {
         return kaartVerkoopRepository.findAll();
     }
 
-    public void save(KaartVerkoop kaartVerkoop) {
-        kaartVerkoopRepository.save(kaartVerkoop);
+    public boolean save(KaartVerkoop kaartVerkoop) {
+    	Integer aantalZitplek = kaartVerkoopRepository.getZitplek(kaartVerkoop.getVoorstellingID());
+    	Integer verkochtenKaarten = kaartVerkoopRepository.getVerkochtenKaarten(kaartVerkoop.getVoorstellingID());
+    	System.out.println(aantalZitplek + " " +  verkochtenKaarten);
+    	if (aantalZitplek > verkochtenKaarten) {
+    		kaartVerkoopRepository.save(kaartVerkoop);
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+		
+        
     }
 
     public KaartVerkoop get(long gebruikerId, long voorstellingId) {
@@ -31,17 +42,8 @@ public class KaartVerkoopService {
     }
 
 
-    public void delete(long gebruikerId) {
-        kaartVerkoopRepository.deleteById((int) gebruikerId);
+    public void delete(Integer gebruikerId, Integer voorstellingId) {
+        kaartVerkoopRepository.deleteByIdAndId(gebruikerId, voorstellingId);
     }
     
-    public List<Cabaretier> getCabaretierVoorstellingen(Integer gebruiker) {
-        return kaartVerkoopRepository.getCabaretierVoorstellingen(gebruiker);
-    }
-    public List<Concert> getConcertVoorstellingen(String gebruiker) {
-        return kaartVerkoopRepository.getConcertVoorstellingen(gebruiker);
-    }
-    public List<Theatervoorstelling> getTheaterVoorstellingen(String gebruiker) {
-        return kaartVerkoopRepository.getTheaterVoorstellingen(gebruiker);
-    }
 }

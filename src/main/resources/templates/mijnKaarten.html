@@ -32,7 +32,9 @@
             <td th:text="${cabaretiers.cabaretier_achternaam}">Achternaam</td>
             <td th:text="${cabaretiers.geboortedatum}">Geboortedatum</td>
             <td th:text="${cabaretiers.geslacht}">Geslacht</td>
-            
+            <td >
+				<a th:href="@{'/voorstellingen/kaartverkoop/annuleren/' + ${cabaretiers.voorstelling_id}}">Annuleer kaartje</a>
+			</td>
         </tr>
         </tbody>
     </table>
@@ -58,7 +60,9 @@
             <td th:text="${concerten.artiest}">Artiest</td>
             <td th:text="${concerten.concert_naam}">Concert naam</td>
             <td th:text="${concerten.genre}">Genre</td>
-            
+            <td >
+				<a th:href="@{'/voorstellingen/kaartverkoop/annuleren/' + ${concerten.voorstelling_id}}">Annuleer kaartje</a>
+			</td>
         </tr>
         </tbody>
     </table>
@@ -84,6 +88,9 @@
 	            <td th:text="${theatervoorstelling.theatervoorstelling_naam}">Theatervoorstelling naam</td>
 	            <td th:text="${theatervoorstelling.acteurs}">Acteurs</td>
 	            <td th:text="${theatervoorstelling.productie_afkomst}">Productie afkomst</td>      
+	        	<td >
+					<a th:href="@{'/voorstellingen/kaartverkoop/annuleren/' + ${theatervoorstelling.voorstelling_id}}">Annuleer kaartje</a>
+				</td>
 	        </tr>
         </tbody>
     </table>

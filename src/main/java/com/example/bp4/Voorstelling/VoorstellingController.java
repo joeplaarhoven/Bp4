@@ -116,10 +116,29 @@ public class VoorstellingController {
 	
 	@RequestMapping(value = "/voorstellingen/kaartverkoop/{id}")
 	public String kaartverkoop(ModelMap model, @PathVariable(name = "id") int voorstellingId, @CookieValue(name = "gebruiker", defaultValue="") String gebruiker) {
+		
 		Integer gebruikersId = gebruikerService.getGebruikerId(gebruiker);
 		KaartVerkoop kaartVerkoop = new KaartVerkoop(gebruikersId, voorstellingId);
-		kaartVerkoopService.save(kaartVerkoop);
-		return "redirect:/voorstellingen";
+		Boolean succes = kaartVerkoopService.save(kaartVerkoop);
+		System.out.println(succes);
+		if(succes.equals(true)) {
+			return "redirect:/mijnKaarten";
+		}
+		else {
+			return "redirect:/voorstellingen";
+		}
+		
+    }
+	
+	@RequestMapping(value = "/voorstellingen/kaartverkoop/annuleren/{id}")
+	public String kaartverkoopAnnuleren(ModelMap model, @PathVariable(name = "id") int voorstellingId, @CookieValue(name = "gebruiker", defaultValue="") String gebruiker) {
+		
+		Integer gebruikersId = gebruikerService.getGebruikerId(gebruiker);
+		KaartVerkoop kaartVerkoop = new KaartVerkoop(gebruikersId, voorstellingId);
+		kaartVerkoopService.delete(gebruikersId, voorstellingId);
+		
+		return "redirect:/mijnKaarten";
+		
     }
 	
 	
