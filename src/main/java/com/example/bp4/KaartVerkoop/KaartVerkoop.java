@@ -7,15 +7,20 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Table;
 
+//aangeven dat dit een entiteit is
 @Entity
+//de naam van de tabel in de database
 @Table(name="kaartenverkopen")
+//ID class zodat er meerdere pk's in de klasse kan staan
 @IdClass(KaartVerkoopPK.class)
 public class KaartVerkoop {
+	//variabelen declareren
     @Id
     private Integer kv_gebruikers_id;
     @Id
     private Integer kv_voorstelling_id;
 
+    //constructor
     public KaartVerkoop(Integer gebruikerId, Integer voorstellingId) {
 		this.kv_gebruikers_id = gebruikerId;
 		this.kv_voorstelling_id = voorstellingId;
@@ -24,6 +29,7 @@ public class KaartVerkoop {
     public KaartVerkoop() {
 	}
 
+    //get sets
 	public Integer getGebruikersID() {
         return kv_gebruikers_id;
     }

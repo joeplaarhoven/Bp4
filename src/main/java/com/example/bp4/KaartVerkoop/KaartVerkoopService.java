@@ -23,9 +23,12 @@ public class KaartVerkoopService {
     }
 
     public boolean save(KaartVerkoop kaartVerkoop) {
+    	//ophalen van aantal zitplekken in theaterzaal
     	Integer aantalZitplek = kaartVerkoopRepository.getZitplek(kaartVerkoop.getVoorstellingID());
+    	//verkochtenkaarten voor gekozen vorostelling
     	Integer verkochtenKaarten = kaartVerkoopRepository.getVerkochtenKaarten(kaartVerkoop.getVoorstellingID());
-    	System.out.println(aantalZitplek + " " +  verkochtenKaarten);
+    	
+    	//checken of er nog plek is
     	if (aantalZitplek > verkochtenKaarten) {
     		kaartVerkoopRepository.save(kaartVerkoop);
     		return true;

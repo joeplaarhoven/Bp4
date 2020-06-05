@@ -18,6 +18,9 @@ public class VoorstellingService {
     @Autowired
     VoorstellingRepository voorstellingRepository;
 
+    //service wordt gebruikt voor berekeningen etc.
+    
+    
     public List<Voorstelling> listAll() {
         return voorstellingRepository.findAll();
     }
@@ -48,9 +51,11 @@ public class VoorstellingService {
     public List<Cabaretier> getCabaretierVoorstellingenWithPrefrence(String gebruiker) {
         return voorstellingRepository.getCabaretierVoorstellingenWithPrefrence(gebruiker);
     }
+    
     public List<Concert> getConcertVoorstellingenWithPrefrence(String gebruiker) {
         return voorstellingRepository.getConcertVoorstellingenWithPrefrence(gebruiker);
     }
+    
     public List<Theatervoorstelling> getTheaterVoorstellingenWithPrefrence(String gebruiker) {
         return voorstellingRepository.getTheaterVoorstellingenWithPrefrence(gebruiker);
     }
@@ -70,9 +75,11 @@ public class VoorstellingService {
     public List<Cabaretier> getCabaretierKaart(Integer gebruiker) {
         return voorstellingRepository.getCabaretierKaart(gebruiker);
     }
+    
     public List<Concert> getConcertKaart(Integer gebruiker) {
         return voorstellingRepository.getConcertKaart(gebruiker);
     }
+    
     public List<Theatervoorstelling> getTheatervoorstellingenKaart(Integer gebruiker) {
         return voorstellingRepository.getTheatervoorstellingKaart(gebruiker);
     }

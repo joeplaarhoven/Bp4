@@ -18,6 +18,7 @@ public class GebruikerController {
     @Autowired
     private GebruikerService gebruikerService;
 
+    //profiel ophalen van bepaalde ID
     @RequestMapping("/profile/{id}")
     public ModelAndView viewProfileGebruiker(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("profile");
@@ -27,6 +28,7 @@ public class GebruikerController {
         return mav;
     }
 
+    //registreren pagina ophalen
     @RequestMapping("/registreren")
     public String showNewProductPage(Model model) {
         Gebruiker gebruiker = new Gebruiker();
@@ -35,6 +37,7 @@ public class GebruikerController {
         return "register";
     }
 
+    //opslaan van een nieuwe gebruiker
     @RequestMapping(value = "/gebruiker/save", method = RequestMethod.POST)
     public String saveGebruiker(@RequestParam("gebruiker_voornaam") String gebruiker_voornaam,
                               @RequestParam("gebruiker_achternaam") String gebruiker_achternaam,
@@ -50,28 +53,7 @@ public class GebruikerController {
         return "redirect:/";
     }
 
-//    @RequestMapping("/gebruiker/aanpassen")
-//    public String showNewGebruikerAanpassen(Model model) {
-//        Gebruiker gebruiker = new Gebruiker();
-//        model.addAttribute("gebruiker", gebruiker);
-//
-//        return "GebruikerUpdaten";
-//    }
-//
-//    @RequestMapping(value = "/gebruiker/aanpassen/save", method = RequestMethod.POST)
-//    public String updateGebruiker(@RequestParam("gebruiker_voornaam") String g_gebruiker_voornaam,
-//                              @RequestParam("gebruiker_achternaam") String g_gebruiker_achternaam,
-//                              @RequestParam("geboortedatum") String g_geboortedatum,
-//                              @RequestParam("leeftijdscategorie") String g_leeftijdscategorie,
-//                              @RequestParam("afkomst") String g_afkomst,
-//                              @RequestParam("gebruikersnaam") String g_gebruikersnaam,
-//                              @RequestParam("wachtwoord") String g_wachtwoord,
-//                              @RequestParam("gebruiker_id") int g_gebruiker_id) {
-//        gebruikerService.updateGebruiker(g_gebruiker_voornaam, g_gebruiker_achternaam, g_geboortedatum, g_leeftijdscategorie, g_afkomst, g_gebruikersnaam, g_wachtwoord, g_gebruiker_id);
-//
-//        return "redirect:/";
-//    }
-
+    //aanpassen van gebruiker
     @RequestMapping("/gebruiker/aanpassen/{id}")
     public ModelAndView showAanpassenGebruikerPage(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("GebruikerAanpassen");
@@ -81,6 +63,7 @@ public class GebruikerController {
         return mav;
     }
 
+    //opslaan van aanpassing van gebruiker
     @RequestMapping(value = "/gebruiker/aanpassen/{id}/save", method = RequestMethod.POST)
     public String editGebruiker(@RequestParam("gebruiker_id") Integer gebruiker_id,
     		@RequestParam("gebruiker_voornaam") String gebruiker_voornaam, @RequestParam("gebruiker_achternaam") String gebruiker_achternaam,
@@ -92,6 +75,7 @@ public class GebruikerController {
         return "redirect:/";
     }
 
+    //login 
     @RequestMapping(value = "/gebruiker/login/confirm", method = RequestMethod.POST)
     public String loginGebruiker(@RequestParam("gebruikersnaam") String gebruikersnaam,
             					@RequestParam("wachtwoord") String wachtwoord,
@@ -100,6 +84,7 @@ public class GebruikerController {
     	if (str.equals(gebruikersnaam+","+wachtwoord)) {
     		Integer gebruikersId = gebruikerService.getGebruikerId(gebruikersnaam);
     		
+    		//set cookies
     		Cookie user = new Cookie("gebruiker", gebruikersnaam);
     		Cookie userId = new Cookie("gebruikerCabaretier", gebruikersId.toString());
     		Cookie userIdMijnKaarten = new Cookie("mijnKaarten", gebruikersnaam);

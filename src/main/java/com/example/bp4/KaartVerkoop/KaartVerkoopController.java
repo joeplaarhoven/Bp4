@@ -26,11 +26,6 @@ import com.example.bp4.Theaterzaal.TheaterzaalService;
 @Controller
 public class KaartVerkoopController {
 	
-
-	@Autowired
-    private KaartVerkoopService kaartVerkoopService;
-	
-	@Autowired
-    private GebruikerService gebruikerService;
+	//lege controller vanwege dat de mijnKaarten pagina bestaat uit voorstellingen niet uit twee integers
 	
 }

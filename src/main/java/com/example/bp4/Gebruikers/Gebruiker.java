@@ -2,15 +2,17 @@ package com.example.bp4.Gebruikers;
 
 import javax.persistence.*;
 
+//aangeven dat dit een entiteit is
 @Entity
+//de naam van de tabel in de database
 @Table(name="gebruikers")
 public class Gebruiker {
-
+	
+	//variabelen declareren
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer gebruiker_id;
    
-
     @Column(name = "gebruiker_voornaam", nullable = false, unique = false)
     private String gebruiker_voornaam;
 
@@ -32,7 +34,7 @@ public class Gebruiker {
     @Column(name = "wachtwoord", nullable = false, unique = false)
     private String wachtwoord;
 
-
+    //Constructors
     public Gebruiker(String gebruiker_voornaam, String gebruiker_achternaam, String geboortedatum, String leeftijdscategorie, String afkomst, String gebruikersnaam, String wachtwoord) {
         this.gebruiker_voornaam = gebruiker_voornaam;
         this.gebruiker_achternaam = gebruiker_achternaam;
@@ -43,7 +45,7 @@ public class Gebruiker {
         this.wachtwoord = wachtwoord;
     }
 
-    //Constructor om een bestaande gebruiker aan te passen
+
     public Gebruiker(Integer gebruiker_id, String gebruiker_voornaam, String gebruiker_achternaam, String geboortedatum, String leeftijdscategorie, String afkomst, String gebruikersnaam, String wachtwoord) {
         this.gebruiker_id = gebruiker_id;
     	this.gebruiker_voornaam = gebruiker_voornaam;
@@ -59,6 +61,7 @@ public class Gebruiker {
 
     }
 
+    //get sets
 	public Integer getGebruiker_id() {
 		return gebruiker_id;
 	}
