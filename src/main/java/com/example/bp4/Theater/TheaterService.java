@@ -37,14 +37,11 @@ public class TheaterService {
     	return theaterRepository.alltheater(theaternaam);
     }
     
-<<<<<<< Updated upstream
     public int updateTheater(String t_theaternaam, String t_straatnaam, Integer t_huisnummer, String t_postcode, String t_plaats, Integer t_theater_id) {
     	return theaterRepository.updateTheater(t_theaternaam, t_straatnaam, t_huisnummer, t_postcode, t_plaats, t_theater_id);
     }
 
-=======
     public String IDopzoek(long theaterID ) {
     	return theaterRepository.IDopzoek(theaterID);
     }
->>>>>>> Stashed changes
 }
