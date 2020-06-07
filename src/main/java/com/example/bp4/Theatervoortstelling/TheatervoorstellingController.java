@@ -26,7 +26,8 @@ public class TheatervoorstellingController {
 
         return "index";
     }
-       
+    
+    //De pagina van theatervoorstelling toevoegen ophalen
     @RequestMapping("/theatervoorstelling/toevoegen")
     public String showNewProductPage(Model model) {
         Theatervoorstelling theatervoorstelling = new Theatervoorstelling();
@@ -34,7 +35,8 @@ public class TheatervoorstellingController {
 
 		return "TheatervoorstellingToevoegen";
     }
-
+    
+    //Opslaan van een theatervoorstelling
     @RequestMapping(value = "/theatervoorstelling/save", method = RequestMethod.POST)
     public String saveTheatervoorstelling(@RequestParam("theatervoorstelling_naam") String theatervoorstelling_naam,
             @RequestParam("acteurs") String acteurs,
@@ -44,7 +46,8 @@ public class TheatervoorstellingController {
 
     	return "redirect:/";
     }
-    
+   
+    //Het weergeven van een theatervoorstelling
     @RequestMapping("/theatervoorstelling/{theatervoorstelling_id}")
     public ModelAndView viewProfileTheatervoorstelling(@PathVariable(name = "theatervoorstelling_id") int theatervoorstelling_id) {
         ModelAndView mav = new ModelAndView("TheatervoorstellingWeergeven");
@@ -54,6 +57,7 @@ public class TheatervoorstellingController {
         return mav;
     }
     
+    //Het wijzigen van een theatervoorstelling
     @RequestMapping("/theatervoorstelling/{theatervoorstelling_id}/bijwerken")
     public ModelAndView showTheatervoorstellingBijwerkenPage(@PathVariable(name = "theatervoorstelling_id") int theatervoorstelling_id) {
         ModelAndView mav = new ModelAndView("TheatervoorstellingBijwerken");
@@ -63,6 +67,7 @@ public class TheatervoorstellingController {
         return mav;
     }
 
+    //De wijzigen van de theatervoorstelling opslaan
     @RequestMapping(value = "/theatervoorstelling/{theatervoorstelling_id}/bijwerken/save", method = RequestMethod.POST)
     public String concertBijwerken(@RequestParam("theatervoorstelling_id") Integer t_theatervoorstelling_id, 
     		@RequestParam("theatervoorstelling_naam") String t_theatervoorstelling_naam, 
