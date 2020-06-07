@@ -65,11 +65,11 @@ public class VoorstellingService {
 	}  
     
     public void saveConcertVoorstelling(Voorstelling concert) {
-    	voorstellingRepository.saveConcertVoorstelling(concert.v_theaterzaal_id, concert.concert_id, concert.voorstellingsoort, concert.datum, concert.tijd, concert.v_leeftijdscategorie, concert.afkomst);
+    	voorstellingRepository.saveConcertVoorstelling(concert.v_theaterzaal_id, concert.cabaretier_id, concert.voorstellingsoort, concert.datum, concert.tijd, concert.v_leeftijdscategorie, concert.afkomst);
 	}  
     
-    public void saveTheaterVoorstelling(Voorstelling cabaretier) {
-    	voorstellingRepository.saveTheaterVoorstelling(cabaretier.v_theaterzaal_id, cabaretier.cabaretier_id, cabaretier.voorstellingsoort, cabaretier.datum, cabaretier.tijd, cabaretier.v_leeftijdscategorie, cabaretier.afkomst);
+    public void saveTheaterVoorstelling(Voorstelling theatervoorstelling) {
+    	voorstellingRepository.saveTheaterVoorstelling(theatervoorstelling.v_theaterzaal_id, theatervoorstelling.cabaretier_id, theatervoorstelling.voorstellingsoort, theatervoorstelling.datum, theatervoorstelling.tijd, theatervoorstelling.v_leeftijdscategorie, theatervoorstelling.afkomst);
 	}  
     
     public List<Cabaretier> getCabaretierKaart(Integer gebruiker) {

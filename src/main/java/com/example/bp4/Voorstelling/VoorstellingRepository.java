@@ -39,6 +39,14 @@ List<Cabaretier> getCabaretierVoorstellingen();
 		"WHERE v_leeftijdscategorie = (SELECT leeftijdscategorie FROM gebruikers where gebruikersnaam = ?1) and afkomst = (SELECT afkomst FROM gebruikers where gebruikersnaam = ?1) and Concerten.concert_id IS NOT NULL" , nativeQuery = true)
 List<Concert> getConcertVoorstellingenWithPrefrence(String gebruikersnaam);
 
+//query voor het ophalen van alle ingeplande concerten
+@Query(value = "SELECT * \r\n" +
+		"FROM voorstellingen \r\n" +
+		"LEFT JOIN concerten\r\n" +
+		"ON voorstellingen.concert_id = concerten.concert_id\r\n" +
+		"WHERE voorstellingen.concert_id IS NOT NULL", nativeQuery = true)
+List<Concert> getConcertVoorstellingen();
+
 
 	// custom query to search to blog post by title or content
 //    List<Product> findByTitleContainingOrContentContaining(String text, String textAgain);
@@ -53,14 +61,6 @@ List<Concert> getConcertVoorstellingenWithPrefrence(String gebruikersnaam);
 			"ON voorstellingen.cabaretier_id = cabaretiers.cabaretier_id\r\n" +
 			"WHERE v_leeftijdscategorie = (SELECT leeftijdscategorie FROM gebruikers where gebruikersnaam = ?1) and concert_id IS NULL and theatervoorstelling_id is null", nativeQuery = true)
 	List<Cabaretier> getCabaretierVoorstellingen(String gebruikersnaam);
-
-		//query voor het ophalen van alle ingeplande concerten
-	@Query(value = "SELECT * \r\n" +
-			"FROM voorstellingen \r\n" +
-			"LEFT JOIN Concerten\r\n" +
-			"ON voorstellingen.concert_id = Concerten.concert_id\r\n" +
-			"WHERE Concerten.concert_id IS NOT NULL" , nativeQuery = true)
-	List<Concert> getConcertVoorstellingen();
 
 	//query voor het ophalen van de ingeplande theatervoorstelling op basis van de persoonlijke voorkeuren
 	@Query(value = "SELECT * \r\n" +

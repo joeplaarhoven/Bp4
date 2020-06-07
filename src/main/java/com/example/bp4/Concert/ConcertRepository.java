@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import com.example.bp4.Cabaretier.Cabaretier;
+
 @Repository
 public interface ConcertRepository extends JpaRepository<Concert, Integer> {
 	
