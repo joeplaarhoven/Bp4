@@ -33,7 +33,6 @@ public class Eigenaar {
     public Eigenaar(int id, boolean verified) {
         this.eigenaar_id = id;
         this.verified = verified;
-
     }
 
     public boolean isVerified() {
