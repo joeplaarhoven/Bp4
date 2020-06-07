@@ -24,6 +24,7 @@ public class ConcertController {
         return "index";
     }
     
+    //De pagina van concert toevoegen ophalen
     @RequestMapping("/concert/toevoegen")
     public String showNewProductPage(Model model) {
         Concert concert = new Concert();
@@ -31,7 +32,8 @@ public class ConcertController {
 
         return "ConcertToevoegen";
     }
-
+    
+    //Opslaan van een concert
     @RequestMapping(value = "/concert/save", method = RequestMethod.POST)
     public String saveConcert(@RequestParam("concert_naam") String concert_naam,
             @RequestParam("genre") String genre,
@@ -42,6 +44,7 @@ public class ConcertController {
     	return "redirect:/";
     }
     
+    //Het weergeven van een concert
     @RequestMapping("/concert/{concert_id}")
     public ModelAndView viewProfileConcert(@PathVariable(name = "concert_id") int concert_id) {
         ModelAndView mav = new ModelAndView("ConcertWeergeven");
@@ -51,6 +54,7 @@ public class ConcertController {
         return mav;
     }
     
+    //Het wijzigen van een concert
     @RequestMapping("/concert/{concert_id}/bijwerken")
     public ModelAndView showConcertBijwerkenPage(@PathVariable(name = "concert_id") int concert_id) {
         ModelAndView mav = new ModelAndView("ConcertBijwerken");
@@ -59,7 +63,8 @@ public class ConcertController {
 
         return mav;
     }
-
+    
+    //De wijzigen van het concert opslaan
     @RequestMapping(value = "/concert/{concert_id}/bijwerken/save", method = RequestMethod.POST)
     public String concertBijwerken(@RequestParam("concert_id") Integer c_concert_id, 
     		@RequestParam("concert_naam") String c_concert_naam, 

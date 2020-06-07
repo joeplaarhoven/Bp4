@@ -3,12 +3,15 @@ package com.example.bp4.Theatervoortstelling;
 import com.example.bp4.Voorstelling.Voorstelling;
 import javax.persistence.*;
 
+//Geeft aan dat de class Theatervoorstelling een entiteit is
 @Entity
-@Table(name="theatervoorstellingen")
+//Hier geef je aan welke class de ID/PK class
 @IdClass(TheatervoorstellingPK.class)
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//Naam van de tabel in de database
+@Table(name="theatervoorstellingen")
 public class Theatervoorstelling extends Voorstelling {
 	
+	//Variabelen declareren
 	@Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
 	public Integer theatervoorstelling_id;
@@ -22,47 +25,26 @@ public class Theatervoorstelling extends Voorstelling {
     @Column(name = "productie_afkomst", nullable = true, unique = false)
     public String productie_afkomst;
     
+    //Constructor voor een voorstelling in te plannen
     public Theatervoorstelling(Integer theaterzaal_id, String voorstellingSoort, String leeftijdsCat, String afkomst, String datum, String tijd, Integer theatervoorstelling_id) {
     	super(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, theatervoorstelling_id);
 
         this.theatervoorstelling_id = theatervoorstelling_id;
 	}
-    
-	public Theatervoorstelling(Integer theatervoorstelling_id, String theatervoorstelling_naam, String acteurs, String productie_afkomst) {
-		this.theatervoorstelling_id = theatervoorstelling_id;
-		this.theatervoorstelling_naam = theatervoorstelling_naam;
-		this.acteurs = acteurs;
-		this.productie_afkomst = productie_afkomst;
-	}
 	
+    //Constructor voor het toevoegen van een theatervoorstelling
 	public Theatervoorstelling(String theatervoorstelling_naam, String acteurs, String productie_afkomst, Integer voorstelling_id) {
 		this.theatervoorstelling_naam = theatervoorstelling_naam;
 		this.acteurs = acteurs;
 		this.productie_afkomst = productie_afkomst;
 		this.voorstelling_id = voorstelling_id;
 	}
-
-//    public Theatervoorstelling(Integer theaterID, 
-//    		String voorstellingSoort, 
-//    		String theaterzaal, 
-//    		String leeftijdsCat, 
-//    		String afkomst, 
-//    		String datum, 
-//    		String tijd, 
-//    		Integer theatervoorstelling_id) {
-//        this.v_theaterzaal_id = theaterID;
-//        this.voorstellingsoort = voorstellingSoort;
-//        this.v_leeftijdscategorie = leeftijdsCat;
-//        this.afkomst = afkomst;
-//        this.datum = datum;
-//        this.tijd = tijd;
-//        this.theatervoorstelling_id = theatervoorstelling_id;
-//    }    
-    
+	
     public Theatervoorstelling(){
     	
     }
-
+    
+    //Getters & Setters van theatervoorstelling
 	public Integer getTheatervoorstelling_id() {
 		return theatervoorstelling_id;
 	}
