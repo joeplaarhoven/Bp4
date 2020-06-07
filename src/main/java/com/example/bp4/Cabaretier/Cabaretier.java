@@ -26,15 +26,10 @@ public class Cabaretier extends Voorstelling {
     public String geboortedatum;
     @Column(name = "geslacht", nullable = true, unique = false)
     public String geslacht;
-   
-<<<<<<< HEAD
+
+    //Constructor voor een voorstelling in te plannen
     public Cabaretier(Integer theaterzaal_id, String voorstellingSoort, String leeftijdsCat, String afkomst, String datum, String tijd, boolean geannuleerd, Integer cabaretier_id) {
     	super(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, geannuleerd, cabaretier_id);
-=======
-    //Constructor voor een voorstelling in te plannen
-    public Cabaretier(Integer theaterzaal_id, String voorstellingSoort, String leeftijdsCat, String afkomst, String datum, String tijd, Integer cabaretier_id) {
-    	super(theaterzaal_id, voorstellingSoort, leeftijdsCat, afkomst, datum, tijd, cabaretier_id);
->>>>>>> CCT-commentaar-branche
 
         this.cabaretier_id = cabaretier_id;
 	}
@@ -47,7 +42,7 @@ public class Cabaretier extends Voorstelling {
 		this.geslacht = geslacht;
 		this.voorstelling_id = voorstelling_id;
 	}
-
+	
 	public Cabaretier() {
 		
 	}
