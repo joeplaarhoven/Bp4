@@ -32,6 +32,7 @@ public class Voorstelling implements Serializable {
     public String afkomst;
     public String datum;
     public String tijd;
+    public Boolean geannuleerd;
 
     //constructors
 	public Voorstelling(Integer v_theaterzaal_id, String voorstellingsoort, String v_leeftijdscategorie, String afkomst, String datum, String tijd, Integer cabaretier_id) {
@@ -74,14 +75,7 @@ public class Voorstelling implements Serializable {
 
 	public Integer getV_theaterzaal_id() {
 		return v_theaterzaal_id;
-	}
-
-	protected String voorstellingsoort;
-    protected String v_leeftijdscategorie;
-    public String afkomst;
-    public String datum;
-    public String tijd;
-    public Boolean geannuleerd;
+	}    
 
 	public Voorstelling(Integer v_theaterzaal_id, String voorstellingsoort, String v_leeftijdscategorie, String afkomst, String datum, String tijd, boolean geannuleerd, Integer cabaretier_id) {
 		this.v_theaterzaal_id = v_theaterzaal_id;
@@ -92,9 +86,6 @@ public class Voorstelling implements Serializable {
 		this.tijd = tijd;
 		this.geannuleerd = geannuleerd;
 		this.cabaretier_id = cabaretier_id;
-	}
-
-	public Voorstelling() {
 	}
 
 	public Voorstelling(int id, boolean geannuleerd) {
