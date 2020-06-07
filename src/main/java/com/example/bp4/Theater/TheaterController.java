@@ -48,7 +48,7 @@ public class TheaterController {
 		Theater theater = new Theater();
 		model.addAttribute("theater", theater);
 
-		return "GebruikerUpdaten";
+		return "TheaterUpdaten";
 	}
 
 	@RequestMapping(value = "/theater/aanpassen/save", method = RequestMethod.POST)
@@ -65,9 +65,9 @@ public class TheaterController {
 
   @RequestMapping("/theater/aanpassen/{id}")
   public ModelAndView showAanpassenGebruikerPage(@PathVariable(name = "id") int id) {
-      ModelAndView mav = new ModelAndView("GebruikerAanpassen");
-      Gebruiker gebruiker = gebruikerService.get(id);
-      mav.addObject("gebruiker", gebruiker);
+      ModelAndView mav = new ModelAndView("TheaterUpdaten");
+      Theater theater = theaterService.get(id);
+      mav.addObject("theater", theater);
 
       return mav;
   }

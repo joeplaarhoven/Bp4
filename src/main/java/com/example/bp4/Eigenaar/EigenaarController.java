@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 @Controller
@@ -66,19 +69,43 @@ public class EigenaarController {
                               @RequestParam("telefoonnummer") String telefoonnummer,
                               @RequestParam("emailadres") String emailadres,
                               @RequestParam("wachtwoord") String wachtwoord) {
-    	Eigenaar eigenaar = new Eigenaar(eigenaar_voornaam, eigenaar_achternaam, woonplaats, telefoonnummer, emailadres, wachtwoord, false);
+    	Eigenaar eigenaar = new Eigenaar(eigenaar_voornaam, eigenaar_achternaam, woonplaats, telefoonnummer, emailadres, encryptWachtwoord(wachtwoord), false);
         eigenaarService.save(eigenaar);
 
         return "redirect:/";
     }
     
+    /**
+     * Encrypt het wachtwoord met SHA-256
+     * @param wachtwoord String om te encrypten
+     * @return String encryptie
+     */
+    public static String encryptWachtwoord(String wachtwoord) {
+    	try {
+	    	MessageDigest digest = MessageDigest.getInstance("SHA-256");
+	    	byte[] encodedhash = digest.digest(
+	    			wachtwoord.getBytes(StandardCharsets.UTF_8));
+	        StringBuffer hexString = new StringBuffer();
+	        for (int i = 0; i < encodedhash.length; i++) {
+	        String hex = Integer.toHexString(0xff & encodedhash[i]);
+	        if(hex.length() == 1) hexString.append('0');
+	            hexString.append(hex);
+	        }
+	        return hexString.toString();
+    	} catch (Exception e) {
+    		return wachtwoord;
+		}
+    }
+    
     @RequestMapping(value = "/eigenaar/login/confirm", method = RequestMethod.POST)
     public String loginEigenaar(@RequestParam("emailadres") String emailadres,
             					@RequestParam("wachtwoord") String wachtwoord) {
-    	String str = eigenaarService.checkEigenaarLogin(emailadres, wachtwoord);
-    	if (str.equals(emailadres+","+wachtwoord)) {
+    	String str = eigenaarService.checkEigenaarLogin(emailadres, encryptWachtwoord(wachtwoord));
+    	if (str.equals(emailadres+","+encryptWachtwoord(wachtwoord))) {
+    		System.out.println("FLakka je bent ingelogd met : " + encryptWachtwoord(wachtwoord));
     		return "redirect:/";
     	} else {
+    		System.out.println("leer inloggen fzo");
     		return "redirect:/eigenaar/login";
     	}    
     }
