@@ -24,6 +24,7 @@ public class CabaretierController {
         return "index";
     }
     
+    //De pagina van cabaretier toevoegen ophalen
     @RequestMapping("/cabaretier/toevoegen")
     public String showNewProductPage(Model model) {
         Cabaretier cabaretier = new Cabaretier();
@@ -31,7 +32,8 @@ public class CabaretierController {
 
         return "CabaretierToevoegen";
     }
-
+    
+    //Opslaan van een cabaretier
     @RequestMapping(value = "/cabaretier/save", method = RequestMethod.POST)
     public String saveCabaretier(@RequestParam("cabaretier_voornaam") String cabaretier_voornaam,
             @RequestParam("cabaretier_achternaam") String cabaretier_achternaam,
@@ -43,6 +45,7 @@ public class CabaretierController {
     	return "redirect:/";
     }
     
+    //Het weergeven van een cabaretier
     @RequestMapping("/cabaretier/{cabaretier_id}")
     public ModelAndView viewProfileCabaretier(@PathVariable(name = "cabaretier_id") int cabaretier_id) {
         ModelAndView mav = new ModelAndView("CabaretierWeergeven");
@@ -52,6 +55,7 @@ public class CabaretierController {
         return mav;
     }
     
+    //Het wijzigen van een cabaretier
     @RequestMapping("/cabaretier/{cabaretier_id}/bijwerken")
     public ModelAndView showCabaretierBijwerkenPage(@PathVariable(name = "cabaretier_id") int cabaretier_id) {
         ModelAndView mav = new ModelAndView("CabaretierBijwerken");
@@ -60,7 +64,8 @@ public class CabaretierController {
 
         return mav;
     }
-
+    
+    //De wijzigen van de cabaretier opslaan
     @RequestMapping(value = "/cabaretier/{cabaretier_id}/bijwerken/save", method = RequestMethod.POST)
     public String cabaretierBijwerken(@RequestParam("cabaretier_id") Integer c_cabaretier_id, 
     		@RequestParam("cabaretier_voornaam") String c_cabaretier_voornaam, 
