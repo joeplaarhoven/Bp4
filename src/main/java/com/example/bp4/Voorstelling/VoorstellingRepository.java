@@ -14,6 +14,8 @@ import java.util.List;
 @Repository
 public interface VoorstellingRepository extends JpaRepository<Voorstelling, Integer> {
 
+	//query voor het ophalen van alle ingeplande voorstellingen
+		List<Voorstelling> findByVoorstellingsoortIsNotNull();
 
 //query voor het ophalen van de ingeplande cabaretiers op basis van de persoonlijke voorkeuren
 @Query(value = "SELECT * \r\n" +

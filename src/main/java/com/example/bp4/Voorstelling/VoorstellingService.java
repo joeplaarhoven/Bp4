@@ -87,4 +87,9 @@ public class VoorstellingService {
     public Integer setGeannuleerdForVoorstelling(boolean geannuleerd, Integer voorstelling_id){
         return voorstellingRepository.setGeannuleerdForVoorstelling(geannuleerd, voorstelling_id);
      }
+    
+    public List<Voorstelling> getIngeplandeVoorstellingen(){
+    	return voorstellingRepository.findByVoorstellingsoortIsNotNull();
+    }
+    
 }

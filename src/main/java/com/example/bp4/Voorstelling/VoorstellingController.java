@@ -70,7 +70,7 @@ public class VoorstellingController {
 
 	@RequestMapping("/voorstelling/annuleren")
     public String viewVoorstellingAnnuleren(Model model) {
-        List<Voorstelling> listVoorstelling = voorstelligService.listAll();
+		List<Voorstelling> listVoorstelling = voorstelligService.getIngeplandeVoorstellingen();
         model.addAttribute("listVoorstelling", listVoorstelling);
 
         return "voorstellingGeannuleerd";
