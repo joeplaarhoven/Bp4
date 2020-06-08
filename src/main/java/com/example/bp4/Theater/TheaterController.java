@@ -47,12 +47,8 @@ public class TheaterController {
 	public String showNewGebruikerAanpassen(Model model) {
 		Theater theater = new Theater();
 		model.addAttribute("theater", theater);
-
-<<<<<<< HEAD
+		
 		return "TheaterAanpassen";
-=======
-		return "TheaterUpdaten";
->>>>>>> EigenaarEncryptie
 	}
 
 	@RequestMapping(value = "/theater/aanpassen/save", method = RequestMethod.POST)
@@ -69,11 +65,7 @@ public class TheaterController {
 
   @RequestMapping("/theater/aanpassen/{id}")
   public ModelAndView showAanpassenGebruikerPage(@PathVariable(name = "id") int id) {
-<<<<<<< HEAD
       ModelAndView mav = new ModelAndView("TheaterAanpassen");
-=======
-      ModelAndView mav = new ModelAndView("TheaterUpdaten");
->>>>>>> EigenaarEncryptie
       Theater theater = theaterService.get(id);
       mav.addObject("theater", theater);
 
