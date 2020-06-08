@@ -1,0 +1,64 @@
+body, html{
+    height: 100%;
+    margin: 0;
+    background-color: white;
+    font-family: 'Ubuntu', sans-serif;
+    color: #D6D5C9;
+}
+#topBar{
+    width:100%;
+    height:10%;
+    z-index: 11;
+    position: relative;
+    background-color: #011627;
+}
+#logo {
+    height: 100%;
+}
+#bottomBar{
+    height:10%;
+    width:100%;
+    background-color: #011627;
+}
+.line{
+    z-index: 100;
+    position: relative;
+    width:100%;
+    height:4px;
+    background-color: #E00926;
+}
+
+#topBarMenu{
+	position: absolute;
+	right: 1.5%;
+	top:10%;
+	font-size:1.25vw;
+	height:80%;
+	border-spacing: 10px;
+	width:30%;
+}
+
+#topBarMenu td{
+	border: 1px solid white;
+	width: 33%;
+	text-align:center;
+	color: white;
+	cursor: pointer;
+}
+
+
+#topBarMenu td:hover{
+	color:#011627;
+	background-color: white;
+}
+
+#bottomBarMenu{
+	left: 1.5%;
+	font-size:1.25vw;
+}
+
+#bottomBarMenu td{
+	text-align:center;
+	color: white;
+	cursor: pointer;
+}
