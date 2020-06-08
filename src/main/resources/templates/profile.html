@@ -4,8 +4,24 @@
 <head>
     <meta charset="utf-8" />
     <title>Ticket Theater - Profiel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
+    <link href="../static/css/main.css" th:href="@{/css/profile.css}" rel="stylesheet" />
 </head>
 <body>
+
+<div id="topBar">
+        <img onclick="window.location.href = '/'" id="logo" src="images/Ticket-Theater_logo-wit-rood.PNG"/>
+		<table id="topBarMenu">
+			<tr>
+				<td onclick="window.location.href = '/voorstellingen'">Voorstellingen</td>
+				<td onclick="window.location.href = '/theaters'">Theaters</td>
+			</tr>
+		</table>
+    </div>
+
+<div class="line"></div>
+
 <div align="center">
     <h1>Profiel</h1>
     <br />
@@ -13,7 +29,7 @@
           method="post">
 
 
-                <table th:object="${gebruiker}" border="0" cellpadding="10">
+                <table id="login-table" th:object="${gebruiker}" border="0" cellpadding="10">
                     <tr>
                         <td>Gebruiker ID:</td>
                         <td>
@@ -50,9 +66,14 @@
                             <input type="text" th:field="*{afkomst}" readonly="readonly" />
                         </td>
                     </tr>
-
         </table>
     </form>
+    
+    <h2><a th:href="@{'/gebruiker/aanpassen/' + ${gebruiker.gebruiker_id}}">Profiel Aanpassen | </a><a onclick="window.location.href = '/mijnKaarten'"> Mijn Kaarten</a></h2>
 </div>
+
+<div class="line"></div>
+    <div id="bottomBar"></div>
+    
 </body>
 </html>

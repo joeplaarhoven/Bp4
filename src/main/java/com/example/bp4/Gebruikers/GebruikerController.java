@@ -19,7 +19,7 @@ public class GebruikerController {
     private GebruikerService gebruikerService;
 
     //profiel ophalen van bepaalde ID
-    @RequestMapping("/profile/{id}")
+    @RequestMapping("/profiel/{id}")
     public ModelAndView viewProfileGebruiker(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("profile");
         Gebruiker gebruiker = gebruikerService.get(id);
@@ -71,8 +71,10 @@ public class GebruikerController {
     		@RequestParam("gebruikersnaam") String gebruikersnaam, @RequestParam("wachtwoord") String wachtwoord) {
         Gebruiker gebruiker = new Gebruiker(gebruiker_id, gebruiker_voornaam, gebruiker_achternaam, geboortedatum, leeftijdscategorie, afkomst, gebruikersnaam, wachtwoord);
         gebruikerService.save(gebruiker);
-
-        return "redirect:/";
+        
+        Integer gebruikersId = gebruikerService.getGebruikerId(gebruikersnaam);
+        
+        return "redirect:/profiel/" + gebruikersId;
     }
 
     //login 
@@ -95,7 +97,7 @@ public class GebruikerController {
     		response.addCookie(user);
     		response.addCookie(userId);
     		response.addCookie(userIdMijnKaarten);
-    		return "redirect:/";
+    		return "redirect:/profiel/" + gebruikersId;
     	} else {
     		return "redirect:/login";
     	}

@@ -1,0 +1,47 @@
+#kaarten-table {
+  width: 95%;
+  height: flex;
+  justify-content: center;
+  align-items: left;
+  color: black;
+}
+
+.kaarten-table-tbody {
+  width: 100%;
+  border: 1px solid black;
+  margin: 1%;
+}
+
+.kaarten-table-tr {
+  flex-basis: 33.33333333%;
+  margin: 3%;
+}
+
+.kaarten-table-th th, .kaarten-table-td td {
+  flex-basis: 100%;
+  text-align: left;
+}
+
+.kaarten-table-th {
+	color: #E00926;
+	font-weight: bold;
+}
+
+h1 {
+	color: #000000;
+	font-weight: bold;
+}
+
+.lineKaarten {
+	margin-top: 1%;
+	z-index: 100;
+    position: relative;
+    width:100%;
+    height:4px;
+    background-color: #E00926;
+}
+
+#fullWhite {
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
