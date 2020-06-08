@@ -1,0 +1,16 @@
+h1 {
+	color: #000000;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 1em;
+	color: #000000;
+	font-weight: bold;
+}
+
+#registreren-table {
+  justify-content: center;
+  align-items: left;
+  color: black;
+}

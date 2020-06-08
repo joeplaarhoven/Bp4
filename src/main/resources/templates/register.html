@@ -4,48 +4,71 @@
 <head>
     <meta charset="utf-8" />
     <title>Ticket Theater - Registreren</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
+    <link href="../static/css/index.css" th:href="@{/css/registreren.css}" rel="stylesheet" />
 </head>
 <body>
+
+<div id="topBar">
+        <img onclick="window.location.href = '/'" id="logo" src="images/Ticket-Theater_logo-wit-rood.PNG"/>
+		<table id="topBarMenu">
+			<tr>
+				<td onclick="window.location.href = '/voorstellingen'">Voorstellingen</td>
+				<td onclick="window.location.href = '/theaters'">Theaters</td>
+				<td onclick="window.location.href = '/login'">Login</td>
+			</tr>
+		</table>
+    </div>
+
+<div class="line"></div>
+
 <div align="center">
     <h1>Registreren</h1>
     <br />
     <form action="#" th:action="@{/gebruiker/save}" th:object="${gebruiker}"
           method="post">
 
-        <table border="0" cellpadding="10">
-            <tr>
-                <td>Voornaam:</td>
+        <table id="registreren-table" border="0" cellpadding="10">
+            <tr class="registreren-table-tr" >
+                <td class="registreren-table-td" >Voornaam:</td>
                 <td><input type="text" th:field="*{gebruiker_voornaam}" /></td>
             </tr>
-            <tr>
-                <td>Achternaam:</td>
+            <tr class="registreren-table-tr" >
+                <td class="registreren-table-td" >Achternaam:</td>
                 <td><input type="text" th:field="*{gebruiker_achternaam}" /></td>
             </tr>
-            <tr>
-            <td>Geboortedatum:</td>
-            <td><input type="text" th:field="*{geboortedatum}" /></td>
+            <tr class="registreren-table-tr" >
+	            <td class="registreren-table-td" >Geboortedatum:</td>
+	            <td><input type="text" th:field="*{geboortedatum}" /></td>
             </tr>
-            <tr>
-                <td>Leeftijdscategorie:</td>
+            <tr class="registreren-table-tr" >
+                <td class="registreren-table-td" >Leeftijdscategorie:</td>
                 <td><input type="text" th:field="*{leeftijdscategorie}" /></td>
             </tr>
-              <tr>
-                <td>Afkomst:</td>
+              <tr class="registreren-table-tr" >
+                <td class="registreren-table-td" >Afkomst:</td>
                 <td><input type="text" th:field="*{afkomst}" /></td>
             </tr>
-            <tr>
-                <td>Gebruikersnaam:</td>
+            <tr class="registreren-table-tr" >
+                <td class="registreren-table-td" >Gebruikersnaam:</td>
                 <td><input type="text" th:field="*{gebruikersnaam}" /></td>
             </tr>
-            <tr>
-                <td>Wachtwoord:</td>
-                <td><input type="text" th:field="*{wachtwoord}" /></td>
+            <tr class="registreren-table-tr" >
+                <td class="registreren-table-td" >Wachtwoord:</td>
+                <td><input type="password" th:field="*{wachtwoord}" /></td>
             </tr>
             <tr>
                 <td colspan="2"><button type="submit">Save</button> </td>
             </tr>
         </table>
     </form>
+    
+    <h2><a onclick="window.location.href = '/login'" >Heb je al een account? Login hier!</a></h2>
+    
 </div>
+
+    <div class="line"></div>
+    <div id="bottomBar"></div>
 </body>
 </html>

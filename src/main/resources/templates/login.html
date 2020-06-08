@@ -4,28 +4,53 @@
 <head>
     <meta charset="utf-8" />
     <title>Ticket Theater - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
+    <link href="../static/css/index.css" th:href="@{/css/login.css}" rel="stylesheet" />
 </head>
 <body>
+
+<div id="topBar">
+        <img onclick="window.location.href = '/'" id="logo" src="images/Ticket-Theater_logo-wit-rood.PNG"/>
+		<table id="topBarMenu">
+			<tr>
+				<td onclick="window.location.href = '/voorstellingen'">Voorstellingen</td>
+				<td onclick="window.location.href = '/theaters'">Theaters</td>
+				<td onclick="window.location.href = '/login'">Login</td>
+			</tr>
+		</table>
+    </div>
+
+<div class="line"></div>
+
 <div align="center">
     <h1>Login</h1>
     <br />
     <form action="#" th:action="@{/gebruiker/login/confirm}" th:object="${gebruiker}"
           method="post">
 
-        <table border="0" cellpadding="10">
-            <tr>
-                <td>Gebruikersnaam:</td>
+        <table id="login-table" border="0" cellpadding="10">
+            <tr class="login-table-tr" >
+                <td class="voorstellingen-table-td" >Gebruikersnaam:</td>
                 <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{gebruikersnaam}" /></td>
             </tr>
-            <tr>
-                <td>Wachtwoord:</td>
-                <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{wachtwoord}" /></td>
+            <tr class="login-table-tr" >
+                <td class="login-table-td" >Wachtwoord:</td>
+                <td><input type="password" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{wachtwoord}" /></td>
             </tr>
             <tr>
                 <td colspan="2"><button type="submit">Login</button> </td>
-            </tr>
+            </tr>          
+            
         </table>
     </form>
+    
+    <h2><a onclick="window.location.href = '/registreren'" >Nog geen account? Registreer je hier!</a></h2>
+    
 </div>
+
+    <div class="line"></div>
+    <div id="bottomBar"></div>
+
 </body>
 </html>
