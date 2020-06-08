@@ -16,5 +16,8 @@ public interface EigenaarRepository extends JpaRepository<Eigenaar, Integer> {
     
 	@Query(value = "SELECT emailadres, wachtwoord FROM Eigenaren WHERE emailadres =?1 AND wachtwoord =?2 AND verified = true", nativeQuery = true)
 	String checkEigenaarLogin(String emailadres, String wachtwoord); 
+	
+	@Query(value = "SELECT eigenaar_id FROM Eigenaren WHERE emailadres =?1", nativeQuery = true)
+	Integer getEigenaarId(String emailadres);
 
 }

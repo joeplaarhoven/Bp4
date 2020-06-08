@@ -19,6 +19,8 @@ body, html{
     height:10%;
     width:100%;
     background-color: #011627;
+    bottom: 0px;
+    position: absolute;
 }
 .line{
     z-index: 100;
@@ -26,6 +28,11 @@ body, html{
     width:100%;
     height:4px;
     background-color: #E00926;
+}
+
+#bottomLine{
+	position: absolute;
+	bottom: 10%;
 }
 
 #topBarMenu{
@@ -50,4 +57,17 @@ body, html{
 #topBarMenu td:hover{
 	color:#011627;
 	background-color: white;
+}
+
+#bottomBarMenu{
+	position: absolute;
+	left: 1.5%;
+	top:30%;
+	font-size:1.25vw;
+}
+
+#bottomBarMenu td{
+	text-align:center;
+	color: white;
+	cursor: pointer;
 }

@@ -36,4 +36,9 @@ public class EigenaarService {
     public String checkEigenaarLogin(String emailadres, String wachtwoord) {
     	return eigenaarRepository.checkEigenaarLogin(emailadres, wachtwoord);
     }
+    
+    public Integer getEigenaarId(String emailadres) {
+		return eigenaarRepository.getEigenaarId(emailadres);
+	}
+    
 }

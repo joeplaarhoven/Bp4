@@ -19,7 +19,7 @@ public class EigenaarController {
     @Autowired
     EigenaarService eigenaarService;
 
-    @RequestMapping("/eigenaar/acceptence")
+    @RequestMapping("/eigenaar/accepteren")
     public String viewEigenaarAcceptence(Model model) {
         List<Eigenaar> listEigenaar = eigenaarService.listAll();
         model.addAttribute("listEigenaar", listEigenaar);
@@ -39,14 +39,14 @@ public class EigenaarController {
 
 
 
-    @RequestMapping("/eigenaar/accept/{id}")
+    @RequestMapping("/eigenaar/accepteren/{id}")
     public String editAcceptEigenaar(@PathVariable(name = "id") int id) {
         eigenaarService.setVerifiedForEigenaar(true, id);
 
         return "redirect:/";
     }
 
-    @RequestMapping("/eigenaar/deny/{id}")
+    @RequestMapping("/eigenaar/weigeren/{id}")
     public String editDenyEigenaar(@PathVariable(name = "id") int id) {
         eigenaarService.setVerifiedForEigenaar(false, id);
 
@@ -102,8 +102,11 @@ public class EigenaarController {
             					@RequestParam("wachtwoord") String wachtwoord) {
     	String str = eigenaarService.checkEigenaarLogin(emailadres, encryptWachtwoord(wachtwoord));
     	if (str.equals(emailadres+","+encryptWachtwoord(wachtwoord))) {
+    		    		
     		System.out.println("FLakka je bent ingelogd met : " + encryptWachtwoord(wachtwoord));
-    		return "redirect:/";
+    		Integer eigenaarId = eigenaarService.getEigenaarId(emailadres);
+    		
+    		return "redirect:/eigenaar/" + eigenaarId;
     	} else {
     		System.out.println("leer inloggen fzo");
     		return "redirect:/eigenaar/login";

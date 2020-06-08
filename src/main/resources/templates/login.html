@@ -31,7 +31,7 @@
 
         <table id="login-table" border="0" cellpadding="10">
             <tr class="login-table-tr" >
-                <td class="voorstellingen-table-td" >Gebruikersnaam:</td>
+                <td class="login-table-td" >Gebruikersnaam:</td>
                 <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{gebruikersnaam}" /></td>
             </tr>
             <tr class="login-table-tr" >
@@ -49,8 +49,14 @@
     
 </div>
 
-    <div class="line"></div>
-    <div id="bottomBar"></div>
+<div class="line"></div>
+    <div id="bottomBar">
+    	<table id="bottomBarMenu">
+			<tr>
+				<td onclick="window.location.href = '/eigenaar/login'">Eigenaar Login</td>
+			</tr>
+		</table>
+    </div>
 
 </body>
 </html>

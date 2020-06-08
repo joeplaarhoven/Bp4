@@ -3,14 +3,13 @@ h1 {
 	font-weight: bold;
 }
 
-h2, a {
+h2 {
 	font-size: 1em;
 	color: #000000;
 	font-weight: bold;
-	text-decoration: none;
 }
 
-#profile-table {
+#login-eigenaar-table {
   justify-content: center;
   align-items: left;
   color: black;

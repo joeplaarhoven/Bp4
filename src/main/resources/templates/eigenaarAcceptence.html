@@ -23,8 +23,8 @@
             <td th:text="${eigenaar.eigenaar_voornaam}">Voornaam</td>
             <td th:text="${eigenaar.eigenaar_achternaam}">Achternaam</td>
             <td>
-                <a th:href="@{'/eigenaar/accept/' + ${eigenaar.eigenaar_id}}">Accept</a>
-                <a th:href="@{'/eigenaar/deny/' + ${eigenaar.eigenaar_id}}">Deny</a>
+                <a th:href="@{'/eigenaar/accepteren/' + ${eigenaar.eigenaar_id}}">Accepteren</a>
+                <a th:href="@{'/eigenaar/weigeren/' + ${eigenaar.eigenaar_id}}">Weigeren</a>
             </td>
         </tr>
         </tbody>

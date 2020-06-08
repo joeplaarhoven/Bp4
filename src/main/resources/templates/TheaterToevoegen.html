@@ -3,15 +3,32 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Ticket Theater - Theater Toevoegen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
+    <link href="../static/css/index.css" th:href="@{/css/theatertoevoegen.css}" rel="stylesheet" />
 </head>
 <body>
+
+    <div id="topBar">
+        <img onclick="window.location.href = '/'" id="logo" src="images/Ticket-Theater_logo-wit-rood.PNG"/>
+		<table id="topBarMenu">
+			<tr>
+				<td onclick="window.location.href = '/voorstellingen'">Voorstellingen</td>
+				<td onclick="window.location.href = '/theaters'">Theaters</td>
+				<td onclick="window.location.href = '/login'">Login</td>
+			</tr>
+		</table>
+    </div>
+    
+    <div class="line"></div>
+
 <div align="center">
     <h1>Theater toevoegen</h1>
     <br />
     <form action="#" th:action="@{/theater/save}" th:object="${theater}"
           method="post">
 
-        <table border="0" cellpadding="10">
+        <table id="theater-table" border="0" cellpadding="10">
             <tr>
                 <td>Theaternaam:</td>
                 <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{theaternaam}" /></td>
@@ -33,10 +50,23 @@
                 <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{plaats}" /></td>
             </tr>
             <tr>
-                <td colspan="2"><button type="submit">Save</button> </td>
+                <td colspan="2"><button type="submit">Toevoegen</button> </td>
             </tr>
         </table>
     </form>
+    
+    <h2><a onclick="window.location.href = '/theaterzaal/toevoegen'"> Theaterzaal Toevoegen</a></h2>
+    
 </div>
+
+<div id="bottomLine" class="line"></div>    
+    <div id="bottomBar">
+    	<table id="bottomBarMenu">
+			<tr>
+				<td onclick="window.location.href = '/eigenaar/login'">Eigenaar Login</td>
+			</tr>
+		</table>
+    </div>
+
 </body>
 </html>

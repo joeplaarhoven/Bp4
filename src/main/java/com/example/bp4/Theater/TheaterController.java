@@ -40,7 +40,7 @@ public class TheaterController {
 		Theater theater = new Theater(theaternaam, straatnaam, huisnummer, postcode, plaats);
 		theaterService.save(theater);
 
-		return "redirect:/";
+		return "redirect:/theaterzaal/toevoegen";
 	}
 
 	@RequestMapping("/theater/aanpassen")

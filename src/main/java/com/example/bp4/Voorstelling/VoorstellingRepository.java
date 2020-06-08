@@ -104,7 +104,7 @@ List<Concert> getConcertVoorstellingen();
 			"FROM voorstellingen \r\n" +
 			"LEFT JOIN cabaretiers\r\n" +
 			"ON voorstellingen.cabaretier_id = cabaretiers.cabaretier_id\r\n" +
-			"WHERE v_leeftijdscategorie = (SELECT leeftijdscategorie FROM gebruikers where gebruiker_id = ?1) and concert_id IS NULL and theatervoorstelling_id is null AND voorstellingen.voorstelling_id IN  \r\n" +
+			"WHERE concert_id IS NULL and theatervoorstelling_id is null AND voorstellingen.voorstelling_id IN  \r\n" +
 			"(SELECT  kv_voorstelling_id\r\n" +
 			"FROM kaartenverkopen\r\n" +
 			"WHERE kv_gebruikers_id = ?1\r\n" +
@@ -116,7 +116,7 @@ List<Concert> getConcertVoorstellingen();
 			"FROM voorstellingen \r\n" +
 			"LEFT JOIN Concerten\r\n" +
 			"ON voorstellingen.concert_id = Concerten.concert_id\r\n" +
-			"WHERE v_leeftijdscategorie = (SELECT leeftijdscategorie FROM gebruikers where gebruiker_id = ?1) and Concerten.concert_id IS NOT NULL AND voorstellingen.voorstelling_id IN\r\n" +
+			"WHERE Concerten.concert_id IS NOT NULL AND voorstellingen.voorstelling_id IN\r\n" +
 			"(SELECT kv_voorstelling_id\r\n" +
 			"FROM kaartenverkopen\r\n" +
 			"WHERE kv_gebruikers_id = ?1\r\n" +
@@ -128,7 +128,7 @@ List<Concert> getConcertVoorstellingen();
 			"FROM voorstellingen \r\n" +
 			"LEFT JOIN Theatervoorstellingen\r\n" +
 			"ON voorstellingen.theatervoorstelling_id = Theatervoorstellingen.theatervoorstelling_id\r\n" +
-			"WHERE v_leeftijdscategorie = (SELECT leeftijdscategorie FROM gebruikers where gebruiker_id = ?1) and Theatervoorstellingen.theatervoorstelling_id IS NOT NULL AND voorstellingen.voorstelling_id IN\r\n" +
+			"WHERE Theatervoorstellingen.theatervoorstelling_id IS NOT NULL AND voorstellingen.voorstelling_id IN\r\n" +
 			"(SELECT kv_voorstelling_id\r\n" +
 			"FROM kaartenverkopen\r\n" +
 			"WHERE kv_gebruikers_id = ?1\r\n" +
