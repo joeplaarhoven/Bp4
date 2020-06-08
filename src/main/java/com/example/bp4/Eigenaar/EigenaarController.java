@@ -72,7 +72,7 @@ public class EigenaarController {
     	Eigenaar eigenaar = new Eigenaar(eigenaar_voornaam, eigenaar_achternaam, woonplaats, telefoonnummer, emailadres, encryptWachtwoord(wachtwoord), false);
         eigenaarService.save(eigenaar);
 
-        return "redirect:/";
+        return "redirect:/eigenaar/login";
     }
     
     /**
