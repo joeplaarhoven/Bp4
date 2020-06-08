@@ -2,9 +2,45 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Ticket Theater - Theater Aanpassen</title>
 </head>
 <body>
+<div align="center">
+    <h1>Theater Aanpassen</h1>
+    <br />
+    <form action="#" th:action="@{/theater/aanpassen/save}" th:object="${theater}"
+          method="post">
 
+        <table border="0" cellpadding="10">
+        <tr style="display:none;">
+                <td>TheaterID:</td>
+                <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{theater_id}" readonly="readonly"/></td>
+            </tr>
+            <tr>
+                <td>Theaternaam:</td>
+                <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{theaternaam}" /></td>
+            </tr>
+            <tr>
+                <td>Straatnaam:</td>
+                <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{straatnaam}" /></td>
+            </tr>
+            <tr>
+	            <td>Huisnummer:</td>
+	            <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{huisnummer}" /></td>
+            </tr>
+            <tr>
+                <td>Postcode:</td>
+                <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{postcode}" /></td>
+            </tr>
+            <tr>
+                <td>Plaats:</td>
+                <td><input type="text" required pattern=".*\S+.*" title="Dit is een verplicht veld" th:field="*{plaats}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Aanpassen</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
 </body>
 </html>

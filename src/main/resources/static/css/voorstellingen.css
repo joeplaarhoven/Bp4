@@ -1,0 +1,47 @@
+#voorstellingen-table {
+  width: 95%;
+  height: flex;
+  justify-content: center;
+  align-items: left;
+  color: black;
+}
+
+.voorstellingen-table-tbody {
+  width: 100%;
+  border: 1px solid black;
+  margin: 1%;
+}
+
+.voorstellingen-table-tr {
+  flex-basis: 33.33333333%;
+  margin: 3%;
+}
+
+.voorstellingen-table-th th, .voorstellingen-table-td td {
+  flex-basis: 100%;
+  text-align: left;
+}
+
+.voorstellingen-table-th {
+	color: #E00926;
+	font-weight: bold;
+}
+
+h1 {
+	color: #000000;
+	font-weight: bold;
+}
+
+.lineVoorstellingen {
+	margin-top: 1%;
+	z-index: 100;
+    position: relative;
+    width:100%;
+    height:4px;
+    background-color: #E00926;
+}
+
+#fullWhite {
+	margin-top: 1%;
+	margin-bottom: 1%;
+}

@@ -5,8 +5,26 @@
     <meta charset="utf-8"/>
     <title>Ticket Theater - Overzicht Voorstellingen</title>
     <script th:src="@{/webjars/jquery/3.2.0/jquery.min.js}" type="text/javascript"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
+    <link href="../static/css/theaters.css" th:href="@{/css/voorstellingen.css}" rel="stylesheet" />
 </head>
 <body>
+
+<div id="topBar">
+        <img onclick="window.location.href = '/'" id="logo" src="images/Ticket-Theater_logo-wit-rood.PNG"/>
+		<table id="topBarMenu">
+			<tr>
+				<td onclick="window.location.href = '/voorstellingen'">Voorstellingen</td>
+				<td onclick="window.location.href = '/theaters'">Theaters</td>
+				<td onclick="window.location.href = '/login'">Login</td>
+			</tr>
+		</table>
+    </div>
+    
+        <div class="line"></div>
+        <div id="fullWhite">
+
 <div align="center">
 	<input type="checkbox" id="prefrence" name="prefrence" value="personal">
 	<label for="prefrence"> Gebruik persoonlijke voorkeur</label>
@@ -34,98 +52,112 @@
 	    	<option>Islamitsch</option>
 	    	<option>Joods</option>
 	    </select>
-    <table border="1" id="cabaretier" cellpadding="10">
+	    
+	    <div class="lineVoorstellingen"></div>
+	    
+	    <h1>Cabaretiers</h1>
+	    
+    <table border="1" id="voorstellingen-table" cellpadding="10">
         <thead>
-        <tr>
-            <th>Datum</th>
-            <th>Tijd</th>
-            <th>Leeftijdscategorie</th>
-            <th>Afkomst</th>
-            <th>Voornaam</th>
-            <th>Achternaam</th>
-            <th>Geboortedatum</th>
-            <th>Geslacht</th>
-            <th>Geannuleerd</th>
+        <tr class="voorstellingen-table-tr" >
+            <th class="voorstellingen-table-th" >Datum</th>
+            <th class="voorstellingen-table-th" >Tijd</th>
+            <th class="voorstellingen-table-th" >Leeftijdscategorie</th>
+            <th class="voorstellingen-table-th" >Afkomst</th>
+            <th class="voorstellingen-table-th" >Voornaam</th>
+            <th class="voorstellingen-table-th" >Achternaam</th>
+            <th class="voorstellingen-table-th" >Geboortedatum</th>
+            <th class="voorstellingen-table-th" >Geslacht</th>
+            <th class="voorstellingen-table-th" >Geannuleerd</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="cabaretiers : ${listCabaretiers}">
-            <td th:text="${cabaretiers.datum}">Datum</td>
-            <td th:text="${cabaretiers.tijd}">Tijd</td>
-            <td th:text="${cabaretiers.v_leeftijdscategorie}">Leeftijdscategorie</td>
-            <td th:text="${cabaretiers.afkomst}">Afkomst</td>
-            <td th:text="${cabaretiers.cabaretier_voornaam}">Voornaam</td>
-            <td th:text="${cabaretiers.cabaretier_achternaam}">Achternaam</td>
-            <td th:text="${cabaretiers.geboortedatum}">Geboortedatum</td>
-            <td th:text="${cabaretiers.geslacht}">Geslacht</td>
-            <td th:text="${cabaretiers.geannuleerd}">Geannuleerd</td>
-            <td >
+        <tr class="voorstellingen-table-tr" th:each="cabaretiers : ${listCabaretiers}">
+            <td class="voorstellingen-table-td" th:text="${cabaretiers.datum}">Datum</td>
+            <td class="voorstellingen-table-td" th:text="${cabaretiers.tijd}">Tijd</td>
+            <td class="voorstellingen-table-td" th:text="${cabaretiers.v_leeftijdscategorie}">Leeftijdscategorie</td>
+            <td class="voorstellingen-table-td" th:text="${cabaretiers.afkomst}">Afkomst</td>
+            <td class="voorstellingen-table-td" th:text="${cabaretiers.cabaretier_voornaam}">Voornaam</td>
+            <td class="voorstellingen-table-td" th:text="${cabaretiers.cabaretier_achternaam}">Achternaam</td>
+            <td class="voorstellingen-table-td" th:text="${cabaretiers.geboortedatum}">Geboortedatum</td>
+            <td class="voorstellingen-table-td" th:text="${cabaretiers.geslacht}">Geslacht</td>
+            <td class="voorstellingen-table-td" th:text="${cabaretiers.geannuleerd}">Geannuleerd</td>
+            <td class="voorstellingen-table-td" >
 				<a th:href="@{'/voorstellingen/kaartverkoop/' + ${cabaretiers.voorstelling_id}}">Koop kaartje</a>
 			</td>
         </tr>
         </tbody>
     </table>
     
-    <table border="1" id="concert" cellpadding="10">
+    <div class="lineVoorstellingen"></div>
+    
+    <h1>Concerten</h1>
+    
+    <table border="1" id="voorstellingen-table" cellpadding="10">
         <thead>
-        <tr>
-            <th>Datum</th>
-            <th>Tijd</th>
-            <th>Leeftijdscategorie</th>
-            <th>Afkomst</th>
-            <th>Artiest</th>
-            <th>Concertnaam</th>
-            <th>Genre</th>
-            <th>Geannuleerd</th>
+        <tr class="voorstellingen-table-tr" >
+            <th class="voorstellingen-table-th" >Datum</th>
+            <th class="voorstellingen-table-th" >Tijd</th>
+            <th class="voorstellingen-table-th" >Leeftijdscategorie</th>
+            <th class="voorstellingen-table-th" >Afkomst</th>
+            <th class="voorstellingen-table-th" >Artiest</th>
+            <th class="voorstellingen-table-th" >Concertnaam</th>
+            <th class="voorstellingen-table-th" >Genre</th>
+            <th class="voorstellingen-table-th" >Geannuleerd</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="concerten : ${listConcert}">
-            <td th:text="${concerten.datum}">Datum</td>
-            <td th:text="${concerten.tijd}">Tijd</td>
-            <td th:text="${concerten.v_leeftijdscategorie}">Leeftijdscategorie</td>
-            <td th:text="${concerten.afkomst}">Afkomst</td>
-            <td th:text="${concerten.artiest}">Artiest</td>
-            <td th:text="${concerten.concert_naam}">Concert naam</td>
-            <td th:text="${concerten.genre}">Genre</td>
-            <td th:text="${concerten.geannuleerd}">Geannuleerd</td>
-            <td >
+        <tr class="voorstellingen-table-tr" th:each="concerten : ${listConcert}">
+            <td class="voorstellingen-table-td" th:text="${concerten.datum}">Datum</td>
+            <td class="voorstellingen-table-td" th:text="${concerten.tijd}">Tijd</td>
+            <td class="voorstellingen-table-td" th:text="${concerten.v_leeftijdscategorie}">Leeftijdscategorie</td>
+            <td class="voorstellingen-table-td" th:text="${concerten.afkomst}">Afkomst</td>
+            <td class="voorstellingen-table-td" th:text="${concerten.artiest}">Artiest</td>
+            <td class="voorstellingen-table-td" th:text="${concerten.concert_naam}">Concert naam</td>
+            <td class="voorstellingen-table-td" th:text="${concerten.genre}">Genre</td>
+            <td class="voorstellingen-table-td" th:text="${concerten.geannuleerd}">Geannuleerd</td>
+            <td class="voorstellingen-table-td" >
 				<a th:href="@{'/voorstellingen/kaartverkoop/' + ${concerten.voorstelling_id}}">Koop kaartje</a>
 			</td>
         </tr>
         </tbody>
     </table>
     
-    <table border="1" id="theatervoorstelling" cellpadding="10">
+    <div class="lineVoorstellingen"></div>
+    
+    <h1>Theatervoorstellingen</h1>
+    
+    <table border="1" id="voorstellingen-table" cellpadding="10">
         <thead>
-        <tr>
-            <th>Datum</th>
-            <th>Tijd</th>
-            <th>Leeftijdscategorie</th>
-            <th>Afkomst</th>
-            <th>Theatervoorstelling naam</th>
-            <th>Acteurs</th>
-            <th>Productie afkomst</th>
-            <th>Geannuleerd</th>
+        <tr class="voorstellingen-table-tr" >
+            <th class="voorstellingen-table-th" >Datum</th>
+            <th class="voorstellingen-table-th" >Tijd</th>
+            <th class="voorstellingen-table-th" >Leeftijdscategorie</th>
+            <th class="voorstellingen-table-th" >Afkomst</th>
+            <th class="voorstellingen-table-th" >Theatervoorstelling naam</th>
+            <th class="voorstellingen-table-th" >Acteurs</th>
+            <th class="voorstellingen-table-th" >Productie afkomst</th>
+            <th class="voorstellingen-table-th" >Geannuleerd</th>
         </tr>
         </thead>
         <tbody>
-	        <tr th:each="theatervoorstelling : ${listTheatervoorstelling}">
-	            <td th:text="${theatervoorstelling.datum}">Datum</td>
-	            <td th:text="${theatervoorstelling.tijd}">Tijd</td>
-	            <td th:text="${theatervoorstelling.v_leeftijdscategorie}">Leeftijdscategorie</td>
-	            <td th:text="${theatervoorstelling.afkomst}">Afkomst</td>
-	            <td th:text="${theatervoorstelling.theatervoorstelling_naam}">Theatervoorstelling naam</td>
-	            <td th:text="${theatervoorstelling.acteurs}">Acteurs</td>
-	            <td th:text="${theatervoorstelling.productie_afkomst}">Productie afkomst</td>
-	            <td th:text="${theatervoorstelling.geannuleerd}">Geannuleerd</td>   
-	             <td >
+	        <tr class="voorstellingen-table-tr" th:each="theatervoorstelling : ${listTheatervoorstelling}">
+	            <td class="voorstellingen-table-td" th:text="${theatervoorstelling.datum}">Datum</td>
+	            <td class="voorstellingen-table-td" th:text="${theatervoorstelling.tijd}">Tijd</td>
+	            <td class="voorstellingen-table-td" th:text="${theatervoorstelling.v_leeftijdscategorie}">Leeftijdscategorie</td>
+	            <td class="voorstellingen-table-td" th:text="${theatervoorstelling.afkomst}">Afkomst</td>
+	            <td class="voorstellingen-table-td" th:text="${theatervoorstelling.theatervoorstelling_naam}">Theatervoorstelling naam</td>
+	            <td class="voorstellingen-table-td" th:text="${theatervoorstelling.acteurs}">Acteurs</td>
+	            <td class="voorstellingen-table-td" th:text="${theatervoorstelling.productie_afkomst}">Productie afkomst</td>
+	            <td class="voorstellingen-table-td" th:text="${theatervoorstelling.geannuleerd}">Geannuleerd</td>   
+	             <td class="voorstellingen-table-td" >
 					<a th:href="@{'/voorstellingen/kaartverkoop/' + ${theatervoorstelling.voorstelling_id}}">Koop kaartje</a>
 				</td>         
 	        </tr>
         </tbody>
     </table>
     
+    </div>
     
     <table border="1" id="cabaretierPref" cellpadding="10">
         <thead>
@@ -215,5 +247,8 @@
 </div>
 
 	<script type="application/javascript" th:inline="javascript" th:src="@{/js/voorstellingOverzicht.js}"></script>
+	    	</div>
+    <div class="line"></div>
+    <div id="bottomBar"></div>
 </body>
 </html>
