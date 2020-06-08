@@ -16,6 +16,7 @@
 			<tr>
 				<td onclick="window.location.href = '/voorstellingen'">Voorstellingen</td>
 				<td onclick="window.location.href = '/theaters'">Theaters</td>
+				<td onclick="window.location.href = '/login'">Login</td>
 			</tr>
 		</table>
     </div>
@@ -28,7 +29,7 @@
     <form action="#" th:action="@{/gebruiker/aanpassen/{id}/save}" th:object="${gebruiker}"
           method="post">
 
-        <table border="0" cellpadding="10">
+        <table id="gebruiker-table" border="0" cellpadding="10">
         	<tr style="display:none;">
                 <td>Gebruiker ID:</td>
                 <td><input type="text" th:field="*{gebruiker_id}" readonly="readonly"/></td>
@@ -71,8 +72,14 @@
     
 </div>
 
-<div class="line"></div>
-    <div id="bottomBar"></div>
+<div id="bottomLine" class="line"></div>    
+    <div id="bottomBar">
+    	<table id="bottomBarMenu">
+			<tr>
+				<td onclick="window.location.href = '/eigenaar/login'">Eigenaar Login</td>
+			</tr>
+		</table>
+    </div>
 
 </body>
 </html>

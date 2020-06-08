@@ -4,15 +4,32 @@
 <head>
     <meta charset="utf-8" />
     <title>Ticket Theater - Concert</title>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
+    <link href="../static/css/index.css" th:href="@{/css/concert.css}" rel="stylesheet" />
 </head>
 <body>
+
+    <div id="topBar">
+        <img onclick="window.location.href = '/'" id="logo" src="images/Ticket-Theater_logo-wit-rood.PNG"/>
+		<table id="topBarMenu">
+			<tr>
+				<td onclick="window.location.href = '/voorstellingen'">Voorstellingen</td>
+				<td onclick="window.location.href = '/theaters'">Theaters</td>
+				<td onclick="window.location.href = '/login'">Login</td>
+			</tr>
+		</table>
+    </div>
+    
+    <div class="line"></div>
+
 <div align="center">
     <h1>Concert</h1>
     <br />
     <form action="#" th:action="@{/concert/{concert_id}/save}" th:object="${concert}"
           method="post">
 
-                <table th:object="${concert}" border="0" cellpadding="10">
+                <table id="concert-table" th:object="${concert}" border="0" cellpadding="10">
                     <tr style="display:none;">
                 		<td>Concert ID:</td>
                 		<td><input type="text" th:field="*{concert_id}" readonly="readonly"/></td>
@@ -39,5 +56,15 @@
         
     </form>
 </div>
+
+<div id="bottomLine" class="line"></div>    
+    <div id="bottomBar">
+    	<table id="bottomBarMenu">
+			<tr>
+				<td onclick="window.location.href = '/eigenaar/login'">Eigenaar Login</td>
+			</tr>
+		</table>
+    </div>
+
 </body>
 </html>

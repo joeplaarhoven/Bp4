@@ -248,7 +248,13 @@
 
 	<script type="application/javascript" th:inline="javascript" th:src="@{/js/voorstellingOverzicht.js}"></script>
 	    	</div>
-    <div class="line"></div>
-    <div id="bottomBar"></div>
+    <div id="bottomLine" class="line"></div>    
+    <div id="bottomBar">
+    	<table id="bottomBarMenu">
+			<tr>
+				<td onclick="window.location.href = '/eigenaar/login'">Eigenaar Login</td>
+			</tr>
+		</table>
+    </div>
 </body>
 </html>

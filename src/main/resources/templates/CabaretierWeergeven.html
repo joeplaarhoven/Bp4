@@ -3,16 +3,33 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8" />
-    <title>Ticket Theater - Cabaretier</title>
+    <title>Ticket Theater - Cabaretier Weergeven</title>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
+    <link href="../static/css/index.css" th:href="@{/css/cabaretier.css}" rel="stylesheet" />
 </head>
 <body>
+
+    <div id="topBar">
+        <img onclick="window.location.href = '/'" id="logo" src="images/Ticket-Theater_logo-wit-rood.PNG"/>
+		<table id="topBarMenu">
+			<tr>
+				<td onclick="window.location.href = '/voorstellingen'">Voorstellingen</td>
+				<td onclick="window.location.href = '/theaters'">Theaters</td>
+				<td onclick="window.location.href = '/login'">Login</td>
+			</tr>
+		</table>
+    </div>
+    
+    <div class="line"></div>
+
 <div align="center">
-    <h1>Cabaretier</h1>
+    <h1>Cabaretier Weergeven</h1>
     <br />
     <form action="#" th:action="@{/cabaretier/{cabaretier_id}/save}" th:object="${cabaretier}"
           method="post">
 
-                <table th:object="${cabaretier}" border="0" cellpadding="10">
+                <table id="cabaretier-table" th:object="${cabaretier}" border="0" cellpadding="10">
                 	<tr style="display:none;">
                 		<td>Cabaretier ID:</td>
                 		<td><input type="text" th:field="*{cabaretier_id}" readonly="readonly"/></td>
@@ -45,5 +62,15 @@
         
     </form>
 </div>
+
+<div id="bottomLine" class="line"></div>    
+    <div id="bottomBar">
+    	<table id="bottomBarMenu">
+			<tr>
+				<td onclick="window.location.href = '/eigenaar/login'">Eigenaar Login</td>
+			</tr>
+		</table>
+    </div>
+
 </body>
 </html>
